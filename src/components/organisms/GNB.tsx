@@ -15,7 +15,7 @@ export default function GNB({ isMain }: GNBProps) {
   const isScrolled = scrollY !== 0;
 
   return (
-    <StyledHeader isScrolled={isScrolled}>
+    <StyledHeader {...{ isScrolled, isMain }}>
       <Title isScrolled={isScrolled}>
         <NavLink to={`/`} activeClassName="on" isScrolled={isScrolled}>
           {isMain ? (
@@ -60,17 +60,21 @@ const StyledHeader = React.memo(styled.header`
   padding: 0 28px;
   background: transparent;
   transition: background 0.3s;
-  ${(props: { isScrolled: boolean }) =>
-    props.isScrolled &&
+  ${(props: { isScrolled: boolean; isMain: boolean }) =>
     `
-    background: ${BACKGROUND_BLACK};
+    background: ${props.isScrolled && BACKGROUND_BLACK};
+    @media only screen and (max-width: 828px) {
+      height: 55px;
+      padding: 0 16px;
+      ${!props.isMain && 'box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24);'}
+    }
   `}
 `);
 
 const StyledP = styled.p`
   && {
     margin: 0;
-    font-size: 2.2rem;
+    font-size: 1.4rem;
     font-family: Avant Garde;
     transition: color 0.3s;
     ${(props: { isScrolled: boolean }) =>
@@ -83,7 +87,7 @@ const StyledP = styled.p`
 
 const StyledStrong = styled.strong`
   && {
-    font-size: 2.2rem;
+    font-size: 1.4rem;
     transition: color 0.3s;
     ${(props: { isScrolled: boolean }) =>
       props.isScrolled &&
@@ -102,6 +106,9 @@ const Title = styled(StyledP)`
 const NavLinkText = styled(StyledP)`
   && {
     margin-left: 34px;
+  }
+  @media only screen and (max-width: 828px) {
+    display: none;
   }
 `;
 

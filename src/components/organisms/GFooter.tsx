@@ -57,6 +57,9 @@ const StyledFooter = styled.footer`
   width: 100vw;
   background-color: ${LIGHT_GREY};
   padding: 40px;
+  @media only screen and (max-width: 828px) {
+    padding: 16px;
+  }
 `;
 
 const MiddleWrapper = styled.div`
