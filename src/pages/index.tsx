@@ -4,7 +4,6 @@ import { Link, graphql, PageProps } from 'gatsby';
 import Bio from '../components/bio';
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
-import { rhythm } from '../utils/typography';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function HomePage({ data, location }: PageProps<any>) {
@@ -20,11 +19,7 @@ export default function HomePage({ data, location }: PageProps<any>) {
         return (
           <article key={node.fields.slug}>
             <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
+              <h3 style={{}}>
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   {title}
                 </Link>

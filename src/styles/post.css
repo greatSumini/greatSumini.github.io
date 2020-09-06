@@ -1,0 +1,94 @@
+body {
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+}
+
+p {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.75rem;
+}
+
+blockquote {
+  margin-left: -1.75rem;
+  margin-right: 1.75rem;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 1.42188rem;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.75rem;
+  font-size: 1.20112rem;
+  line-height: 1.75rem;
+  color: hsla(0, 0%, 0%, 0.59);
+  font-style: italic;
+  border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+}
+
+ul,
+ol {
+  margin-left: 1.75rem;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.75rem;
+  list-style-position: outside;
+  list-style-image: none;
+  list-style: disc;
+}
+
+ol li {
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: calc(1.75rem / 2);
+}
+
+element.style {
+  margin-top: 1.75rem;
+  margin-bottom: 0px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.73286rem;
+}
+
+h3 {
+  font-size: 1.44rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 3.5rem;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.75rem;
+  color: inherit;
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
+  line-height: 1.1;
+}
