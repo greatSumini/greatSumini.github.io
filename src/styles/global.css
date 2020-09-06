@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+@font-face {
+  font-family: 'Avant Garde';
+  src: url(../../static/fonts/AvantGardeRegular.otf) format('truetype');
+}
+
+html {
+  font-family: 'Roboto', 'Noto Sans KR', 'sans-serif';
+}
