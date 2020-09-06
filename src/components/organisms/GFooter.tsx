@@ -85,8 +85,8 @@ const Description = styled(StyledP)`
 `;
 
 const IconImg = styled(Img).attrs(() => ({
-  width: 32,
-  height: 32,
+  width: 20,
+  height: 20,
 }))`
   margin-top: 8px;
   margin-right: 20px;
