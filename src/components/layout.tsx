@@ -2,71 +2,34 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import { rhythm, scale } from '../utils/typography';
+import GNB from './organisms/GNB';
+import styled from 'styled-components';
 
 declare const __PATH_PREFIX__;
 
-const Layout = ({ location, title, children }) => {
+export default function Layout({ location, title, children }) {
   const rootPath = `${__PATH_PREFIX__}/`;
-  let header;
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    );
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    );
-  }
+  const isMain = location.pathname === rootPath;
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
-      <header>{header}</header>
-      <main>{children}</main>
+    <Wrapper>
+      <GNB isMain={isMain} />
+      <Main>{children}</Main>
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
-    </div>
+    </Wrapper>
   );
-};
+}
 
-export default Layout;
+const Wrapper = styled.div`
+  padding-top: 76px;
+`;
+
+const Main = styled.main`
+  max-width: 1160px;
+  margin: 0 auto;
+  height: 2500px;
+`;
