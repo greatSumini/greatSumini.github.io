@@ -2,13 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import {
-  BACKGROUND_BLACK,
-  WHITE,
-  BLACK,
-  MIDDLE_GREY,
-  LIGHT_GREY,
-} from '../atoms/colors';
+import { BACKGROUND_BLACK, WHITE, BLACK, LIGHT_GREY } from '../atoms/colors';
 import { P, Strong } from '../atoms';
 
 import { useScrollY } from 'hooks/util';
@@ -23,26 +17,26 @@ export default function GNB({ isMain }: GNBProps) {
 
   return (
     <StyledHeader isScrolled={isScrolled}>
-      <Title level={9} isScrolled={isScrolled}>
+      <Title level={6} isScrolled={isScrolled}>
         <NavLink to={`/`} activeClassName="on" isScrolled={isScrolled}>
           {isMain ? (
             'ㅤ'
           ) : (
             <>
               sumin{' '}
-              <StyledStrong level={9} isScrolled={isScrolled}>
+              <StyledStrong level={6} isScrolled={isScrolled}>
                 dev
               </StyledStrong>
             </>
           )}
         </NavLink>
       </Title>
-      <NavLinkText level={9} isScrolled={isScrolled}>
+      <NavLinkText level={6} isScrolled={isScrolled}>
         <NavLink to={`/posts`} activeClassName="on" isScrolled={isScrolled}>
           posts
         </NavLink>
       </NavLinkText>
-      <NavLinkText level={9} isScrolled={isScrolled}>
+      <NavLinkText level={6} isScrolled={isScrolled}>
         <NavLink
           to={`/projects`}
           className="logo"
@@ -63,10 +57,10 @@ const StyledHeader = React.memo(styled.header`
   right: 0;
   z-index: 999;
   height: 74px;
-  min-width: 1224px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
   padding: 0 28px;
   background: transparent;
   transition: background 0.3s;
@@ -91,7 +85,6 @@ const StyledP = styled(P)`
 
 const StyledStrong = styled(Strong)`
   && {
-    font-family: Avant Garde;
     transition: color 0.3s;
     ${(props: { isScrolled: boolean }) =>
       props.isScrolled &&
