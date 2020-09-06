@@ -60,6 +60,16 @@ jobs:
       - name: TS Test
         run: yarn tsc
 
-      - name: Deploy to gh-page
+      - name: gatsby build
         if: matrix.node-version == '12.x'
-        run: yarn deploy
+        env:
+          GH_API_KEY: ${{ secrets.GH_PAT }}
+        run: yarn build
+
+      - name: gh-page deploy
+        if: matrix.node-version == '12.x'
+        uses: maxheld83/ghpages@v0.3.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          BUILD_DIR: 'public/'
