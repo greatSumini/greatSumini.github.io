@@ -4,6 +4,24 @@ import styled from 'styled-components';
 import { LIGHT_GREY } from 'components/atoms/colors';
 import { Img } from 'components/atoms';
 
+const ICONS = [
+  {
+    href: 'https://github.com/greatSumini',
+    src: 'images/icon/github-light.png',
+    alt: 'github-icon',
+  },
+  {
+    href: 'mailto:greatSumini@gmail.com',
+    src: 'images/icon/email.svg',
+    alt: 'mail-icon',
+  },
+  {
+    href: 'https://github.com/greatSumini',
+    src: 'images/icon/rss.svg',
+    alt: 'rss-icon',
+  },
+];
+
 export default function GFooter() {
   return (
     <StyledFooter>
@@ -24,15 +42,11 @@ export default function GFooter() {
         <Description>CTO in thinking-muggles</Description>
         <Description>Anyang, Gyeong-gi, Republic of Korea</Description>
         <Row>
-          <a href="https://github.com/greatSumini">
-            <IconImg src="images/icon/github-light.png" alt="github-icon" />
-          </a>
-          <a href="https://github.com/greatSumini">
-            <IconImg src="images/icon/email.svg" alt="github-icon" />
-          </a>
-          <a href="https://github.com/greatSumini">
-            <IconImg src="images/icon/rss.svg" alt="github-icon" />
-          </a>
+          {ICONS.map(({ href, src, alt }) => (
+            <a href={href}>
+              <IconImg {...{ src, alt }} />
+            </a>
+          ))}
         </Row>
       </MiddleWrapper>
     </StyledFooter>
