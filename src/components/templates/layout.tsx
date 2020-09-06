@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'gatsby';
-
-import { rhythm, scale } from '../../utils/typography';
-import GNB from '../organisms/GNB';
 import styled from 'styled-components';
+
+import GNB from 'components/organisms/GNB';
+import GFooter from 'components/organisms/GFooter';
 
 declare const __PATH_PREFIX__;
 
@@ -15,11 +14,7 @@ export default function Layout({ location, title, children }) {
     <Wrapper>
       <GNB isMain={isMain} />
       <Main>{children}</Main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      <GFooter />
     </Wrapper>
   );
 }
@@ -31,5 +26,4 @@ const Wrapper = styled.div`
 const Main = styled.main`
   max-width: 1160px;
   margin: 0 auto;
-  height: 2500px;
 `;
