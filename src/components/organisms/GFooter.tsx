@@ -7,17 +7,17 @@ import { Img } from 'components/atoms';
 const ICONS = [
   {
     href: 'https://github.com/greatSumini',
-    src: 'images/icon/github-light.png',
+    src: '/images/icon/github-light.png',
     alt: 'github-icon',
   },
   {
     href: 'mailto:greatSumini@gmail.com',
-    src: 'images/icon/email.svg',
+    src: '/images/icon/email.svg',
     alt: 'mail-icon',
   },
   {
     href: 'https://github.com/greatSumini',
-    src: 'images/icon/rss.svg',
+    src: '/images/icon/rss.svg',
     alt: 'rss-icon',
   },
 ];
@@ -29,8 +29,8 @@ export default function GFooter() {
         <Row>
           <Img
             src="/images/profile.png"
-            width={40}
-            height={40}
+            width={32}
+            height={32}
             alt="profile-image"
             style={{
               marginRight: '8px',
@@ -77,12 +77,12 @@ const Row = styled.div`
 
 const StyledP = styled.p`
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 `;
 
 const Description = styled(StyledP)`
   && {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-bottom: 8px;
   }
 `;

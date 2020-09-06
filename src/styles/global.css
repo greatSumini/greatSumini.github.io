@@ -10,6 +10,16 @@ html {
   font-family: 'Roboto', 'Noto Sans KR', 'sans-serif';
 }
 
+@media only screen and (min-width: 829px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+body {
+  margin: 0px;
+}
+
 *,
 ::after,
 ::before {
