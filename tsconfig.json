@@ -14,9 +14,9 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@src/*": ["src/*"]
+      "*": ["types/*", "*"]
     },
     "typeRoots": ["./node_modules/@types"],
     "lib": ["dom", "es2015", "es2016"],

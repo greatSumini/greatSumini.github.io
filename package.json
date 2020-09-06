@@ -28,6 +28,7 @@
     "gatsby-plugin-manifest": "^2.4.24",
     "gatsby-plugin-offline": "^3.2.24",
     "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-resolve-src": "^2.1.0",
     "gatsby-plugin-sharp": "^2.6.28",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-typescript": "^2.4.18",
