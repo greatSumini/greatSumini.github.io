@@ -9,10 +9,11 @@
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "tsc": "tsc",
+    "test": "yarn lint && yarn tsc",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "bugs": {
