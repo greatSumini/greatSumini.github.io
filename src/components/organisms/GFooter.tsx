@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { LIGHT_GREY } from 'components/atoms/colors';
-import { Img, P } from 'components/atoms';
+import { Img } from 'components/atoms';
 
 export default function GFooter() {
   return (
@@ -18,7 +18,7 @@ export default function GFooter() {
               marginRight: '8px',
             }}
           />
-          <P level={3}>Choi su min</P>
+          <StyledP>Choi su min</StyledP>
         </Row>
         <Description>Sogang Univ.</Description>
         <Description>CTO in thinking-muggles</Description>
@@ -58,8 +58,14 @@ const Row = styled.div`
   margin-bottom: 20px;
 `;
 
-const Description = styled(P).attrs(() => ({}))`
+const StyledP = styled.p`
+  margin: 0;
+  font-size: 1.6rem;
+`;
+
+const Description = styled(StyledP)`
   && {
+    font-size: 1rem;
     margin-bottom: 8px;
   }
 `;

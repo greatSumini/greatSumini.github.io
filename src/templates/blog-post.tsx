@@ -5,8 +5,6 @@ import Bio from '../components/bio';
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
 
-import '../styles/post.css';
-
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
