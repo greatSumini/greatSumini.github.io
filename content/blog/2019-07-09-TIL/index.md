@@ -2,7 +2,7 @@
 layout: post
 title: '여러가지 기술스택과 그 용도'
 date: '2019-07-09T23:05:40.169Z'
-tags: ['TIL', 'INTRODUCE']
+tags: ['TIL', 'introduce']
 thumbnail: 'til.jpg'
 ---
 
