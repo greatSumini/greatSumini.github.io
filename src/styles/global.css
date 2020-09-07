@@ -10,9 +10,15 @@ html {
   font-family: 'Roboto', 'Noto Sans KR', 'sans-serif';
 }
 
-@media only screen and (min-width: 829px) {
+@media only screen and (min-width: 778px) {
   html {
     font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1167px) {
+  html {
+    font-size: 24px;
   }
 }
 

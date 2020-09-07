@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 import { BACKGROUND_BLACK, WHITE, BLACK, LIGHT_GREY } from '../atoms/colors';
 
 import { useScrollY } from 'hooks/util';
+import theme from 'styles/theme';
 
 export type GNBProps = {
   isMain: boolean;
@@ -63,11 +64,12 @@ const StyledHeader = React.memo(styled.header`
   ${(props: { isScrolled: boolean; isMain: boolean }) =>
     `
     background: ${props.isScrolled && BACKGROUND_BLACK};
-    @media only screen and (max-width: 828px) {
+
+    ${theme.media.tablet`
       height: 55px;
       padding: 0 16px;
       ${!props.isMain && 'box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24);'}
-    }
+    `}
   `}
 `);
 
@@ -107,9 +109,9 @@ const NavLinkText = styled(StyledP)`
   && {
     margin-left: 34px;
   }
-  @media only screen and (max-width: 828px) {
+  ${theme.media.phone`
     display: none;
-  }
+  `}
 `;
 
 const NavLink = styled(Link)`

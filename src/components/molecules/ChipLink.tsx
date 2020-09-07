@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Img } from 'components/atoms';
 import { WHITE } from 'components/atoms/colors';
+import theme from 'styles/theme';
 
 export type ChipLinkProps = {
   src: string;
@@ -25,6 +26,7 @@ export default function ChipLink({
 }
 
 const Wrapper = styled.a`
+  width: fit-content;
   height: 28px;
   padding: 8px;
   margin-right: 12px;
@@ -33,6 +35,9 @@ const Wrapper = styled.a`
   flex-direction: row;
   align-items: center;
   text-decoration: none;
+  ${theme.media.tablet`
+    margin-bottom: 12px;
+  `}
 `;
 
 const StyledP = styled.p`
