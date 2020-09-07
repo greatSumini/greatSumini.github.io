@@ -12,7 +12,7 @@ export default function HomePage({ data, location }: PageProps<any>) {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="main" />
       <ProfileSection />
       <SkillSection />
     </Layout>
