@@ -9,8 +9,8 @@ import PostCard from 'components/molecules/PostCard';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function PostsPage({ data, location }: PageProps<any>) {
-  const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMarkdownRemark.edges;
+  const siteTitle = data?.site.siteMetadata.title;
+  const posts = data?.allMarkdownRemark.edges;
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -18,10 +18,10 @@ export default function PostsPage({ data, location }: PageProps<any>) {
       <Wrapper>
         <PageTitle>Posts</PageTitle>
         <PostsWrapper>
-          {posts.map((post) => (
+          {posts.concat([...Array(posts.length % 4)]).map((post) => (
             <PostCard
-              {...post.node}
-              thumbnail={post.node.frontmatter.thumbnail.childImageSharp.fluid}
+              {...post?.node}
+              thumbnail={post?.node.frontmatter.thumbnail.childImageSharp.fluid}
             />
           ))}
         </PostsWrapper>
@@ -82,4 +82,5 @@ const PostsWrapper = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  width: 100%;
 `;

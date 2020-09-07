@@ -25,6 +25,10 @@ export default function PostCard({
   frontmatter,
   thumbnail,
 }: PostCardProps) {
+  if (!frontmatter) {
+    return <div style={{ width: '276px' }} />;
+  }
+
   const { slug } = fields;
   const { title, date, tags } = frontmatter;
 
