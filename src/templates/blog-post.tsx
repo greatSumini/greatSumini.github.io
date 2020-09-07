@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
 import styled from 'styled-components';
@@ -39,9 +38,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <hr style={{}} />
-        <footer>
-          <Bio />
-        </footer>
       </article>
 
       <nav>

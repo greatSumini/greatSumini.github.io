@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, graphql, PageProps } from 'gatsby';
 
-import Bio from '../components/bio';
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
 
@@ -13,7 +12,6 @@ export default function HomePage({ data, location }: PageProps<any>) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
