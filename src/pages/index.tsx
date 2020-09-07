@@ -3,6 +3,7 @@ import { Link, graphql, PageProps } from 'gatsby';
 
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
+import ProfileSection from 'components/organisms/ProfileSection';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function HomePage({ data, location }: PageProps<any>) {
@@ -12,6 +13,7 @@ export default function HomePage({ data, location }: PageProps<any>) {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
+      <ProfileSection />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
