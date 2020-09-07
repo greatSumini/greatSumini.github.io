@@ -37,3 +37,25 @@ p {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.home-profile {
+  width: 320px;
+  height: 333px;
+}
+
+@media only screen and (max-width: 778px) {
+  .home-profile {
+    width: 172px;
+    height: 179px;
+    margin-left: auto;
+    margin-right: -16px;
+  }
+}
+
+@media only screen and (max-width: 1167px) {
+  .home-profile {
+    width: 242px;
+    height: 253px;
+    margin-right: -16px;
+  }
+}

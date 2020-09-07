@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
+import Image from 'gatsby-image';
 
 import ChipLink, { ChipLinkProps } from 'components/molecules/ChipLink';
 import { TRUE_BLACK } from 'components/atoms/colors';
+
 import theme from 'styles/theme';
 
 const CHIPS: ChipLinkProps[] = [
@@ -21,6 +24,18 @@ const CHIPS: ChipLinkProps[] = [
 ];
 
 export default function ProfileSection() {
+  const { avatar } = useStaticQuery(graphql`
+    query ProfileQuery {
+      avatar: file(absolutePath: { regex: "/profile-icon.png/" }) {
+        childImageSharp {
+          fluid(maxWidth: 320) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <>
       <Wrapper>
@@ -29,7 +44,7 @@ export default function ProfileSection() {
           <Role>full stack developer</Role>
           <Company>in thinking-muggles</Company>
         </DescriptionWrapper>
-        <ProfileImg src="/images/profile.png" />
+        <Image fluid={avatar.childImageSharp.fluid} className="home-profile" />
       </Wrapper>
       <div style={{ position: 'relative' }}>
         <ChipWrapper>
@@ -85,22 +100,6 @@ const Company = styled(StyledP)`
   font-weight: 300;
   ${theme.media.phone`
     font-size: 2rem;
-  `}
-`;
-
-const ProfileImg = styled.img`
-  width: 320px;
-  height: 333px;
-  ${theme.media.tablet`
-    width: 242px;
-    height: 253px;
-    margin-right: -16px;
-  `}
-  ${theme.media.phone`
-    width: 172px;
-    height: 179px;
-    margin-left: auto;
-    margin-right: -16px;
   `}
 `;
 
