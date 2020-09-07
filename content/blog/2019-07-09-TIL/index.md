@@ -2,7 +2,8 @@
 layout: post
 title: '07/09 TIL : 여러가지 기술스택과 그 용도'
 date: '2019-07-09T23:05:40.169Z'
-categories: TIL
+tags: ['TIL']
+thumbnail: 'til.jpg'
 ---
 
 ## 여러가지 기술스택과 그 용도
