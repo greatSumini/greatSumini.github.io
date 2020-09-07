@@ -26,6 +26,10 @@ body {
   margin: 0px;
 }
 
+p {
+  margin: 0;
+}
+
 *,
 ::after,
 ::before {
