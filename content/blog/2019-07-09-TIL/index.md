@@ -1,12 +1,10 @@
 ---
 layout: post
-title: '07/09 TIL : 여러가지 기술스택과 그 용도'
+title: '여러가지 기술스택과 그 용도'
 date: '2019-07-09T23:05:40.169Z'
-tags: ['TIL']
+tags: ['TIL', 'INTRODUCE']
 thumbnail: 'til.jpg'
 ---
-
-## 여러가지 기술스택과 그 용도
 
 다음은 레이블스토어에서 사용중인 기술스택 목록이다.
 

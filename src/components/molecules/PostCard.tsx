@@ -40,7 +40,7 @@ export default function PostCard({
         {tags && (
           <TagWrapper>
             {tags?.map((tag) => (
-              <TagCard label={tag} />
+              <TagCard label={tag} size="small" />
             ))}
           </TagWrapper>
         )}
@@ -61,9 +61,6 @@ const Wrapper = styled.a`
   text-decoration: none;
   color: ${BLACK};
   transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
-  &:hover {
-    transform: scale(1.1, 1.1);
-  }
 `;
 
 const DescriptionWrapper = styled.div`
