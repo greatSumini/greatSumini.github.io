@@ -2,7 +2,7 @@ body {
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
 
-p {
+.postContents p {
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -13,7 +13,7 @@ p {
   margin-bottom: 1.75rem;
 }
 
-blockquote {
+.postContents blockquote {
   margin-left: -1.75rem;
   margin-right: 1.75rem;
   margin-top: 0;
@@ -29,7 +29,7 @@ blockquote {
   border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
 }
 
-ul,
+.postContents ul,
 ol {
   margin-left: 1.75rem;
   margin-right: 0;
@@ -44,36 +44,31 @@ ol {
   list-style: disc;
 }
 
-ol li {
+.postContents ol li {
   padding-left: 0;
 }
 
-li {
+.postContents li {
   margin-bottom: calc(1.75rem / 2);
 }
 
-element.style {
-  margin-top: 1.75rem;
-  margin-bottom: 0px;
-}
-
-h1 {
+.postContents h1 {
   font-size: 2.5rem;
 }
 
-h2 {
+.postContents h2 {
   font-size: 1.73286rem;
 }
 
-h3 {
+.postContents h3 {
   font-size: 1.44rem;
 }
 
-h4 {
+.postContents h4 {
   font-size: 1rem;
 }
 
-h1,
+.postContents h1,
 h2,
 h3,
 h4,

@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import Bio from '../components/bio';
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
+import styled from 'styled-components';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
@@ -33,7 +34,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             {post.frontmatter.date}
           </p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <PostContents
+          className="postContents"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
         <hr style={{}} />
         <footer>
           <Bio />
@@ -90,4 +94,8 @@ export const pageQuery = graphql`
       }
     }
   }
+`;
+
+const PostContents = styled.section`
+  padding: 0 1.75rem;
 `;
