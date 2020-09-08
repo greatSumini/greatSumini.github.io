@@ -96,8 +96,8 @@ h6 {
 
 .postContents del {
   text-decoration: none;
-  background-color: #eee;
-  color: #bb0000;
+  background-color: rgb(245, 245, 245);
+  color: #109037;
   padding: 2px 4px;
   border-radius: 2px;
 }

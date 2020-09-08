@@ -114,7 +114,7 @@ const Article = styled.article`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 0.5rem;
 `;
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'TypeScript 기초'
+title: 'TypeScript 기초 다지기'
 date: '2019-07-12T19:10:21.169Z'
 tags: ['typescript']
 thumbnail: typescript.png

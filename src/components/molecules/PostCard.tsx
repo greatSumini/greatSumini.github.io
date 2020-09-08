@@ -72,13 +72,14 @@ const Wrapper = styled.a`
   text-decoration: none;
   color: ${BLACK};
   transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   ${theme.media.tablet`
     width: 250px;
   `}
   ${theme.media.phone`
     width: 100%;
     border-radius: 0;
+    margin-bottom: 8px;
   `}
 `;
 

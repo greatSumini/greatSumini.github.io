@@ -1,6 +1,6 @@
 :not(pre) > code[class*='language-text'] {
-  background-color: #eee;
-  color: #e55;
+  background-color: rgb(245, 245, 245);
+  color: #109037;
 }
 
 span.token.keyword,
