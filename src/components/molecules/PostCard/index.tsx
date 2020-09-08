@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 import moment from 'moment';
 
-import TagCard from './TagCard';
+import TagCard from '../TagCard';
 import { BLACK, LIGHT_GREY } from 'components/atoms/colors';
 
 import theme from 'styles/theme';
@@ -35,7 +36,7 @@ export default function PostCard({
   const { title, date, tags } = frontmatter;
 
   return (
-    <Wrapper href={slug}>
+    <Wrapper to={slug}>
       <Img
         fluid={thumbnail}
         style={{
@@ -61,7 +62,7 @@ export default function PostCard({
   );
 }
 
-const Wrapper = styled.a`
+const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

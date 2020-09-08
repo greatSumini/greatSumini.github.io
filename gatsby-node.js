@@ -14,11 +14,14 @@ exports.createPages = async ({ graphql, actions }) => {
         ) {
           edges {
             node {
+              excerpt
               fields {
                 slug
               }
               frontmatter {
+                date
                 title
+                tags
               }
             }
           }

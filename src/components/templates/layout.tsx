@@ -30,4 +30,7 @@ const Wrapper = styled.div`
 const Main = styled.main`
   max-width: 1160px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;

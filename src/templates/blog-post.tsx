@@ -6,6 +6,7 @@ import moment from 'moment';
 
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
+import ContextPostCard from 'components/molecules/PostCard/context';
 import { MIDDLE_GREY } from 'components/atoms/colors';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -49,33 +50,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         />
         <hr style={{}} />
       </Article>
-
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+      <ListLink to="/posts">Back to list</ListLink>
+      <ContextPostsWrapper>
+        {previous ? <ContextPostCard {...previous} type="previous" /> : <div />}
+        {next && <ContextPostCard {...next} type="next" />}
+      </ContextPostsWrapper>
     </Layout>
   );
 };
@@ -125,4 +104,17 @@ const Date = styled.p`
 
 const PostContents = styled.section`
   padding: 2rem 0;
+`;
+
+const ListLink = styled(Link)`
+  margin-left: auto;
+  margin-right: 1rem;
+  color: rgb(73, 80, 87);
+`;
+
+const ContextPostsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 `;
