@@ -90,6 +90,7 @@ export const pageQuery = graphql`
 
 const Article = styled.article`
   padding: 0 12px;
+  width: 100%;
 `;
 
 const Title = styled.h1`

@@ -28,6 +28,7 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled.main`
+  width: 100%;
   max-width: 1160px;
   margin: 0 auto;
   display: flex;

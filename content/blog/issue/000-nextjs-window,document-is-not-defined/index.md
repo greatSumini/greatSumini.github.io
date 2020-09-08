@@ -42,10 +42,12 @@ You can also set the flag to `ssr:false.`
 
 NextJS added support for this in v3.0 https://zeit.co/blog/next3-preview
 
-If the simple fact of importing the library is enough to trigger the error, you'll need to replace it with something like if
+If the simple fact of importing the library is enough to trigger the error, you'll need to replace it with something like below
 
 ```javascript
-(typeof window !== 'undefined') { require('the-lib'); }.
+if (typeof window !== 'undefined') {
+  require('the-lib');
+}
 ```
 
 <br>
