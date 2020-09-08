@@ -73,6 +73,7 @@ const Wrapper = styled.a`
   color: ${BLACK};
   transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
   margin-bottom: 16px;
+  overflow: hidden;
   ${theme.media.tablet`
     width: 250px;
   `}
@@ -104,7 +105,7 @@ const Title = styled(StyledP)`
     width: 230px;
   `}
   ${theme.media.phone`
-    width: 256px;
+    width: calc(100vw - 20px);
   `}
 `;
 
@@ -124,7 +125,9 @@ const Excerpt = styled(StyledP)`
     width: 230px;
   `}
   ${theme.media.phone`
-    width: auto;
+    width: calc(100vw - 20px);
+    height: auto;
+    max-height: 4.2em;
   `}
 `;
 
