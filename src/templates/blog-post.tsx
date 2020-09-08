@@ -1,14 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
+import Image from 'gatsby-image';
+import moment from 'moment';
 
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
-import styled from 'styled-components';
+import { MIDDLE_GREY } from 'components/atoms/colors';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
+
+  const { title, date, thumbnail } = post.frontmatter;
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -16,29 +21,34 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article>
+      <Article>
         <header>
-          <h1
-            style={{
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
-          <p
+          <Title>{title}</Title>
+          <Date
             style={{
               display: `block`,
             }}
           >
-            {post.frontmatter.date}
-          </p>
+            {moment(date).format('YYYY.MM.DD')}
+          </Date>
+          <Image
+            fluid={thumbnail.childImageSharp.fluid}
+            style={{
+              width: '60%',
+              height: 'auto',
+              objectFit: 'cover',
+              margin: '0 auto',
+              boxShadow: '0 4px 12px 4px rgba(0, 0, 0, 0.24)',
+              borderRadius: '8px',
+            }}
+          />
         </header>
         <PostContents
           className="postContents"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         <hr style={{}} />
-      </article>
+      </Article>
 
       <nav>
         <ul
@@ -89,7 +99,7 @@ export const pageQuery = graphql`
         tags
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 1200) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -99,6 +109,20 @@ export const pageQuery = graphql`
   }
 `;
 
+const Article = styled.article`
+  padding: 0 12px;
+`;
+
+const Title = styled.h1`
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const Date = styled.p`
+  margin-bottom: 1.45rem;
+  color: ${MIDDLE_GREY};
+`;
+
 const PostContents = styled.section`
-  padding: 0 1.75rem;
+  padding-top: 2rem;
 `;
