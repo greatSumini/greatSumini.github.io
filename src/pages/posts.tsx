@@ -1,11 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 import { graphql, PageProps } from 'gatsby';
 
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
-import styled from 'styled-components';
-import theme from 'styles/theme';
 import PostCard from 'components/molecules/PostCard';
+
+import theme from 'styles/theme';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function PostsPage({ data, location }: PageProps<any>) {
@@ -18,7 +19,7 @@ export default function PostsPage({ data, location }: PageProps<any>) {
       <Wrapper>
         <PageTitle>Posts</PageTitle>
         <PostsWrapper>
-          {posts.concat([...Array(posts.length % 4)]).map((post) => (
+          {posts.concat([...Array(4)]).map((post) => (
             <PostCard
               {...post?.node}
               thumbnail={post?.node.frontmatter.thumbnail.childImageSharp.fluid}
