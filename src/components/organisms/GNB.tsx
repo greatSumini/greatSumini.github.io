@@ -47,7 +47,7 @@ export default function GNB({ isMain }: GNBProps) {
   );
 }
 
-const StyledHeader = React.memo(styled.header`
+const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   left: 0;
@@ -64,14 +64,12 @@ const StyledHeader = React.memo(styled.header`
   ${(props: { isScrolled: boolean; isMain: boolean }) =>
     `
     background: ${props.isScrolled && BACKGROUND_BLACK};
-
-    ${theme.media.tablet`
-      height: 55px;
-      padding: 0 16px;
-      ${!props.isMain && 'box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24);'}
-    `}
   `}
-`);
+  ${theme.media.tablet`
+    height: 55px;
+    padding: 0 16px;
+  `}
+`;
 
 const StyledP = styled.p`
   && {
