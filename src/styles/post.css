@@ -3,7 +3,7 @@ body {
 }
 
 .postContents {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .postContents p {
@@ -14,35 +14,36 @@ body {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .postContents blockquote {
-  margin-left: -1.75rem;
-  margin-right: 1.75rem;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 1.42188rem;
-  padding-right: 0;
-  padding-top: 0;
+  margin: 0;
+  padding: 0.25rem;
+  padding-left: 0.75rem;
   margin-bottom: 1.75rem;
-  font-size: 1.20112rem;
+  font-size: 1rem;
   line-height: 1.75rem;
   color: hsla(0, 0%, 0%, 0.59);
   font-style: italic;
-  border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+  border-left: 0.25rem solid hsla(0, 0%, 0%, 0.9);
+  background-color: rgb(245, 245, 245);
+}
+
+.postContents blockquote > p:last-child {
+  margin: 0;
 }
 
 .postContents ul,
 ol {
-  margin-left: 1.75rem;
+  margin-left: 1rem;
   margin-right: 0;
   margin-top: 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1rem;
   list-style-position: outside;
   list-style-image: none;
   list-style: disc;
@@ -53,23 +54,7 @@ ol {
 }
 
 .postContents li {
-  margin-bottom: calc(1.75rem / 2);
-}
-
-.postContents h1 {
-  font-size: 2.5rem;
-}
-
-.postContents h2 {
-  font-size: 1.73286rem;
-}
-
-.postContents h3 {
-  font-size: 1.44rem;
-}
-
-.postContents h4 {
-  font-size: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .postContents h1,
@@ -80,16 +65,33 @@ h5,
 h6 {
   margin-left: 0;
   margin-right: 0;
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   color: inherit;
   font-weight: 900;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
+}
+
+.postContents h1 {
+  font-size: 2.5rem;
+}
+
+.postContents h2 {
+  font-size: 1.65rem;
+}
+
+.postContents h3 {
+  font-size: 1.44rem;
+}
+
+.postContents h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .postContents del {
@@ -102,7 +104,7 @@ h6 {
 
 .postContents .gatsby-highlight {
   background-color: #1a1a1a;
-  margin: 0.5em 1em;
+  margin: 0.5em 0;
   position: relative;
   border-radius: 8px;
   box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.55);
@@ -123,7 +125,7 @@ h6 {
 
 .postContents .gatsby-highlight > pre {
   background-color: #191919;
-  padding: 1em 0;
+  padding: 1em 0 0 0;
 }
 .postContents .gatsby-highlight > pre::before {
   content: '';
@@ -142,43 +144,13 @@ h6 {
   height: 0.75em;
   border-radius: 50%;
   background-color: rgb(81, 155, 49);
-  top: 0.48em;
+  top: 0.5em;
   left: 2.1em;
   margin-top: -0.01em;
   z-index: 999;
   position: absolute;
 }
 
-span.token.keyword {
-  color: #60a6db;
-}
-
-span.token.class-name {
-  color: #79cdb8;
-}
-
-code[class*='language-'],
-span.token.builtin {
-  color: #97d9fe;
-}
-
-.postContents .gatsby-highlight > pre *::selection {
-  background: #97d9fe;
-}
-
-span.token.function {
-  color: #d9daa4;
-}
-
-span.token.punctuation,
-span.token.operator {
-  color: #d9d9d9;
-}
-
-span.token.comment {
-  color: #80a367;
-}
-
-span.token.string {
-  color: #ca9d86;
+.postContents a {
+  color: #109b78;
 }
