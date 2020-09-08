@@ -4,7 +4,9 @@ import Img, { FluidObject } from 'gatsby-image';
 import moment from 'moment';
 
 import TagCard from './TagCard';
-import { BLACK } from 'components/atoms/colors';
+import { BLACK, LIGHT_GREY } from 'components/atoms/colors';
+
+import theme from 'styles/theme';
 
 export type PostCardProps = {
   excerpt: string;
@@ -36,7 +38,12 @@ export default function PostCard({
     <Wrapper href={slug}>
       <Img
         fluid={thumbnail}
-        style={{ width: '100%', height: '180px', objectFit: 'cover' }}
+        style={{
+          width: '100%',
+          height: '180px',
+          objectFit: 'cover',
+          backgroundColor: '#fff',
+        }}
       />
       <DescriptionWrapper>
         <Title>{title}</Title>
@@ -65,10 +72,19 @@ const Wrapper = styled.a`
   text-decoration: none;
   color: ${BLACK};
   transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
+  margin-bottom: 8px;
+  ${theme.media.tablet`
+    width: 250px;
+  `}
+  ${theme.media.phone`
+    width: 100%;
+    border-radius: 0;
+  `}
 `;
 
 const DescriptionWrapper = styled.div`
   padding: 10px;
+  border-top: 1px solid ${LIGHT_GREY};
 `;
 
 const StyledP = styled.p`
@@ -83,6 +99,12 @@ const Title = styled(StyledP)`
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 10px;
+  ${theme.media.tablet`
+    width: 230px;
+  `}
+  ${theme.media.phone`
+    width: 256px;
+  `}
 `;
 
 const Excerpt = styled(StyledP)`
@@ -97,6 +119,12 @@ const Excerpt = styled(StyledP)`
   word-wrap: break-word;
   line-height: 1.4em;
   height: 4.2em;
+  ${theme.media.tablet`
+    width: 230px;
+  `}
+  ${theme.media.phone`
+    width: auto;
+  `}
 `;
 
 const Date = styled(StyledP)`

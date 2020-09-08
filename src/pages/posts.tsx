@@ -71,6 +71,8 @@ const Wrapper = styled.div`
 
 const PageTitle = styled.p`
   margin: 0;
+  margin-left: 16px;
+  margin-bottom: 2rem;
   font-size: 4rem;
   font-weight: 700;
   ${theme.media.phone`
