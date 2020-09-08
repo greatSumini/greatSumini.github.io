@@ -124,5 +124,5 @@ const Date = styled.p`
 `;
 
 const PostContents = styled.section`
-  padding-top: 2rem;
+  padding: 2rem 0;
 `;
