@@ -12,9 +12,7 @@ Typescript에 대한 기본적인 배경 지식과 사용법을 알아보자
 
 - ~~프로그래밍 언어~~입니다.
 - ~~Compiled Language~~입니다.
-  - 전통적인 Compiled Language와는 다른 점이 많습니다.
-  - 그래서 ~~Transpile~~이라는 용어를 사용하기도 합니다. (메타프로그래밍 : 다른 언어로 변환)
-  - Compiler가 타입 체킹, 최적화를 수행함.
+  - 전통적인 Compiled Language와는 다른 점이 많아서 ~~Transpile~~이라는 용어를 사용하기도 합니다. Compiler가 타입 체킹, 최적화를 수행함.
 - Javascript는 ~~Interpreted Language~~입니다.
 - Compile하면 Javascript로 변환됩니다.
 - 코드 크기는 늘어나지만, 더 명확한 코딩을 할 수 있습니다.
@@ -59,18 +57,18 @@ new Test();
 <br>
 
 tsc --init 명령어를 통해 tsconfig.json 파일을 만들 수 있다.<br>
-해당 파일을 생성한 후부턴 tsc 명령어만으로도 컴파일할 수 있다.
+해당 파일을 생성한 후엔 tsc 명령어만으로도 컴파일할 수 있다.
 
-```typescript
+```json
 {
-"compilerOptions": {
-/_ Basic Options _/
-// "incremental": true, /_ Enable incremental compilation _/
-"target": "es5", /_ Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. _/
-"module": "commonjs", /_ Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. _/
-// "lib": [], /_ Specify library files to be included in the compilation. _/
-// ...
-}
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "preserve",
+    "allowJs": true,
+    ...
+  }
 }
 ```
 
