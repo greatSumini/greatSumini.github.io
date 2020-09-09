@@ -5,7 +5,7 @@ import Image from 'gatsby-image';
 import moment from 'moment';
 
 import Layout from '../components/templates/layout';
-import SEO from '../components/templates/seo';
+import SEO, { getSchemaOrgJSONLD } from '../components/templates/seo';
 import ContextPostCard from 'components/molecules/PostCard/context';
 import { MIDDLE_GREY } from 'components/atoms/colors';
 
@@ -14,7 +14,21 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
 
+  const { excerpt } = post;
+  const { slug } = post.fields;
   const { title, date, thumbnail } = post.frontmatter;
+  const url = `${data.site.siteMetadata.siteUrl}${slug}`;
+  const image = thumbnail.childImageSharp.fluid.src;
+
+  const schemaOrgJSONLD = getSchemaOrgJSONLD({
+    url,
+    title,
+    image,
+    description: excerpt,
+    datePublished: date,
+    siteTitle,
+    siteUrl: data.site.siteMetadata.siteUrl,
+  });
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -22,9 +36,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={title}
         description={post.frontmatter.description || post.excerpt}
         meta={[
-          { name: 'og:image', content: thumbnail.childImageSharp.fluid.src },
+          { name: 'image', content: image },
+          { name: 'og:image', content: image },
+          { name: 'og:type', content: 'article' },
+          { name: 'og:url', content: url },
         ]}
-      />
+      >
+        <script type="application/ld+json">
+          {JSON.stringify(schemaOrgJSONLD)}
+        </script>
+      </SEO>
       <Article>
         <header>
           <Title>{title}</Title>
@@ -69,12 +90,16 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date
