@@ -21,10 +21,17 @@ export default function TagCard({
 }: TagCardProps) {
   return (
     <Wrapper
-      href={routing ? `/tag/${label}` : null}
+      href={routing ? `/posts?tag=${label}` : null}
       size={size}
       selected={selected}
-      onClick={onClick}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        onClick(e);
+        if (!routing) {
+          history.replaceState(null, null, `/posts?tag=${label}`);
+        }
+      }}
     >
       <Label size={size}>
         #{label} {count}

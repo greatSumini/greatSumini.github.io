@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { graphql, PageProps } from 'gatsby';
 
@@ -8,6 +8,7 @@ import TagsSection from 'components/organisms/TagsSection';
 import PostCard from 'components/molecules/PostCard';
 
 import theme from 'styles/theme';
+import { useQueryParams } from 'hooks/route';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function PostsPage({ data, location }: PageProps<any>) {
@@ -16,6 +17,13 @@ export default function PostsPage({ data, location }: PageProps<any>) {
   const tags = data?.allMarkdownRemark.group;
 
   const [tag, setTag] = useState('');
+  const { tag: paramTag } = useQueryParams();
+
+  useEffect(() => {
+    if (paramTag && paramTag !== 'all') {
+      setTag(paramTag);
+    }
+  }, [paramTag]);
 
   return (
     <Layout location={location} title={siteTitle}>

@@ -39,7 +39,7 @@ export default function ContextPostCard({
         <Title style={{ textAlign }}>{title}</Title>
         <Row>
           {tags.map((tag) => (
-            <Tag to={`/tag/${tag}`} key={tag}>
+            <Tag to={`/posts?tag=${tag}`} key={tag}>
               {tag}
             </Tag>
           ))}

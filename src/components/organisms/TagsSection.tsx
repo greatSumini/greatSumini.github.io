@@ -31,8 +31,8 @@ export default function TagsSection({
             label={tag}
             count={totalCount}
             size="large"
-            selected={tag === selectedTag}
             routing={false}
+            selected={tag === selectedTag}
             onClick={() => {
               selectTag(tag === 'all' || tag === selectedTag ? '' : tag);
             }}
