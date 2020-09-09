@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://greatsumini.github.io/">
-    <img alt="sumin" src="https://greatsumini.github.io/static/f106d1f0709873b95f6d64c0d0ad2a4ddd5bb/profile-icon.png" width="60" />
+    <img alt="sumin" src="https://greatsumini.github.io/images/profile.png" width="60" />
   </a>
 </p>
 <h1 align="center">
