@@ -1,4 +1,5 @@
 const path = require(`path`);
+const fs = require('fs');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -64,4 +65,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     });
   }
+};
+
+exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+  const config = getConfig();
+
+  // Allow process.env.MY_WHITELIST_PREFIX_* environment variables
+  fs.readFile('.env', 'utf8', (_err, data) => {
+    const definePlugin = config.plugins.find((p) => p.definitions);
+    for (const [k, v] of Object.entries(process.env)) {
+      if (data.includes(k)) {
+        definePlugin.definitions[`process.env.${k}`] = JSON.stringify(v);
+      }
+    }
+  });
+
+  actions.replaceWebpackConfig(config);
 };
