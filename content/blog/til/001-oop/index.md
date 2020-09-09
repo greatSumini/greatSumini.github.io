@@ -2,7 +2,7 @@
 layout: post
 title: 객체 지향의 사실과 오해를 읽고
 date: '2019-07-10T16:05:40.169Z'
-tags: ['TIL', 'book']
+tags: ['book']
 thumbnail: 'oop.png'
 ---
 

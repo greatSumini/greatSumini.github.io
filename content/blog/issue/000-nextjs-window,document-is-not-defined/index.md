@@ -2,7 +2,7 @@
 layout: post
 title: 'How to solve "window,document is not defined" errors in Next.js'
 date: '2019-08-30T22:29:10.169Z'
-tags: ['nextjs', 'react', 'hooks']
+tags: ['nextjs']
 thumbnail: nextjs.png
 keywords:
   ['nextjs window is not defined', 'nextjs cannot read innerWidth of undefined']

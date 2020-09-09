@@ -17,6 +17,10 @@ body {
   margin-bottom: 0.75rem;
 }
 
+.postContents center {
+  margin-bottom: 1rem;
+}
+
 .postContents blockquote {
   margin: 0;
   padding: 0.25rem;

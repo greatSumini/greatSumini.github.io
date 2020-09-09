@@ -2,7 +2,7 @@
 layout: post
 title: 'CI, CD 제대로 정리하기'
 date: '2019-07-24T11:08:10.169Z'
-tags: ['introduce', 'circleci', 'ci', 'cd']
+tags: ['introduce', 'ci', 'cd']
 thumbnail: cicd.png
 ---
 

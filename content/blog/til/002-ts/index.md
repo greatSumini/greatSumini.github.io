@@ -2,7 +2,7 @@
 layout: post
 title: 'TypeScript 기초 다지기'
 date: '2019-07-12T19:10:21.169Z'
-tags: ['typescript']
+tags: ['introduce', 'typescript']
 thumbnail: typescript.png
 ---
 
@@ -16,19 +16,19 @@ Typescript에 대한 기본적인 배경 지식과 사용법을 알아보자
 - Javascript는 ~~Interpreted Language~~입니다.
 - Compile하면 Javascript로 변환됩니다.
 - 코드 크기는 늘어나지만, 더 명확한 코딩을 할 수 있습니다.
-  <br>
-
-![TS to JS](/assets/img/2019-07-12-TIL_00.png){: width="400" height="100" .aligncenter}
-<br>
 
 ## 개발 환경 구축 및 컴파일러 사용
 
 1. 자바스크립트 실행환경 : node.js, brower 설치
-2. 타입스크립트 컴파일러 설치 : npm i typescript -g (Visual Studio Plugin으로도 설치할 수 있음)<br>
-   여기도 참고해보자 (https://poiemaweb.com/typescript-vscode)
-3. 타입스크립트 개발환경 : VScode를 이용하겠음.
+2. 타입스크립트 개발환경 : VScode를 이용하겠음.
 
-tsc test.ts 명령어를 통해 test.ts파일을 test.js로 컴파일할 수 있다.
+   <br>
+
+```shell
+yarn global add typescript
+```
+
+먼저 typescript를 설치하자.
 
 ```typescript
 class Test {
@@ -41,6 +41,8 @@ new Test();
 ```
 
 <center>test.ts</center>
+
+`tsc test.ts` 명령어를 통해 test.ts파일을 test.js로 컴파일할 수 있다.
 <br>
 
 ```typescript
@@ -56,8 +58,8 @@ new Test();
 <center>test.js</center>
 <br>
 
-tsc --init 명령어를 통해 tsconfig.json 파일을 만들 수 있다.<br>
-해당 파일을 생성한 후엔 tsc 명령어만으로도 컴파일할 수 있다.
+`tsc --init` 명령어를 통해 tsconfig.json 파일을 만들 수 있다.<br>
+해당 파일을 생성한 후엔 `tsc` 명령어만으로도 컴파일할 수 있다.
 
 ```json
 {
