@@ -31,6 +31,7 @@
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-resolve-src": "^2.1.0",
     "gatsby-plugin-sharp": "^2.6.28",
+    "gatsby-plugin-sitemap": "^2.4.12",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-plugin-typescript": "^2.4.18",
     "gatsby-plugin-typography": "^2.5.10",
