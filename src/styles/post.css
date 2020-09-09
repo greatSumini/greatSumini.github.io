@@ -69,7 +69,7 @@ h5,
 h6 {
   margin-left: 0;
   margin-right: 0;
-  margin-top: 2.5rem;
+  margin-top: 4rem;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
@@ -194,4 +194,18 @@ h6 {
 
 .postContents a {
   color: #109b78;
+}
+
+.postContents img {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid grey;
+}
+
+@media only screen and (max-width: 777px) {
+  .postContents img {
+    width: 100%;
+  }
 }

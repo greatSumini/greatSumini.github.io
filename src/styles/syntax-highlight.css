@@ -1,6 +1,7 @@
 :not(pre) > code[class*='language-text'] {
   background-color: rgba(231, 229, 229, 0.63);
   color: #e015ae;
+  font-family: 'Roboto', 'Noto Sans KR', 'sans-serif';
 }
 
 span.token.keyword,
