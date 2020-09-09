@@ -159,6 +159,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://greatsumini.github.io`,
+      },
+    },
     'gatsby-plugin-resolve-src',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
