@@ -63,8 +63,8 @@ jobs:
       - name: set env vars
         run: |
           touch .env
-          echo "GOOGLE_VERIFICATION_CODE=${secrets.GOOGLE_VERIFICATION_CODE}" >> .env
-          echo "NAVER_VERIFICATION_CODE=${secrets.NAVER_VERIFICATION_CODE}" >> .env
+          echo GOOGLE_VERIFICATION_CODE=${secrets.GOOGLE_VERIFICATION_CODE} >> .env
+          echo NAVER_VERIFICATION_CODE=${secrets.NAVER_VERIFICATION_CODE} >> .env
 
       - name: gatsby build
         if: matrix.node-version == '12.x'
