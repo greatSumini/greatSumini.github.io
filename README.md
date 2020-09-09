@@ -1,86 +1,59 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <a href="https://greatsumini.github.io/">
+    <img alt="sumin" src="https://greatsumini.github.io/static/f106d1f0709873b95f6d64c0d0ad2a4ddd5bb/profile-icon.png" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby's blog starter
+  sumin dev blog
 </h1>
 
-Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+<p align="center">
+  <img src="https://img.shields.io/github/license/greatSumini/greatSumini.github.io" />
+  <a href="https://github.com/greatSumini/greatSumini.github.io/actions">
+    <img src="https://github.com/greatSumini/greatSumini.github.io/workflows/CD/badge.svg" />
+  </a>
+</p>
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+<p align="center">👨🏻‍💻 마음에 드는 플랫폼이 없어서 직접 만든 기술블로그입니다. ✨ </b></p>
 
+## Tech Stacks
+
+| Area     | Tech Stack                                                                                                                                                                                                                                                                                                       |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Frontend | ![](https://img.shields.io/badge/React-blue?longCache=true&logo=React) ![](https://img.shields.io/badge/Typescript-blue?color=007ACC&longCache=true&logo=Typescript&logoColor=white) ![](https://img.shields.io/badge/Styled_Compoenent-blue?color=b80742&longCache=true&logo=styled-components&logoColor=white) |
+| DevOps   | ![](https://img.shields.io/badge/GitHub-blue?color=181717&longCache=true&logo=GitHub&logoColor=white) ![](https://img.shields.io/badge/GitHub_Actions-blue?color=2088FF&longCache=true&logo=GitHub-Actions&logoColor=white)                                                                                      |
+
+<br>
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
+1.  **Clone this project.**
 
     ```shell
     # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
+    git clone https://github.com/greatSumini/greatSumini.github.io
     ```
 
-1.  **Start developing.**
+2.  **Add environment variables.**
 
-    Navigate into your new site’s directory and start it up.
+    copy .env.sample to project root, input your codes
 
     ```shell
-    cd my-blog-starter/
-    gatsby develop
+    GOOGLE_VERIFICATION_CODE=<input_your_code>
+    NAVER_VERIFICATION_CODE=<input_your_code>
+    ADSENSE_PUBLISHER_ID=<input_your_id>
     ```
 
-1.  **Open the source code and start editing!**
+3.  **Add github repository secrets.**
 
-    Your site is now running at `http://localhost:8000`!
+    add GH_PAT, GOOGLE_VERIFICATION_CODE, NAVER_VERIFICATION_CODE, ADSENSE_PUBLISHER_ID
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+4.  **Now you can run/deploy this project!**
 
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-
-## 🧐 What's inside?
-
-A quick look at the top-level files and directories you'll see in a Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
+    ```shell
+    yarn dev
+    yarn deploy
+    ```
 
 ## 🎓 Learning Gatsby
 
