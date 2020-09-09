@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { graphql, PageProps } from 'gatsby';
 
 import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
+import TagsSection from 'components/organisms/TagsSection';
 import PostCard from 'components/molecules/PostCard';
 
 import theme from 'styles/theme';
@@ -12,19 +13,36 @@ import theme from 'styles/theme';
 export default function PostsPage({ data, location }: PageProps<any>) {
   const siteTitle = data?.site.siteMetadata.title;
   const posts = data?.allMarkdownRemark.edges;
+  const tags = data?.allMarkdownRemark.group;
+
+  const [tag, setTag] = useState('');
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="posts" />
       <Wrapper>
         <PageTitle>Posts</PageTitle>
+        <TagsSection
+          tags={[{ tag: 'all', totalCount: posts.length }, ...tags]}
+          selectedTag={tag}
+          selectTag={setTag}
+        />
         <PostsWrapper>
-          {posts.concat([...Array(4)]).map((post) => (
-            <PostCard
-              {...post?.node}
-              thumbnail={post?.node.frontmatter.thumbnail.childImageSharp.fluid}
-            />
-          ))}
+          {posts
+            .filter(
+              tag
+                ? (post) => post.node.frontmatter.tags.includes(tag)
+                : () => true
+            )
+            .concat([...Array(4)])
+            .map((post) => (
+              <PostCard
+                {...post?.node}
+                thumbnail={
+                  post?.node.frontmatter.thumbnail.childImageSharp.fluid
+                }
+              />
+            ))}
         </PostsWrapper>
       </Wrapper>
     </Layout>
@@ -59,6 +77,10 @@ export const pageQuery = graphql`
           }
         }
       }
+      group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
+      }
     }
   }
 `;
@@ -78,6 +100,7 @@ const PageTitle = styled.p`
   font-weight: 700;
   ${theme.media.phone`
     font-size: 3rem;
+    margin-bottom: 1rem;
   `}
 `;
 

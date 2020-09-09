@@ -4,12 +4,31 @@ import styled from 'styled-components';
 export type TagCardProps = {
   label: string;
   size: 'small' | 'large';
+  count?: number;
+  routing?: boolean;
+  selected?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onClick?: any;
 };
 
-export default function TagCard({ label, size }: TagCardProps) {
+export default function TagCard({
+  label,
+  size,
+  count,
+  routing = true,
+  selected = false,
+  onClick,
+}: TagCardProps) {
   return (
-    <Wrapper href={`/tag/${label}`} size={size}>
-      <Label size={size}>#{label}</Label>
+    <Wrapper
+      href={routing ? `/tag/${label}` : null}
+      size={size}
+      selected={selected}
+      onClick={onClick}
+    >
+      <Label size={size}>
+        #{label} {count}
+      </Label>
     </Wrapper>
   );
 }
@@ -17,9 +36,10 @@ export default function TagCard({ label, size }: TagCardProps) {
 const Wrapper = styled.a`
   background-color: #eff1ff;
   text-decoration: none;
-  ${(props: { size }) => ` 
+  margin: 5px;
+  ${(props: { size; selected }) => ` 
     padding: ${props.size === 'small' ? 4 : 8}px;
-    margin: ${props.size === 'small' ? 5 : 10}px;
+    ${props.selected && 'background-color: #d5dcff;'}
   `}
   &:hover {
     background-color: #d5dcff;
