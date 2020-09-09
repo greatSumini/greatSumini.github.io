@@ -24,7 +24,14 @@ export default function HomePage({ data, location }: PageProps<any>) {
             content: process.env.NAVER_VERIFICATION_CODE,
           },
         ]}
-      />
+        script={[]}
+      >
+        <script
+          data-ad-client={process.env.ADSENSE_PUBLISHER_ID}
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+      </Helmet>
       <SEO title="main" />
       <ProfileSection />
       <SkillSection />
