@@ -19,8 +19,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
-        title={post.frontmatter.title}
+        title={title}
         description={post.frontmatter.description || post.excerpt}
+        meta={[
+          { name: 'og:image', content: thumbnail.childImageSharp.fluid.src },
+        ]}
       />
       <Article>
         <header>
