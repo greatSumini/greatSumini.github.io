@@ -23,7 +23,7 @@ export default function GNB({ isMain }: GNBProps) {
             'ㅤ'
           ) : (
             <>
-              sumin <StyledStrong isScrolled={isScrolled}>dev</StyledStrong>
+              sumini <StyledStrong isScrolled={isScrolled}>dev</StyledStrong>
             </>
           )}
         </NavLink>

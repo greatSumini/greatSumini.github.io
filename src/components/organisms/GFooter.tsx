@@ -28,7 +28,7 @@ export default function GFooter() {
       <MiddleWrapper>
         <Row>
           <Img
-            src="/images/profile.png"
+            src="/images/emoji.png"
             width={32}
             height={32}
             alt="profile-image"

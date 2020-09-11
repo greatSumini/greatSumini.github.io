@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `sumin dev`,
+    title: `sumini dev`,
     author: {
       name: `Choi su min`,
       summary: `who lives and works in Seoul building useful things.`,
@@ -66,7 +66,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#002000`,
         display: `minimal-ui`,
-        icon: `content/assets/profile-icon.png`,
+        icon: `content/assets/favicon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -149,7 +149,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: "sumin dev's RSS Feed",
+            title: "sumini dev's RSS Feed",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
