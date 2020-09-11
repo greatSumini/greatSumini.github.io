@@ -3,7 +3,7 @@ name: Enhancement request
 about: Write down the features you want to improve
 title: '[수정] '
 labels: enhancement
-assignees: ''
+assignees: 'greatSumini'
 ---
 
 **문제점**

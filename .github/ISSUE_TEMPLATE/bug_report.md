@@ -3,7 +3,7 @@ name: Bug report
 about: Create a report to help us improve
 title: '[버그]'
 labels: bug
-assignees: ''
+assignees: 'greatSumini'
 ---
 
 **버그 설명**
