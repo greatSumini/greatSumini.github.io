@@ -23,6 +23,11 @@ export default function HomePage({ data, location }: PageProps<any>) {
             name: 'naver-site-verification',
             content: process.env.NAVER_VERIFICATION_CODE,
           },
+          { name: 'image', content: '/images/og.png' },
+          {
+            name: 'og:image',
+            content: '/images/og.png',
+          },
         ]}
         script={[]}
       >
