@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'How to solve "window,document is not defined" errors in Next.js'
+title: 'Next.js "window,document is not defined" 해결하는 법'
 date: '2020-09-15T03:19:10.169Z'
 tags: ['nextjs']
 thumbnail: nextjs.png
