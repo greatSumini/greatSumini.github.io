@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'How to solve "window,document is not defined" errors in Next.js'
-date: '2019-08-30T22:29:10.169Z'
+date: '2020-09-15T03:19:10.169Z'
 tags: ['nextjs']
 thumbnail: nextjs.png
 keywords:
