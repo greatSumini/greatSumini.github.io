@@ -121,7 +121,7 @@ export const getSchemaOrgJSONLD = ({
     publisher: {
       '@type': 'Organization',
       url: 'https://khalilstemmler.com',
-      logo: 'https://greatsumini.github.io/images/profile.png',
+      logo: 'https://sumini.dev/images/profile.png',
       name: 'Choi su min',
     },
     mainEntityOfPage: {

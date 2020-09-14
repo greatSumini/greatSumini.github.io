@@ -16,7 +16,7 @@ const ICONS = [
     alt: 'mail-icon',
   },
   {
-    href: 'https://greatsumini.github.io/rss.xml',
+    href: 'https://sumini.dev/rss.xml',
     src: '/images/icon/rss.svg',
     alt: 'rss-icon',
   },

@@ -10,7 +10,7 @@ module.exports = {
       summary: `who lives and works in Seoul building useful things.`,
     },
     description: `greatSumini's dev blog`,
-    siteUrl: `https://greatsumini.github.io/`,
+    siteUrl: `https://sumini.dev/`,
   },
   plugins: [
     {
@@ -162,7 +162,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://greatsumini.github.io`,
+        siteUrl: `https://sumini.dev`,
       },
     },
     'gatsby-plugin-resolve-src',
