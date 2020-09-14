@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'How to detect scroll direction using React Hooks?'
+title: 'Scroll Direction Hook 만들기'
 date: '2019-08-19T21:29:10.169Z'
 tags: ['react', 'hooks']
 thumbnail: 'hooks.jpg'

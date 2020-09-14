@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'How to get query parameters using React Hooks?'
+title: 'Query Parameter Hook 만들기'
 date: '2020-09-10T02:41:10.169Z'
 tags: ['react', 'hooks']
 thumbnail: 'hooks.jpg'
