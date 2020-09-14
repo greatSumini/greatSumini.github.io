@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 date
                 title
                 tags
+                layout
               }
             }
           }
@@ -35,8 +36,12 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
 
+  const articles = result.data.allMarkdownRemark.edges;
+
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges;
+  const posts = articles.filter(
+    (acticle) => acticle.node.frontmatter.layout === 'post'
+  );
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
