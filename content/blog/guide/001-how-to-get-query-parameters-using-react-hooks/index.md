@@ -99,7 +99,7 @@ export default function Hello() {
 
 <br>
 
-```typescript
+```tsx
 import { useEffect, useState } from 'react';
 
 export const useQueryParams = (): { [name: string]: string } => {
