@@ -112,7 +112,7 @@ h6 {
   position: relative;
   border-radius: 8px;
   box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.55);
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 1rem 0.5rem;
 }
 
 .postContents .gatsby-highlight::before {
@@ -179,7 +179,7 @@ h6 {
 
 .postContents .gatsby-highlight > pre {
   background-color: #191919;
-  padding: 1em 0 0 0;
+  padding: 1em 0;
 }
 .postContents .gatsby-highlight > pre::before {
   content: '';
@@ -208,4 +208,24 @@ h6 {
   .postContents img {
     width: 100%;
   }
+}
+
+#disqus_thread {
+  width: 100%;
+}
+
+.postContents ::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+}
+
+.postContents ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 9999px;
+}
+
+/* Handle on hover */
+.postContents ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 9999px;
 }
