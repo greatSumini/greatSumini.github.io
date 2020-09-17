@@ -151,4 +151,6 @@ const ContextPostsWrapper = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  border-bottom: 1px solid grey;
+  margin-bottom: 20px;
 `;
