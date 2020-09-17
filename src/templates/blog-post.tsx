@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import moment from 'moment';
+import { DiscussionEmbed } from 'disqus-react';
 
 import Layout from '../components/templates/layout';
 import SEO, { getSchemaOrgJSONLD } from '../components/templates/seo';
@@ -79,6 +80,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         {previous ? <ContextPostCard {...previous} type="previous" /> : <div />}
         {next && <ContextPostCard {...next} type="next" />}
       </ContextPostsWrapper>
+      <DiscussionEmbed
+        shortname={process.env.DISQUS_NAME}
+        config={{ identifier: slug, title }}
+      />
     </Layout>
   );
 };
