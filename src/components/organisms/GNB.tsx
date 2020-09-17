@@ -33,7 +33,7 @@ export default function GNB({ isMain }: GNBProps) {
           posts
         </NavLink>
       </NavLinkText>
-      <NavLinkText isScrolled={isScrolled}>
+      {/* <NavLinkText isScrolled={isScrolled}>
         <NavLink
           to={`/projects`}
           className="logo"
@@ -42,7 +42,7 @@ export default function GNB({ isMain }: GNBProps) {
         >
           projects
         </NavLink>
-      </NavLinkText>
+      </NavLinkText> */}
     </StyledHeader>
   );
 }
@@ -107,9 +107,9 @@ const NavLinkText = styled(StyledP)`
   && {
     margin-left: 34px;
   }
-  ${theme.media.phone`
+  ${() => '' /*theme.media.phone`
     display: none;
-  `}
+  `*/}
 `;
 
 const NavLink = styled(Link)`
