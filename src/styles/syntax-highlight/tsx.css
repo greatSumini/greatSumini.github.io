@@ -38,7 +38,8 @@ code.language-tsx span.token.comment {
   color: #80a367;
 }
 
-code.language-tsx span.token.string {
+code.language-tsx span.token.string,
+code.language-tsx span.token.attr-value {
   color: #ca9d86;
 }
 
@@ -64,4 +65,14 @@ code.language-tsx span.token.script.language-javascript span:last-child {
 code.language-tsx span.token.tag > span.token.punctuation:first-child,
 code.language-tsx span.token.tag > span.token.punctuation:last-child {
   color: #7c7b7b;
+}
+
+code.language-tsx span.token.spread span.token.punctuation,
+code.language-tsx span.token.spread span.token.attr-value {
+  color: #97d9fe;
+}
+
+code.language-tsx span.token.spread span.token.punctuation:first-child,
+code.language-tsx span.token.spread span.token.punctuation:last-child {
+  color: #579cd6;
 }
