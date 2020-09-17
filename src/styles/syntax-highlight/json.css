@@ -1,0 +1,67 @@
+:not(pre) > code[class*='language-text'] {
+  background-color: rgba(231, 229, 229, 0.63);
+  color: #e015ae;
+  font-family: 'Roboto', 'Noto Sans KR', 'sans-serif';
+}
+
+code.language-json span.token.keyword,
+code.language-json span.token.interpolation-punctuation.punctuation {
+  color: #60a6db;
+}
+
+code.language-json span.token.class-name,
+code.language-json span.token.tag {
+  color: #79cdb8;
+}
+
+code.language-json,
+code.language-json span.token.builtin,
+code.language-json span.token.property,
+code.language-json span.token.attr-name {
+  color: #97d9fe;
+}
+
+.postContents .gatsby-highlight > pre *::selection {
+  background: #97d9fe;
+}
+
+code.language-json span.token.function {
+  color: #d9daa4;
+}
+
+code.language-json span.token.punctuation,
+code.language-json span.token.operator {
+  color: #d9d9d9;
+}
+
+code.language-json span.token.comment {
+  color: #80a367;
+}
+
+code.language-json span.token.string {
+  color: #ca9d86;
+}
+
+code.language-json span.token.number {
+  color: #b4cea8;
+}
+
+code.language-json span.token.constant {
+  color: #53c0fa;
+}
+
+code.language-json span.token.script.language-javascript {
+  color: #97d9fe;
+}
+
+code.language-json
+  span.token.script.language-javascript
+  span:nth-child(2):not(.script-punctuation),
+code.language-json span.token.script.language-javascript span:last-child {
+  color: #579cd6;
+}
+
+code.language-json span.token.tag > span.token.punctuation:first-child,
+code.language-json span.token.tag > span.token.punctuation:last-child {
+  color: #7c7b7b;
+}

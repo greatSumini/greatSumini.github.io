@@ -5,4 +5,5 @@ import './src/styles/global.css';
 import './src/styles/post.css';
 import './src/styles/syntax-highlight/tsx.css';
 import './src/styles/syntax-highlight/typescript.css';
+import './src/styles/syntax-highlight/json.css';
 import './src/styles/syntax-highlight/shell.css';
