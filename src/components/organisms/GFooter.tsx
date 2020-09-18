@@ -22,10 +22,10 @@ const ICONS = [
   },
 ];
 
-export default function GFooter() {
+export default function GFooter({ isBlog }) {
   return (
     <StyledFooter>
-      <MiddleWrapper>
+      <MiddleWrapper isBlog={isBlog}>
         <Row>
           <Img
             src="/images/emoji.png"
@@ -66,6 +66,7 @@ const MiddleWrapper = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 1160px;
+  max-width: ${(props: { isBlog: boolean }) => (props.isBlog ? 900 : 1400)}px;
 `;
 
 const Row = styled.div`

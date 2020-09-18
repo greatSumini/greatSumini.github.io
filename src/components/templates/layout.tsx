@@ -27,7 +27,7 @@ export default function Layout({
     <Wrapper>
       <GNB isMain={isMain} />
       <Main isBlog={isBlog}>{children}</Main>
-      <GFooter />
+      <GFooter isBlog={isBlog} />
     </Wrapper>
   );
 }
