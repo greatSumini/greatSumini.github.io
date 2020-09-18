@@ -29,7 +29,7 @@ export default function PostCard({
   thumbnail,
 }: PostCardProps) {
   if (!frontmatter) {
-    return <div style={{ width: '276px' }} />;
+    return <Wrapper to={null} />;
   }
 
   const { slug } = fields;

@@ -116,5 +116,6 @@ const PostsWrapper = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  align-content: flex-start;
   width: 100%;
 `;
