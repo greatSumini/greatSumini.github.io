@@ -41,7 +41,7 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   width: 100vw;
-  max-width: ${(props: { isBlog: boolean }) => (props.isBlog ? 900 : 1160)}px;
+  max-width: ${(props: { isBlog: boolean }) => (props.isBlog ? 900 : 1400)}px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
