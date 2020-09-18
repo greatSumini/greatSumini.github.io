@@ -51,7 +51,7 @@ export default function PostCard({
         <Excerpt>{excerpt}</Excerpt>
         {tags && (
           <TagWrapper>
-            {tags?.map((tag) => (
+            {tags?.slice(0, 3).map((tag) => (
               <TagCard label={tag} size="small" />
             ))}
           </TagWrapper>
