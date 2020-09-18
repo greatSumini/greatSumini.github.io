@@ -81,10 +81,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         {previous ? <ContextPostCard {...previous} type="previous" /> : <div />}
         {next && <ContextPostCard {...next} type="next" />}
       </ContextPostsWrapper>
-      <DiscussionEmbed
-        shortname={process.env.DISQUS_NAME}
-        config={{ identifier: slug, title }}
-      />
+      <DisqusWrapper>
+        <DiscussionEmbed
+          shortname={process.env.DISQUS_NAME}
+          config={{ identifier: slug, title }}
+        />
+      </DisqusWrapper>
     </Layout>
   );
 };
@@ -157,4 +159,12 @@ const ContextPostsWrapper = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid grey;
   margin-bottom: 20px;
+`;
+
+const DisqusWrapper = styled.div`
+  width: 100%;
+  ${theme.media.phone`
+    width: 90%;
+    margin: 0 auto;
+  `}
 `;
