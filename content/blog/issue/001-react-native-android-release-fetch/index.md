@@ -11,9 +11,23 @@ keywords: ['react native Fetch not working for HTTP requests on Android']
 
 SplashScreen에서 HomeScreen으로 화면전환이 되지 않았다.
 
-​
+원인을 살펴본 결과 `_getWeather()` 함수에서 isLoaded state를 true로 업데이트 해주지 못하고 있었다.
 
-원인을 살펴본 결과, \_getWeather() 함수에서 isLoaded state를 true로 업데이트 해주지 못하고 있었다.
+```tsx
+this.fetch_retry(`http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=${json5.list[0].stationName}&dataTerm=daily&ServiceKey=${airkoreaKey}&ver=1.0&_returnType=json`, 10)
+  .then(response6 => response6.json())
+  .then(json6 => {
+    this.props.onSetDust(json6.list[0]);
+    this.setState({isLoaded: true}); // 작동 안 함!!
+  })
+})
+```
+
+<center>문제의 코드</center>
+
+> 2020/09/19 추가 : 문제가 정말 많은 코드네요.. 😱
+
+<br>
 
 검색결과 `Android Pie부터 HTTP 연결이 막혔다`고한다!! [참고링크](https://github.com/facebook/react-native/issues/24408)
 
