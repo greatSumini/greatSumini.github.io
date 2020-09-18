@@ -7,14 +7,26 @@ import theme from 'styles/theme';
 
 declare const __PATH_PREFIX__;
 
-export default function Layout({ location, title, children }) {
+export type LayoutProps = {
+  isBlog?: boolean;
+  location;
+  title;
+  children;
+};
+
+export default function Layout({
+  location,
+  title,
+  children,
+  isBlog,
+}: LayoutProps) {
   const rootPath = `${__PATH_PREFIX__}/`;
 
   const isMain = location.pathname === rootPath;
   return (
     <Wrapper>
       <GNB isMain={isMain} />
-      <Main>{children}</Main>
+      <Main isBlog={isBlog}>{children}</Main>
       <GFooter />
     </Wrapper>
   );
@@ -29,7 +41,7 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   width: 100%;
-  max-width: 1160px;
+  max-width: ${(props: { isBlog: boolean }) => (props.isBlog ? 900 : 1160)}px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
