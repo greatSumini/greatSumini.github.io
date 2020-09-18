@@ -32,7 +32,6 @@ $ yarn add --dev debug
 `src/lib/ga/analytics` 경로에 다음 파일들을 추가합니다.
 
 ```tsx
-// src/lib/ga/analytics/prod.js
 import ReactGA from 'react-ga';
 
 // server / client 구분을 위한 변수
@@ -61,8 +60,11 @@ export function exception(description = '', fatal = false) {
     ReactGA.exception({ description, fatal });
   }
 }
+```
 
-// src/lib/ga/analytics/dev.js
+<center>src/lib/ga/analytics/prod.js</center>
+
+```tsx
 // development 환경일 땐 logging만 합니다.
 import debug from 'debug';
 
@@ -86,6 +88,8 @@ export function exception(description = '', fatal = false) {
   );
 }
 ```
+
+<center>src/lib/ga/analytics/dev.js</center>
 
 ## 3. ga modules
 
@@ -130,6 +134,8 @@ const initGA = (code, Router) => {
 export default initGA;
 ```
 
+<center>src/lib/ga/index.js</center>
+
 ## 4. 적용
 
 `pages/_app.js`에 다음 코드를 추가합니다.
@@ -149,3 +155,5 @@ class PickkApp extends App {
   }
   ...
 ```
+
+<center>pages/_app.js</center>
