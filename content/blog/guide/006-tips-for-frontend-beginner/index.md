@@ -6,7 +6,7 @@ tags: ['tip', 'front-end', 'html', 'css', 'javascript', 'react']
 thumbnail: 'frontend.jpg'
 ---
 
-동아리에서 코드리뷰를 하며 자주 알려드렸던 내용 11가지를 뽑아봤습니다!
+동아리에서 코드리뷰를 하며 자주 알려드렸던 내용 13가지를 뽑아봤습니다!
 
 ## 1. CSS의 길이 단위
 
