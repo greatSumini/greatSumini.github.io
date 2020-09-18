@@ -1,0 +1,19 @@
+code.language-xml,
+code.language-xml span.token.punctuation.attr-equals {
+  color: #ccc;
+}
+
+code.language-xml span.token.tag {
+  color: #579cd6;
+}
+
+code.language-xml span.token.attr-name {
+  color: #97d9fe;
+}
+
+code.language-xml span.token.attr-value,
+code.language-xml
+  span.token.attr-value
+  span.token.punctuation:not(.attr-equals) {
+  color: #ca9d86;
+}
