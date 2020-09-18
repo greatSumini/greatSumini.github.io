@@ -220,12 +220,49 @@ h6 {
 }
 
 .postContents ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #555;
   border-radius: 9999px;
 }
 
 /* Handle on hover */
 .postContents ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #888;
   border-radius: 9999px;
+}
+
+@media only screen and (min-width: 1167px) {
+  .postContents {
+    font-size: 0.8rem;
+  }
+
+  .postContents p {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .postContents h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 3rem;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    margin-bottom: 1.25rem;
+    color: inherit;
+    font-weight: 900;
+    text-rendering: optimizeLegibility;
+    line-height: 1.1;
+  }
 }
