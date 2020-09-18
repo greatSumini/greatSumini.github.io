@@ -66,18 +66,28 @@ const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 276px;
+  width: 24%;
   height: fit-content;
   border-radius: 8px;
   box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.25);
   text-decoration: none;
   color: ${BLACK};
   transition: box-shadow 0.25s ease-in 0s, transform 0.25s ease-in 0s;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   overflow: hidden;
+  ${theme.media.desktop`
+    width: 276px;
+    margin-bottom: 18px;
+  `}
+  @media (max-width: 1105px) {
+    width: 32.5%;
+  }
   ${theme.media.tablet`
     width: 250px;
   `}
+  @media (min-width: 577px) and (max-width: 755px) {
+    width: 49.5%;
+  }
   ${theme.media.phone`
     width: 100%;
     border-radius: 0;
@@ -86,7 +96,7 @@ const Wrapper = styled(Link)`
 `;
 
 const DescriptionWrapper = styled.div`
-  padding: 10px;
+  padding: 12px 16px;
   border-top: 1px solid ${LIGHT_GREY};
 `;
 
@@ -96,8 +106,8 @@ const StyledP = styled.p`
 
 const Title = styled(StyledP)`
   font-size: 18px;
-  font-weight: 700;
-  width: 256px;
+  font-weight: 600;
+  width: 276px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
