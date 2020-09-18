@@ -2,7 +2,7 @@
 layout: post
 title: '[C++] <cstdio>, <iostream>, <stdio.h>에 대해서'
 date: '2020-09-19T02:05:10.169Z'
-tags: ['cpp']
+tags: ['cpp', 'ps']
 thumbnail: cpp.png
 ---
 
