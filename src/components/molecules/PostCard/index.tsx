@@ -107,11 +107,14 @@ const StyledP = styled.p`
 const Title = styled(StyledP)`
   font-size: 18px;
   font-weight: 600;
-  width: 276px;
+  width: 300px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 10px;
+  ${theme.media.desktop`
+    width: 276px;
+  `}
   ${theme.media.tablet`
     width: 230px;
   `}

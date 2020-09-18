@@ -51,7 +51,6 @@ ol {
   margin-bottom: 1rem;
   list-style-position: outside;
   list-style-image: none;
-  list-style: disc;
 }
 
 .postContents ol li {
