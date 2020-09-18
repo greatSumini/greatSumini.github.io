@@ -8,6 +8,7 @@
 
 html {
   font-family: 'Roboto', 'Noto Sans KR', 'sans-serif';
+  width: 100vw;
 }
 
 @media only screen and (min-width: 778px) {
@@ -24,6 +25,7 @@ html {
 
 body {
   margin: 0px;
+  width: 100vw;
 }
 
 p {

@@ -9,6 +9,7 @@ import Layout from '../components/templates/layout';
 import SEO, { getSchemaOrgJSONLD } from '../components/templates/seo';
 import ContextPostCard from 'components/molecules/PostCard/context';
 import { MIDDLE_GREY } from 'components/atoms/colors';
+import theme from 'styles/theme';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
@@ -60,7 +61,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <Image
             fluid={thumbnail.childImageSharp.fluid}
             style={{
-              width: '60%',
+              width: '70%',
               height: 'auto',
               objectFit: 'cover',
               margin: '0 auto',
@@ -129,6 +130,9 @@ const Article = styled.article`
 const Title = styled.h1`
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
+  ${theme.media.phone`
+  font-size: 1.8rem;
+  `}
 `;
 
 const Date = styled.p`
