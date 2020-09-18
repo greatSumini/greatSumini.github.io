@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled.main`
-  width: 100%;
+  width: 100vw;
   max-width: ${(props: { isBlog: boolean }) => (props.isBlog ? 900 : 1160)}px;
   margin: 0 auto;
   display: flex;
