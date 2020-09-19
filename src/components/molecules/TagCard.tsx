@@ -45,7 +45,7 @@ const Wrapper = styled.a`
   text-decoration: none;
   margin: 5px;
   ${(props: { size; selected }) => ` 
-    padding: ${props.size === 'small' ? 4 : 8}px;
+    padding: ${{ small: 4, large: 8 }[props.size]}px;
     ${props.selected && 'background-color: #d5dcff;'}
   `}
   &:hover {
@@ -56,7 +56,7 @@ const Wrapper = styled.a`
 const Label = styled.p`
   color: #2d50ff;
   ${(props: { size }) => ` 
-  font-size: ${props.size === 'small' ? 12 : 18}px;
+  font-size: ${{ small: 4, large: 8 }[props.size]}px;
   `}
   font-weight: 400;
 `;
