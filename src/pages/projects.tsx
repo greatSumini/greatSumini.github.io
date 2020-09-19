@@ -54,6 +54,7 @@ export const pageQuery = graphql`
             date
             name
             stacks
+            url
             thumbnail {
               childImageSharp {
                 fluid(maxWidth: 800) {
