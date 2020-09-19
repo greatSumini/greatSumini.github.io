@@ -37,15 +37,17 @@ export default function ProjectCard({
 
   return (
     <Wrapper to={url}>
-      <Img
-        fluid={thumbnail}
-        style={{
-          width: '48%',
-          height: '372px',
-          objectFit: 'cover',
-          backgroundColor: '#fff',
-        }}
-      />
+      <ThumbnailWrapper>
+        <Img
+          fluid={thumbnail}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            backgroundColor: '#fff',
+          }}
+        />
+      </ThumbnailWrapper>
       <DescriptionWrapper>
         <Title>{name}</Title>
         <Excerpt>{excerpt}</Excerpt>
@@ -65,7 +67,7 @@ const Wrapper = styled(Link)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  width: calc(100% - 32px);
   margin: 0 16px;
   margin-bottom: 40px;
   text-decoration: none;
@@ -86,6 +88,20 @@ const Wrapper = styled(Link)`
     -webkit-transform: translateY(-2%) rotate3d(0, 10, -5, -10deg);
     transform: translateY(-2%) rotate3d(0, 10, -5, -10deg);
   }
+
+  ${theme.media.phone`
+    flex-direction: column;
+  `}
+`;
+
+const ThumbnailWrapper = styled.div`
+  width: 48%;
+  height: 372px;
+  ${theme.media.phone`
+    width: 100%;
+    height: auto;
+    border-bottom: 0.2px solid #eee;
+  `}
 `;
 
 const DescriptionWrapper = styled.div`
@@ -94,6 +110,11 @@ const DescriptionWrapper = styled.div`
   width: 50%;
   padding: 16px 0;
   border-top: 1px solid ${LIGHT_GREY};
+
+  ${theme.media.phone`
+    padding: 12px 16px;
+    width: 100%;
+  `}
 `;
 
 const StyledP = styled.p`
@@ -107,6 +128,9 @@ const Title = styled(StyledP)`
   overflow: hidden;
   white-space: nowrap;
   margin-bottom: 10px;
+  ${theme.media.phone`
+    font-size: 24px;
+  `}
 `;
 
 const Excerpt = styled(StyledP)`
@@ -122,13 +146,8 @@ const Excerpt = styled(StyledP)`
   word-wrap: break-word;
   line-height: 1.4em;
   height: 4.2em;
-  ${theme.media.tablet`
-    width: 230px;
-  `}
   ${theme.media.phone`
-    width: calc(100vw - 20px);
     height: auto;
-    max-height: 4.2em;
   `}
 `;
 
