@@ -101,6 +101,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 60px 0;
+  width: 100%;
 `;
 
 const PageTitle = styled.p`
