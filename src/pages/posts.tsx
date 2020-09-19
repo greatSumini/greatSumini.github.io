@@ -58,13 +58,16 @@ export default function PostsPage({ data, location }: PageProps<any>) {
 }
 
 export const pageQuery = graphql`
-  query {
+  query PostsPageQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { layout: { eq: "post" } } }
+    ) {
       edges {
         node {
           excerpt
