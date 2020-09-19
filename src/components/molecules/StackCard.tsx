@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import theme from 'styles/theme';
+
 export type StackCardProps = {
   label: string;
 };
@@ -19,6 +21,10 @@ const Wrapper = styled.a`
   margin: 5px;
   padding: 12px 16px;
   border-radius: 9999px;
+  ${theme.media.phone`
+    margin: 2px;
+    padding: 4px 8px;
+  `}
 `;
 
 const Label = styled.p`
@@ -26,4 +32,7 @@ const Label = styled.p`
   font-size: 22px;
   font-size: 700;
   font-weight: 400;
+  ${theme.media.phone`
+    font-size: 18px;
+  `}
 `;
