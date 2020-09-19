@@ -41,7 +41,7 @@ export default function ProjectCard({
         fluid={thumbnail}
         style={{
           width: '48%',
-          height: 'auto',
+          height: '372px',
           objectFit: 'cover',
           backgroundColor: '#fff',
         }}
