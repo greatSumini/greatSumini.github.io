@@ -5,58 +5,91 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
-  const result = await graphql(
+  const createLayoutPages = async (layout, query) => {
+    const {
+      data: {
+        allMarkdownRemark: { edges },
+      },
+    } = await graphql(query);
+    if (edges.errors) {
+      throw edges.errors;
+    }
+
+    const component = path.resolve(`./src/templates/blog-${layout}.tsx`);
+
+    edges.forEach((edge, index) => {
+      const previous =
+        index === edges.length - 1 ? null : edges[index + 1].node;
+      const next = index === 0 ? null : edges[index - 1].node;
+
+      createPage({
+        path: edge.node.fields.slug,
+        component,
+        context: {
+          slug: edge.node.fields.slug,
+          previous,
+          next,
+        },
+      });
+    });
+  };
+
+  await createLayoutPages(
+    'post',
     `
-      {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              excerpt
-              fields {
-                slug
-              }
-              frontmatter {
-                date
-                title
-                tags
-                layout
-              }
+    {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: { frontmatter: { layout: { eq: "post" } } }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            excerpt
+            fields {
+              slug
+            }
+            frontmatter {
+              date
+              title
+              tags
+              layout
             }
           }
         }
       }
+    }
     `
   );
-
-  if (result.errors) {
-    throw result.errors;
-  }
-
-  const articles = result.data.allMarkdownRemark.edges;
-
-  // Create blog posts pages.
-  const posts = articles.filter(
-    (acticle) => acticle.node.frontmatter.layout === 'post'
+  await createLayoutPages(
+    'project',
+    `
+    {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: { frontmatter: { layout: { eq: "project" } } }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            excerpt
+            fields {
+              slug
+            }
+            frontmatter {
+              date
+              name
+              stacks
+              layout
+              url
+              repoUrl
+            }
+          }
+        }
+      }
+    }
+    `
   );
-
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
-
-    createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
-    });
-  });
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
