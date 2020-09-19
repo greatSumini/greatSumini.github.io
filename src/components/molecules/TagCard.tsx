@@ -56,7 +56,7 @@ const Wrapper = styled.a`
 const Label = styled.p`
   color: #2d50ff;
   ${(props: { size }) => ` 
-  font-size: ${{ small: 4, large: 8 }[props.size]}px;
+  font-size: ${{ small: 12, large: 18 }[props.size]}px;
   `}
   font-weight: 400;
 `;
