@@ -3,7 +3,7 @@ layout: post
 title: '여러가지 기술스택과 그 용도'
 date: '2019-07-09T23:05:40.169Z'
 tags: ['introduce']
-thumbnail: 'til.jpg'
+thumbnail: 'labelstore.png'
 ---
 
 아는게 전혀 없기 때문에 원티드의 채용공고들을 보며 현업에서 사용되는 기술스택들을 파악했다!
