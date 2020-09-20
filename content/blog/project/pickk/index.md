@@ -2,7 +2,23 @@
 layout: project
 name: '핔 - 당신의 패션 선택지'
 date: '2020-08-02T00:37:10.169Z'
-stacks: ['typescript', 'react', 'nextjs', 'swr', 'vercel', 'storybook']
+stacks:
+  [
+    'typescript',
+    'react',
+    'nextjs',
+    'swr',
+    'vercel',
+    'storybook',
+    'django',
+    'redis',
+    'postgresql',
+    'aws',
+    'elastic-search',
+    'github-actions',
+    'google-analytics',
+    'log-rocket',
+  ]
 thumbnail: thumbnail.png
 url: 'https://pickk.one'
 repoUrl: 'https://github.com/pickk-dev/pickk-cli'
