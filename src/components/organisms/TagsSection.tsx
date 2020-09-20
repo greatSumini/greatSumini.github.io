@@ -61,7 +61,7 @@ const Wrapper = styled.section`
   margin-bottom: 1.5rem;
 `;
 
-const TagsWrapper = styled.div`
+const TagsWrapper = styled.nav`
   display: flex;
   flex-flow: row wrap;
   padding: 16px;

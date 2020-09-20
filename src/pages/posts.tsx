@@ -96,7 +96,7 @@ export const pageQuery = graphql`
   }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

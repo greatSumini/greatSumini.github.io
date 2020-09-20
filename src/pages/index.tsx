@@ -6,6 +6,7 @@ import Layout from '../components/templates/layout';
 import SEO from '../components/templates/seo';
 import ProfileSection from 'components/organisms/ProfileSection';
 import SkillSection from 'components/organisms/SkillSection';
+import styled from 'styled-components';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function HomePage({ data, location }: PageProps<any>) {
@@ -38,8 +39,10 @@ export default function HomePage({ data, location }: PageProps<any>) {
         ></script>
       </Helmet>
       <SEO title="최수민 데브로그" />
-      <ProfileSection />
-      <SkillSection />
+      <Wrapper>
+        <ProfileSection />
+        <SkillSection />
+      </Wrapper>
     </Layout>
   );
 }
@@ -52,4 +55,12 @@ export const pageQuery = graphql`
       }
     }
   }
+`;
+
+const Wrapper = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: fit-content;
 `;

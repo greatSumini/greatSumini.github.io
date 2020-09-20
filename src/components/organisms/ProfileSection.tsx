@@ -45,7 +45,7 @@ export default function ProfileSection() {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
