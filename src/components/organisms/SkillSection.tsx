@@ -5,7 +5,8 @@ import theme from 'styles/theme';
 
 const SKILLS = [
   ['react.png', 'django.png', 'express.svg'],
-  ['git.png', 'aws.png', 'circleci.png', 'figma.png', 'notion.png'],
+  ['git.png', 'aws.png', 'circleci.png', 'notion.png'],
+  ['figma.png', 'photoshop.png', 'illustrator.png'],
 ];
 
 export default function SkillSection() {
