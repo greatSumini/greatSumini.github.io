@@ -7,8 +7,11 @@ import { DiscussionEmbed } from 'disqus-react';
 
 import Layout from '../components/templates/layout';
 import SEO, { getSchemaOrgJSONLD } from '../components/templates/seo';
+import TagCard from 'components/molecules/TagCard';
 import ContextPostCard from 'components/molecules/PostCard/context';
+
 import { MIDDLE_GREY } from 'components/atoms/colors';
+
 import theme from 'styles/theme';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -18,7 +21,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   const { excerpt } = post;
   const { slug } = post.fields;
-  const { title, date, thumbnail } = post.frontmatter;
+  const { title, date, thumbnail, tags } = post.frontmatter;
   const url = `${data.site.siteMetadata.siteUrl}${slug}`;
   const image = thumbnail.childImageSharp.fluid.src;
 
@@ -51,13 +54,18 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <Article>
         <header>
           <Title>{title}</Title>
-          <Date
-            style={{
-              display: `block`,
-            }}
-          >
-            {moment(date).format('YYYY.MM.DD')}
-          </Date>
+          <DateTagRow>
+            <Date
+              style={{
+                display: `block`,
+              }}
+            >
+              {moment(date).format('YYYY.MM.DD')}
+            </Date>
+            {tags?.map((tag) => (
+              <TagCard label={tag} size="large" />
+            ))}
+          </DateTagRow>
           <Image
             fluid={thumbnail.childImageSharp.fluid}
             style={{
@@ -129,17 +137,28 @@ const Article = styled.article`
   width: 100%;
 `;
 
+const DateTagRow = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-bottom: 1.45rem;
+`;
+
 const Title = styled.h1`
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
   ${theme.media.phone`
-  font-size: 1.65rem;
+    font-size: 1.65rem;
   `}
 `;
 
 const Date = styled.p`
-  margin-bottom: 1.45rem;
+  font-size: 24px;
   color: ${MIDDLE_GREY};
+  margin-right: 20px;
+  ${theme.media.phone`
+    font-size: 16px;
+  `}
 `;
 
 const PostContents = styled.section`

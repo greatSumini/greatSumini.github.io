@@ -22,16 +22,21 @@ export default function TagCard({
   return (
     <Wrapper
       href={routing ? `/posts?tag=${label}` : null}
-      size={size}
-      selected={selected}
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        onClick(e);
-        if (!routing) {
-          history.replaceState(null, null, `/posts?tag=${label}`);
-        }
-      }}
+      {...{ size, selected }}
+      {...(routing
+        ? {}
+        : {
+            onClick: (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (onClick) {
+                onClick(e);
+              }
+              if (!routing) {
+                history.replaceState(null, null, `/posts?tag=${label}`);
+              }
+            },
+          })}
     >
       <Label size={size}>
         #{label} {count}
@@ -44,13 +49,16 @@ const Wrapper = styled.a`
   background-color: #eff1ff;
   text-decoration: none;
   margin: 5px;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  &:hover {
+    background-color: #d5dcff;
+  }
   ${(props: { size; selected }) => ` 
     padding: ${{ small: 4, large: 8 }[props.size]}px;
     ${props.selected && 'background-color: #d5dcff;'}
   `}
-  &:hover {
-    background-color: #d5dcff;
-  }
 `;
 
 const Label = styled.p`

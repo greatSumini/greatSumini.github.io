@@ -13,7 +13,7 @@ keywords:
 
 SkyCloset 릴리즈버전 테스트를 위해
 
-`react-native run-android --variant=release`를 입력했는데 아래 에러메세지와 함께 앱빌딩이 종료되었다.
+`react-native run-android --variant=release`를 입력했는데 아래 에러메세지와 함께 앱빌딩이 종료됐다.
 
 ### 에러내용
 
