@@ -133,7 +133,7 @@ const Title = styled.h1`
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
   ${theme.media.phone`
-  font-size: 1.8rem;
+  font-size: 1.65rem;
   `}
 `;
 
