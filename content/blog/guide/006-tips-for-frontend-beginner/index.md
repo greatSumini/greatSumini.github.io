@@ -10,13 +10,13 @@ thumbnail: 'frontend.jpg'
 
 ## 1. CSS의 길이 단위
 
-링크 : [https://aneok.tistory.com/56](https://aneok.tistory.com/56)
+[참고 링크](https://aneok.tistory.com/56)
 
 스타일링을 할 때 px, vh, rem 등 여러 길이 단위를 사용할 수 있는데요, 용도에 맞는 길이 단위를 사용하면 간략한 컴포넌트 구조를 짜는 데에도 도움이 되니 잘 숙지해주세요~
 
 ## 2. CSS : flex
 
-링크 : [https://heropy.blog/2018/11/24/css-flexible-box/](https://heropy.blog/2018/11/24/css-flexible-box/)
+[참고 링크](https://heropy.blog/2018/11/24/css-flexible-box/)
 
 flex를 사용해 레이아웃을 쉽게, 명확하게 구성할 수 있습니다.
 
@@ -24,7 +24,7 @@ flex-direction, flex-wrap, justify-content, align-items만큼은 꼭 제대로 �
 
 ## 3. Component는 ui, logic 단위로!
 
-영상 : [https://youtu.be/x7cQ3mrcKaY?t=551](https://youtu.be/x7cQ3mrcKaY?t=551)
+[참고 링크](https://youtu.be/x7cQ3mrcKaY?t=551)
 
 React의 컴포넌트는, `UI와 logic이 긴밀하게 연관되어 작동하는 단위`입니다.
 
@@ -90,7 +90,7 @@ return profiles
 
 ## 6. jsx spread attributes
 
-링크 : [https://gist.github.com/sebmarkbage/07bbe37bc42b6d4aef81](https://gist.github.com/sebmarkbage/07bbe37bc42b6d4aef81)
+[참고 링크](https://gist.github.com/sebmarkbage/07bbe37bc42b6d4aef81)
 
 `spread operator`를 사용해서 객체 리터럴을 분해해 깔끔하게 prop으로 넘길 수 있습니다.
 
@@ -118,7 +118,7 @@ return profiles
 
 ## 7. 적절한 태그 사용 (semantic tag)
 
-링크 : [https://www.semrush.com/blog/semantic-html5-guide/](https://www.semrush.com/blog/semantic-html5-guide/)
+[참고 : SEO 독학 1장 - 일반인이 Semantic HTML5 tags와 싸워 이기는 법!](https://sumini.dev/guide/007-seo-semantic-tag/)
 
 용도에 맞는 적절한 태그를 사용하면 검색 엔진 최적화에 큰 도움이 된답니다!
 
@@ -154,7 +154,7 @@ const ProfileImage = styled.img``;
 
 ## 9. 배열 element에 key값 부여
 
-링크 : [https://ko.reactjs.org/docs/lists-and-keys.html](https://ko.reactjs.org/docs/lists-and-keys.html)
+[공식 문서 링크](https://ko.reactjs.org/docs/lists-and-keys.html)
 
 key는 엘리먼트에 안정적인 고유성을 부여합니다. `re-render 최적화` 및 오류 방지를 위해 data의 `unique key`값으로 설정해주셔야합니다!
 
