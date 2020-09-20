@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[C++] <cstdio>, <iostream>, <stdio.h>에 대해서'
+title: '<cstdio>, <iostream>, <stdio.h> 설명 및 차이점'
 date: '2020-09-19T02:05:10.169Z'
 tags: ['cpp', 'ps']
 thumbnail: cpp.png

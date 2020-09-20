@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[C++] ios::sync_with_stdio(false), cin.tie(NULL) 설명 및 사용법'
+title: 'ios::sync_with_stdio(false), cin.tie(NULL) 설명 및 사용법'
 date: '2020-09-19T03:39:10.169Z'
 tags: ['cpp', 'ps']
 thumbnail: cpp.png
