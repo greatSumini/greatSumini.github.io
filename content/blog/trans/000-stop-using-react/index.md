@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '리액트를 사용하면 안 되는 이유'
+title: '리액트 단점, 리액트를 사용하면 안 되는 이유'
 date: 'Sun Sep 27 2020 10:21:38 GMT+0900'
 tags: ['react']
 thumbnail: 'stop-react.png'
