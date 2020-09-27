@@ -231,10 +231,6 @@ h6 {
 }
 
 @media only screen and (min-width: 1167px) {
-  .postContents {
-    font-size: 0.8rem;
-  }
-
   .postContents p {
     margin-left: 0;
     margin-right: 0;
