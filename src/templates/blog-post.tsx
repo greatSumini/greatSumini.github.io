@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import AdSense from 'react-adsense';
 import { Link, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 import moment from 'moment';
@@ -53,6 +54,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       </SEO>
       <Article>
         <header>
+          <AdSense.Google
+            client="ca-pub-8116042692354073"
+            slot="6364164036"
+            style={{ display: 'block' }}
+            format="auto"
+            responsive="true"
+          />
           <Title>{title}</Title>
           <DateTagRow>
             <Date
@@ -89,12 +97,26 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         {previous ? <ContextPostCard {...previous} type="previous" /> : <div />}
         {next && <ContextPostCard {...next} type="next" />}
       </ContextPostsWrapper>
+      <AdSense.Google
+        client="ca-pub-8116042692354073"
+        slot="6364164036"
+        style={{ display: 'block' }}
+        format="auto"
+        responsive="true"
+      />
       <DisqusWrapper>
         <DiscussionEmbed
           shortname={process.env.DISQUS_NAME}
           config={{ identifier: slug, title }}
         />
       </DisqusWrapper>
+      <AdSense.Google
+        client="ca-pub-8116042692354073"
+        slot="6364164036"
+        style={{ display: 'block' }}
+        format="auto"
+        responsive="true"
+      />
     </Layout>
   );
 };
