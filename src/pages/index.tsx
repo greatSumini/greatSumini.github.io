@@ -38,7 +38,7 @@ export default function HomePage({ data, location }: PageProps<any>) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         ></script>
       </Helmet>
-      <SEO title="최수민 데브로그" />
+      <SEO title="최수민 개발 블로그" />
       <Wrapper>
         <ProfileSection />
         <SkillSection />

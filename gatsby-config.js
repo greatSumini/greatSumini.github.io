@@ -4,12 +4,12 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `sumini dev`,
+    title: `최수민 개발 블로그`,
     author: {
       name: `Choi su min`,
       summary: `who lives and works in Seoul building useful things.`,
     },
-    description: `greatSumini's dev blog`,
+    description: `개발자 최수민의 개발·일상 블로그`,
     siteUrl: `https://sumini.dev/`,
   },
   plugins: [
