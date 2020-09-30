@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'SEO독학 1장 - Semantic HTML5 tags와 싸워 이기는 법!'
-date: 'Sun Sep 20 2020 18:03:35 GMT+0900 (Korean Standard Time)'
+date: '2020-09-20T18:03:35.169Z+09'
 tags: ['seo', 'html']
 thumbnail: 'seo.jpg'
 ---

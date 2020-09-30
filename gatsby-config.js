@@ -101,18 +101,6 @@ module.exports = {
             }
           }
         `,
-        resolveSiteUrl: ({ site, allSitePage }) => {
-          //Alternatively, you may also pass in an environment variable (or any location) at the beginning of your `gatsby-config.js`.
-          return site.wp.generalSettings.siteUrl;
-        },
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.nodes.map((node) => {
-            return {
-              url: `${site.wp.generalSettings.siteUrl}${node.path}`,
-              changefreq: `daily`,
-              priority: 0.7,
-            };
-          }),
       },
     },
     {
