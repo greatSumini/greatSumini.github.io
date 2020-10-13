@@ -9,6 +9,7 @@
 html {
   font-family: 'Roboto', 'Noto Sans KR', 'sans-serif';
   width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
