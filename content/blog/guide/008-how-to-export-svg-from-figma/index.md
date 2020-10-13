@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Figma에서 SVG 추출하는법'
-date: '2020-09-20T20:40:35.169Z+09'
+date: '2020-09-20T20:40:35.169Z'
 tags: ['figma']
 thumbnail: 'figma.png'
 ---
