@@ -26,7 +26,7 @@ ECMA-262는 규격이며, ECMAScript는 ~~ECMA-262에 의해 표준화된 자바
 
 따라서 ECMAScript가 표준 또는 언어규격이라는 말은 옳지 않다.
 
-ECMAScript(=javascript)는 엄연히 프로그래밍 언어이며, _ES6 표준을 따른다_ 라는 말은 _ECMAScript 2016가 사용중인 ECMA 규격을 따른다_, _ECMAScript 2016과 동일한 문법을 사용한다_ 와 동의어라고 볼 수 있겠다.
+ECMAScript(=javascript)는 엄연히 프로그래밍 언어이며, _ES6 표준을 따른다_ 라는 말은 _ECMAScript 2015가 사용중인 ECMA 규격을 따른다_, _ECMAScript 2015과 동일한 문법을 사용한다_ 와 동의어라고 볼 수 있겠다.
 
 ### ECMAScript의 버전?
 
