@@ -31,8 +31,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     image,
     description: excerpt,
     datePublished: date,
-    siteTitle,
-    siteUrl: data.site.siteMetadata.siteUrl,
   });
 
   return (

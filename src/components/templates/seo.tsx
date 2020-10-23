@@ -77,59 +77,39 @@ export const getSchemaOrgJSONLD = ({
   image,
   description,
   datePublished,
-  siteTitle,
-  siteUrl,
-}) => [
-  {
-    '@context': 'http://schema.org',
-    '@type': 'WebSite',
-    url,
-    name: title,
-    alternateName: siteTitle,
+}) => ({
+  '@context': 'http://schema.org',
+  '@type': 'BlogPosting',
+  image: {
+    '@type': 'ImageObject',
+    url: image,
   },
-  {
-    '@context': 'https://khalilstemmler.com',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        item: {
-          '@id': url,
-          name: title,
-          image,
-        },
-      },
-    ],
+  url,
+  dateCreated: datePublished,
+  datePublished,
+  dateModified: datePublished,
+  headline: `${title} | 최수민 개발 블로그`,
+  name: `${title} | 최수민 개발 블로그`,
+  description,
+  keywords: [
+    'Lite:true',
+    'Elevated:false',
+    'LockedPostSource:LOCKED_POST_SOURCE_NONE',
+    'LayerCake:0',
+  ],
+  author: {
+    '@type': 'Person',
+    name: 'Choi su min',
+    url: 'https://sumini.dev',
   },
-  {
-    '@context': 'https://khalilstemmler.com',
-    '@type': 'BlogPosting',
-    url,
-    name: title,
-    alternateName: siteTitle,
-    headline: title,
-    image: {
-      '@type': 'ImageObject',
-      url: image,
-    },
-    description,
-    author: {
-      '@type': 'Person',
-      name: 'Choi su min',
-    },
-    publisher: {
-      '@type': 'Organization',
-      url: 'https://khalilstemmler.com',
-      logo: 'https://sumini.dev/images/profile.png',
-      name: 'Choi su min',
-    },
-    mainEntityOfPage: {
-      '@type': 'WebSite',
-      '@id': siteUrl,
-    },
-    datePublished,
+  creator: ['Choi su min'],
+  publisher: {
+    '@type': 'Person',
+    url: 'https://sumini.dev',
+    logo: 'https://sumini.dev/images/profile.png',
+    name: 'Choi su min',
   },
-];
+  mainEntityOfPage: url,
+});
 
 export default SEO;

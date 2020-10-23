@@ -40,6 +40,10 @@ Atom, Molecule, Organism, Template, Page라는 이름으로 컴포넌트들을 �
 
 각 컴포넌트들을 어떻게 분류할지가 꽤나 모호하고 논의할 여지가 많다. 예시와 함께 설명하겠다.
 
+<br>
+
+**1) 특별한 컴포넌트**
+
 ![Cart Item Card](./molecule-cart-item-card.png)
 
 예를 들어, 위의 이미지에서 삭제버튼은 ~~atoms/button~~으로, 구독버튼은 ~~molecules/button/channel-subscribe~~로 구현했다.
@@ -49,6 +53,8 @@ Atom, Molecule, Organism, Template, Page라는 이름으로 컴포넌트들을 �
 ~~atoms/toggle-button~~이라는 분류를 추가하는 방법도 생각해볼 수 있겠지만, 모든 토글버튼이 구독버튼과 동일하게 기능할 것이라고 기대하기 힘들기 때문에 현실적으로 어렵다.
 
 <br>
+
+**2) 로직 복잡도**
 
 컴포넌트의 특성과 관계 없이 순전히 개발적인 이유에서 분류를 바꿔야하는 경우도 있다.
 
@@ -67,6 +73,8 @@ atoms/button을 사용하면 이런 함수들을 모두 parent 컴포넌트에 �
 parent 컴포넌트의 코드가 불필요하게 복잡해지기 때문에 분리할 수 밖에 없다.
 
 <br>
+
+**3) 결론**
 
 여기서 문제는 아토믹디자인이 컴포넌트 단위 디자인 및 개발을 실현하기 위해서, ~~설계를 기획자/디자이너가 맡아야한다~~는 것이다.
 
