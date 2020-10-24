@@ -76,25 +76,25 @@ const TagsWrapper = styled.nav`
 `;
 
 const ShowMoreButton = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px 12px;
+
   position: absolute;
   bottom: -4px;
   left: 0;
   right: 0;
+  z-index: 10;
+
+  width: fit-content;
+  padding: 4px 12px;
   margin-left: auto;
   margin-right: auto;
-  z-index: 10;
   background-color: white;
-  width: fit-content;
-  font-weight: 500;
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
-  display: none;
-  ${theme.media.phone`
-    display: flex;
-  `}
+
+  font-weight: 500;
 `;
 
 const ShowMoreGradient = styled.div`
