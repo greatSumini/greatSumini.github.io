@@ -2,7 +2,7 @@
 layout: post
 title: '아토믹 디자인(Atomic Design) 적용기1 : 한계점, 단점'
 date: '2020-10-15T00:32:10.169Z'
-tags: ['design', 'react']
+tags: ['design', 'react', 'design system']
 thumbnail: atomic-design.jpg
 ---
 
