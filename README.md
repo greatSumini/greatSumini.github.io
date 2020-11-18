@@ -52,7 +52,10 @@
 4.  **Now you can run/deploy this project!**
 
     ```shell
+    # run locally
     yarn dev
+
+    # deploy on gh-page
     yarn deploy
     ```
 
