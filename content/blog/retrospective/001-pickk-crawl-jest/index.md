@@ -122,15 +122,15 @@ beforeAll은 말 그대로 모든 테스트를 실행하기 전에 전역으로 
 
 하지만 또 문제가 있었습니다.
 
-첫번째로, 느리거나 접속이 안 되는 사이트들이 프로세스를 오랫동안 붙잡고 있다가 timeout 에러를 발생시켰습니다.
+1. 느리거나 접속이 안 되는 사이트들이 프로세스를 오랫동안 붙잡고 있다가 timeout 에러를 발생시켰습니다.<br>
+   Promise.all은 모든 작업을 동시에 끝내기 때문에, 다른 사이트들의 데이터들도 같이 기다려야만 했습니다.
 
-Promise.all은 모든 작업을 동시에 끝내기 때문에, 다른 사이트들의 데이터들도 같이 기다려야만 했습니다.
-
-두번째로, 테스트케이스중 1개라도 fetch에 실패하면 Promise.all 자체가 에러로 처리됐습니다.
-
-이것은 Promise.all의 특징인데요, 이름 그대로 ALL or NOTHING으로 처리됩니다..
+2. 테스트케이스중 1개라도 fetch에 실패하면 Promise.all 자체가 에러로 처리됐습니다.<br>
+   이것은 Promise.all의 특징인데요, 이름 그대로 ALL or NOTHING으로 처리됩니다..
 
 위의 문제들 때문에 테스트의 실행 시간이 길어지고, 긴 시간을 기다려도 복불복으로 테스트 전체가 실패했습니다.
+
+첫번째 버전보단 나았지만, 여전히 사용할 수 없는 수준이었죠.
 
 ## Fetch 로직 분리!
 
@@ -200,3 +200,112 @@ fetchHtmls('test-htmls');
 또 select 코드만 변경된 경우엔 매번 fetch할 필요 없이 테스트만 돌리면 돼서 성능도 좋아졌습니다!
 
 progress, chalk 라이브러리를 이용해 인터페이스도 구현했습니다.
+
+이 방식으로 fetch 로직의 분리는 성공했지만, 위에 존재했던 2가지 문제들중 어느 것도 해결되지 않았습니다.
+
+## 최종 : Promise.allSettled 도입, timeout 명확히 지정!
+
+```tsx
+import fs from 'fs';
+import chalk from 'chalk';
+import Progress from 'progress';
+
+import { allSettled, requestHtml } from '../../lib';
+
+import testCases from './test-cases.json';
+
+const { red, green, grey } = chalk;
+
+const bar = new Progress('fetching htmls... [:bar] :percent :etas', {
+  complete: '=',
+  incomplete: ' ',
+  width: 20,
+  total: testCases.length,
+});
+
+const log = {
+  fail: (message: any) => {
+    console.log(red.inverse(' FAIL ') + ' ' + message);
+  },
+  success: (message: any) => {
+    console.log(green.inverse.bold(' SUCCESS ') + ' ' + message);
+  },
+};
+
+const fetchHtmls = async (fileName: string) => {
+  try {
+    const htmlDatas = await allSettled(
+      testCases.map(
+        ({ name, url }) =>
+          new Promise(async (resolve) => {
+            try {
+              const html = await requestHtml(encodeURI(url));
+              resolve({ name, html });
+            } catch (e) {
+              resolve({
+                name,
+                html: null,
+                message: e.toString(),
+              });
+            } finally {
+              bar.tick();
+            }
+          })
+      )
+    );
+    const failedHtmlDatas = htmlDatas.filter(
+      (htmlData) => !htmlData['value']['html']
+    );
+    failedHtmlDatas.forEach((htmlData) => {
+      log.fail(
+        `${htmlData['value']['name']}` + grey(htmlData['value']['message'])
+      );
+    });
+    if (failedHtmlDatas.length) {
+      console.log('❗실패한 브랜드는 jest 실행시 다시 fetch합니다❗');
+    }
+
+    log.success(
+      `fetch complete! (${testCases.length - failedHtmlDatas.length}/${
+        testCases.length
+      })`
+    );
+
+    const testHtmls = {};
+    htmlDatas.forEach((htmlData) => {
+      if (htmlData['value']['html']) {
+        testHtmls[htmlData['value']['name']] = htmlData['value']['html'];
+      }
+    });
+
+    const path = `${__dirname}/${fileName}.json`;
+    fs.writeFileSync(path, JSON.stringify(testHtmls, undefined, 2), 'utf-8');
+    log.success(`${fileName}.json generated ✨`);
+  } catch (e) {
+    console.log(red.inverse(' Error occured!! '));
+  }
+};
+
+fetchHtmls('test-htmls');
+```
+
+현재 프로덕션에 적용된 최종 코드입니다. 이전 버전과 유사하지만 결정적인 개선점들이 있습니다.
+
+1. timeout 제한을 엄격하게 관리<br>
+   모든 fetch request에 timeout을 명시하고, 모든 case에서 request 시간의 합이 일정하도록 조절한다.
+2. allSettled 도입 <br>
+   Promise.all과 다르게 일부 case가 reject되더라도 온전히 데이터를 반환합니다. Promise.allSettled는 node 버전 호환 문제를 해결하기가 귀찮아 인터넷에 공개된 코드를 복붙했습니다. [링크](https://github.com/ppeeou/makelib/blob/master/Promise/allSettled.js)
+3. bar.tick() 함수를 finally문으로 분리해서 에러시에도 일단 로딩이 진행되도록 했습니다. 별거 아닌 것 같지만 답답함이 크게 개선되었습니다!
+4. fetch 실패시 안내 문구들을 추가했습니다.
+
+## 결과
+
+![Fetch 스크린샷](./screen-shot-fetch.png)
+
+<center>fetch 실행 결과</center>
+
+![Jest 스크린샷](./screen-shot-jest.png)
+
+<center>jest 실행 결과</center>
+
+295개의 테스트케이스를 7초, 18초만에 처리하는 준수한 성능을 갖게 됐다 ✨
