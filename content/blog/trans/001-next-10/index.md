@@ -28,6 +28,8 @@ import Image from 'next/image'
 
 next/image는 이 모든 것을 자동으로 처리해준다.
 
+> 정말 유용해보여서 우리 프로젝트에도 빠르게 도입할 예정이다.
+
 - 자동 lazy loading 적용
 - image dimension(width, height)를 통한 layout shift 방지
 - 반응형 자동 대응 (이건 써봐야 알듯)
@@ -54,6 +56,8 @@ next/image는 이 모든 것을 자동으로 처리해준다.
 
 웹사이트 로딩이 3초 이상 걸리면 50% 이상의 고객이 떠난다. [E커머스에서 로딩 시간을 0.1초 개선할 때마다 전환률이 1% 늘어난다는 통계](http://robotics.stanford.edu/~ronnyk/2007IEEEComputerOnlineExperiments.pdf)도 있다.
 
+> 사용중인데 엄청 좋은지 잘 모르겠다 ㅎ.. 배포를 자주 할수록 효과적일듯.
+
 - 지속적인 측정
 - visitor들이 사용하는 실제 기기로 측정
 
@@ -61,11 +65,15 @@ next/image는 이 모든 것을 자동으로 처리해준다.
 
 Next.js 10에서 새롭게 추가된 기능들이 E커머스를 만들 때 좋다고 한다. [Next.js Commerce](https://nextjs.org/commerce)는 이를 쉽게 시작해볼 수 있는 스타터킷이다.
 
+> E커머스 개발을 이제 시작하는 사람이라면 사용하길 강력히 추천한다. Vercel이 준비한 것은 항상 실망시키지 않는다.
+
 ## 5. React 17 Support
 
 어떤 설정을 건드릴 필요도 없이, Next.js와 React를 업그레이드하는 것만으로도 React 17을 사용할 수 있다.
 
 React 17이 사용되면 [new JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)이 자동으로 활성화된다.
+
+> React 17 패치노트와 최근 이슈 목록등을 살펴본 후에 업그레이드 해야겠다.
 
 ```shell
 $ yarn add next@latest react@latest react-dom@latest
@@ -74,6 +82,8 @@ $ yarn add next@latest react@latest react-dom@latest
 ## 6. getStaticProps / getServerSideProps Fast Refresh
 
 이제 getStaticProps / getServerSideProps 을 수정하면 자동으로 다시 실행해 새로운 데이터를 적용한다.
+
+> 개발할 때 이게 정말정말정말 불편했는데 다행이다!
 
 ## 7. Fast Refresh for MDX
 
@@ -92,6 +102,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 이제 컴포넌트 내에서 외부 컴포넌트의 css를 import할 수 있다. 이로 인해 CSS code-splitting을 적용된다!
 
+> 정말 유용한 기능인듯한데 나는 안 쓴다.
+
 ## 9. Automatic Resolving of href
 
 이제 ~~next/link~~를 사용할 때 ~~as~~를 생략해도 된다.
@@ -100,11 +112,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 Next.js 버전 업데이트로 인한 코드 변경을 쉽게할 수 있도록 도와주는 CLI다.
 
+> React에도 비슷한 것이 있다. Vercel과 Facebook이 얼마나 개발자 UX에 신경 쓰는지 알 수 있는 부분
+
 ## 11. Bloacking Fallback for getStaticPaths
 
 원래는 등록되지 않은 path에 대해서 fallback:false면 404, true면 데이터가 빈 채로 렌더링했다.
 
 새로 추가된 'blocking' 값을 넣으면 등록되지 않은 path에 대해서 일단 block한 상태로 getServerSideProps처럼 데이터를 불러와 새로 HTML을 generate한뒤 반환한다고한다.
+
+> 사실상 getBlockingProps라는 새로운 데이터 fetching 방식이 생긴 것과 마찬가지다. 여러 방면으로 유용하게 활용할 수 있을듯
 
 ## 12. Redirect and notFound Support for getStaticProps / getServerSideProps
 
@@ -134,3 +150,5 @@ export function getStaticProps() {
 <br>
 
 이제 redirect, notFound를 처리하기 위해 복잡한 코드를 쓰지 않아도 된다!
+
+> redirect, notFound를 어떻게 처리해야할지 애매하다고 느꼈는데 정말 좋은 패치인 것 같다! 우리 서비스에도 빠르게 적용할 예정
