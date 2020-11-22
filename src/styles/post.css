@@ -3,9 +3,16 @@ body {
 }
 
 .postContents {
-  font-size: 1rem;
-  line-height: 1.8rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
   font-weight: 400;
+}
+
+@media only screen and (max-width: 777px) {
+  .postContents {
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
 }
 
 .postContents p {
@@ -35,13 +42,11 @@ body {
 
 .postContents blockquote {
   margin: 0;
-  padding: 0.25rem;
-  padding-left: 0.75rem;
+  padding: 0.75rem;
   margin-bottom: 1.75rem;
-  font-size: 0.85rem;
   font-weight: 500;
   line-height: 1.75rem;
-  color: hsla(0, 0%, 0%, 0.59);
+  color: hsla(0, 0%, 0%, 0.69);
   font-style: italic;
   border-left: 0.25rem solid hsla(0, 0%, 0%, 0.9);
   background-color: rgb(245, 245, 245);
