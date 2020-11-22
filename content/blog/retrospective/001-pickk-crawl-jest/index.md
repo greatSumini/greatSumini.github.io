@@ -35,6 +35,7 @@ Node.js + Typescript로 작성했고, Cheerio를 사용하며, Vercel Serverless
 ## 첫 번째 버전 : 잘 작동하지만 성능이..?
 
 ```tsx
+// /__tests__/service/info.test.ts
 import InfoCrawlService from '../../services/info';
 import testCases from '../test-cases.json';
 
@@ -75,6 +76,7 @@ jest의 테스팅 환경에서 각 테스트는 ~~무조건 순차적으로 실�
 ## 병렬 처리 : Promise.all
 
 ```tsx
+// /__tests__/service/info.test.ts
 import InfoCrawlService from '../../services/info';
 import testCases from '../test-cases.json';
 
@@ -206,6 +208,7 @@ progress, chalk 라이브러리를 이용해 인터페이스도 구현했습니�
 ## 최종 : Promise.allSettled 도입, timeout 명확히 지정!
 
 ```tsx
+// /__tests__/data/fetch-htmls.ts
 import fs from 'fs';
 import chalk from 'chalk';
 import Progress from 'progress';
@@ -294,7 +297,7 @@ fetchHtmls('test-htmls');
 1. timeout 제한을 엄격하게 관리<br>
    모든 fetch request에 timeout을 명시하고, 모든 case에서 request 시간의 합이 일정하도록 조절한다.
 2. allSettled 도입 <br>
-   Promise.all과 다르게 일부 case가 reject되더라도 온전히 데이터를 반환합니다. Promise.allSettled는 node 버전 호환 문제를 해결하기가 귀찮아 인터넷에 공개된 코드를 복붙했습니다. [링크](https://github.com/ppeeou/makelib/blob/master/Promise/allSettled.js)
+   Promise.all과 다르게 일부 case가 reject되더라도 온전히 데이터를 반환합니다. Promise.allSettled를 그냥 사용하면 node 버전 호환 문제가 발생해 인터넷에 공개된 polyfill 코드를 그대로 사용했습니다. [출처](https://github.com/ppeeou/makelib/blob/master/Promise/allSettled.js)
 3. bar.tick() 함수를 finally문으로 분리해서 에러시에도 일단 로딩이 진행되도록 했습니다. 별거 아닌 것 같지만 답답함이 크게 개선되었습니다!
 4. fetch 실패시 안내 문구들을 추가했습니다.
 
@@ -308,4 +311,4 @@ fetchHtmls('test-htmls');
 
 <center>jest 실행 결과</center>
 
-295개의 테스트케이스를 7초, 18초만에 처리하는 준수한 성능을 갖게 됐다 ✨
+295개의 테스트케이스를 7초, 18초만에 처리하는 준수한 성능을 갖게 됐습니다 ✨
