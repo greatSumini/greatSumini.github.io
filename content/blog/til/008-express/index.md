@@ -10,8 +10,6 @@ express.js는 가장 유명한 Node.js기반 웹프레임워크다.
 
 이미 조약하게나마 몇번 써본 경험이 있기 때문에 Hello World는 건너 뛰고, 프로답게 사용하기 위한 방법/팁들을 배우고 정리해보겠다.
 
-_(틀린 내용이 있을 수 있습니다! 댓글로 피드백 주세용)_
-
 # Bulletproof node.js project architecture
 
 사용할 구조는 Bulletproff architecture다. ([원글 링크](https://softwareontheroad.com/ideal-nodejs-project-structure/), [번역본 링크](https://velog.io/@hopsprings2/%EA%B2%AC%EA%B3%A0%ED%95%9C-node.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%84%A4%EA%B3%84%ED%95%98%EA%B8%B0))
