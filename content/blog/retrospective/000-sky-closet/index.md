@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '하늘옷장앱 개발 + CEOS 9기 활동 회고'
+title: '하늘옷장앱 개발 + CEOS 신촌 9기 활동 회고'
 date: '2019-07-03T19:37:10.169Z'
 tags: ['react-native', 'retrospective']
 thumbnail: sky-closet.png
