@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'SEO독학 2장 -head 태그 SEO 대응하기'
+title: 'SEO독학 2장 - head 태그 SEO 대응하기'
 date: '2020-11-26T18:19:10.169Z'
 tags: ['seo', 'html']
 thumbnail: seo.jpg
