@@ -45,6 +45,7 @@ export default function PostsPage({ data, location }: PageProps<any>) {
             .concat([...Array(4)])
             .map((post) => (
               <PostCard
+                key={post?.node.fields.slug}
                 {...post?.node}
                 thumbnail={
                   post?.node.frontmatter.thumbnail.childImageSharp.fluid
