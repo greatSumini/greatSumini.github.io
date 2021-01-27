@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'React-Native Kakao Login 카카오 로그인v2 구현하기'
+title: 'React-Native Kakao Login 카카오 로그인v2 구현하기 (추가)'
 date: '2020-12-17T01:22:10.169Z'
 tags: ['react-native']
 thumbnail: react-kakao.png
@@ -67,6 +67,25 @@ platform :ios, '11.0'
 3. [공식문서 - 앱생성](https://developers.kakao.com/docs/latest/ko/getting-started/app)을 참고해 앱을 생성합니다.
 4. Project => Targets 아래 앱 선택 => General 탭으로 이동해서 Bundle Identifier가 본인의 카카오 앱과 동일한지 확인해주세요.
 5. [공식문서 - 개발 프로젝트 설정](https://developers.kakao.com/docs/latest/ko/getting-started/sdk-ios)을 참고하여 Info.plist, URL Schemes 설정을 완료합니다.
+6. (2021/01/27 추가) iOS에서 기기에 미리 설치된 카카오톡을 이용해 로그인할 수 없는 버그가 있었는데요, 리서치 결과 공식 가이드에서 아래 내용을 찾을 수 있었습니다.
+
+![kakao-url.png](kakao-url.png)
+
+찾아보니 다행히 이 라이브러리에도 위 상황을 대응하기 위한 모듈이 존재하네요. `AppDelegate.m`에 아래 내용을 추가해 쉽게 해결할 수 있습니다.
+
+```objectivec
+#import <ARNKakaoLogin/ARNKakaoLoginConnector.h>
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+                                       sourceApplication:(NSString *)sourceApplication
+                                              annotation:(id)annotation {
+    if([ARNKakaoLoginConnector isKakaoTalkLoginUrl:url]) {
+      return [ARNKakaoLoginConnector handleOpenUrl: url];
+    }
+
+    return NO;
+}
+```
 
 ### Android
 
