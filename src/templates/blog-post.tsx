@@ -161,7 +161,7 @@ const Date = styled.p`
 `;
 
 const PostContents = styled.section`
-  padding: 2rem 0;
+  padding: 6rem 0 4rem;
 `;
 
 const ListLink = styled(Link)`

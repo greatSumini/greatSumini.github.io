@@ -3,15 +3,14 @@ body {
 }
 
 .postContents {
-  font-size: 1.2rem;
-  line-height: 2rem;
-  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  font-weight: 300;
 }
 
 @media only screen and (max-width: 777px) {
   .postContents {
     font-size: 1rem;
-    line-height: 1.8rem;
   }
 }
 
