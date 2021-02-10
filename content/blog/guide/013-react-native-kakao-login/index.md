@@ -89,7 +89,7 @@ platform :ios, '11.0'
 
 ### Android
 
-1. [공식문서 - 개발 프로젝트 설정](https://developers.kakao.com/docs/latest/ko/getting-started/sdk-android)에서 초기화, v1->v2 마이그레이션을 제외한 모든 설정을 완료합니다.
+1. [공식문서 - 개발 프로젝트 설정](https://developers.kakao.com/docs/latest/ko/getting-started/sdk-android)에서 초기화, v1->v2 마이그레이션을 제외한 모든 설정을 완료합니다. 꼭 릴리즈, 디버그 해시키를 모두 등록해주세요!
 2. `/android/app/src/main/AndroidManifest.xml` 파일내에 다음 내용을 추가합니다. (app_key가 123412341234라면 "123412341234")
 
 ```xml
