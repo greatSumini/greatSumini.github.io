@@ -13,6 +13,7 @@ import ContextPostCard from 'components/molecules/PostCard/context';
 import { MIDDLE_GREY } from 'components/atoms/colors';
 
 import theme from 'styles/theme';
+import Bio from 'components/molecules/bio';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
@@ -52,6 +53,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <Article>
         <header>
           <Title>{title}</Title>
+          <Bio />
           <DateTagRow>
             <Date
               style={{
@@ -140,7 +142,7 @@ const DateTagRow = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  margin-bottom: 1.45rem;
+  margin-bottom: 0.8rem;
 `;
 
 const Title = styled.h1`
