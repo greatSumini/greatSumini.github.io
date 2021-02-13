@@ -11,7 +11,13 @@ export type ContextPostCardProps = {
   };
   frontmatter: {
     title: string;
-    tags: string[];
+    thumbnail: {
+      childImageSharp: {
+        fluid: {
+          originalImg: string;
+        };
+      };
+    };
   };
 };
 
@@ -21,7 +27,7 @@ export default function ContextPostCard({
   frontmatter,
 }: ContextPostCardProps) {
   const { slug } = fields;
-  const { title, tags } = frontmatter;
+  const { title } = frontmatter;
 
   const [margin, alignItems, textAlign]: [
     CSSProperties['margin'],
@@ -29,21 +35,23 @@ export default function ContextPostCard({
     CSSProperties['textAlign']
   ] =
     type === 'previous'
-      ? ['0 auto 0 0', 'flex-start', 'left']
-      : ['0 0 0 auto', 'flex-end', 'right'];
+      ? ['0 auto 16px 0', 'flex-start', 'left']
+      : ['0 0 16px auto', 'flex-end', 'right'];
 
   return (
-    <Wrapper style={{ margin }} to={slug}>
+    <Wrapper style={{ margin, alignItems }} to={slug}>
+      <Type>{type === 'previous' ? '이전 글' : '다음 글'}</Type>
+      <img
+        src={frontmatter.thumbnail.childImageSharp.fluid.originalImg}
+        style={{
+          width: '100%',
+          height: '180px',
+          objectFit: 'cover',
+          backgroundColor: '#fff',
+        }}
+      />
       <TitleWrapper style={{ alignItems }}>
-        <Type>{type}</Type>
         <Title style={{ textAlign }}>{title}</Title>
-        <Row>
-          {tags.map((tag) => (
-            <Tag to={`/posts?tag=${tag}`} key={tag}>
-              {tag}
-            </Tag>
-          ))}
-        </Row>
       </TitleWrapper>
     </Wrapper>
   );
@@ -51,36 +59,46 @@ export default function ContextPostCard({
 
 const Wrapper = styled(Link)`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1rem;
+  flex-direction: column;
+
+  position: relative;
+  width: 336px;
+  margin-bottom: 12px;
+
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
 `;
 
 const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  width: 100%;
+  padding: 12px;
+
+  border-top: 0.5px solid #eee;
 `;
 
 const Type = styled.p`
+  position: absolute;
+
   font-size: 0.75rem;
   font-weight: 700;
-  color: rgb(73, 80, 87);
+  color: white;
+
+  background-color: black;
+
+  padding: 2px 4px;
 `;
 
 const Title = styled.p`
-  font-size: 1.125rem;
+  width: 312px;
+
+  font-size: 1rem;
   font-weight: 700;
   color: rgb(73, 80, 87);
-`;
-
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const Tag = styled(Link)`
-  font-size: 0.9rem;
-  color: rgb(73, 80, 87);
-  margin-right: 4px;
-  text-decoration: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
 `;

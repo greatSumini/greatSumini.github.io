@@ -7,13 +7,15 @@ import { DiscussionEmbed } from 'disqus-react';
 
 import Layout from '../components/templates/layout';
 import SEO, { getSchemaOrgJSONLD } from '../components/templates/seo';
+import Bio from 'components/molecules/bio';
 import TagCard from 'components/molecules/TagCard';
 import ContextPostCard from 'components/molecules/PostCard/context';
+import FurtherPostsSection from 'components/organisms/FurtherPostsSection';
+import ChevronRightIcon from 'components/atoms/icons/chevron/right';
 
 import { MIDDLE_GREY } from 'components/atoms/colors';
 
 import theme from 'styles/theme';
-import Bio from 'components/molecules/bio';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
@@ -84,7 +86,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         />
         <hr style={{}} />
       </Article>
-      <ListLink to="/posts">Back to list</ListLink>
+      {tags.map((tag) => (
+        <FurtherPostsSection tag={tag} exceptSlug={slug} />
+      ))}
+      <ListLink to="/posts">
+        모든 글 보기
+        <ChevronRightIcon style={{ marginLeft: '8px' }} />
+      </ListLink>
       <ContextPostsWrapper>
         {previous ? <ContextPostCard {...previous} type="previous" /> : <div />}
         {next && <ContextPostCard {...next} type="next" />}
@@ -167,9 +175,13 @@ const PostContents = styled.section`
 `;
 
 const ListLink = styled(Link)`
-  margin-left: auto;
-  margin-right: 1rem;
+  font-size: 1.4rem;
   color: rgb(73, 80, 87);
+  text-decoration: none;
+
+  padding: 12px;
+  margin-left: auto;
+  margin-right: 12px;
 `;
 
 const ContextPostsWrapper = styled.div`
@@ -177,7 +189,10 @@ const ContextPostsWrapper = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+
   border-bottom: 1px solid grey;
+  padding: 12px;
+  padding-bottom: 20px;
   margin-bottom: 20px;
 `;
 

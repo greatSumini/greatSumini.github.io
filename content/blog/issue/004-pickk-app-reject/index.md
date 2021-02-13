@@ -48,8 +48,8 @@ PICKK iOS 앱스토어 리젝 사유와 해결한 방법에 대해서 간단하�
 사진 접근 권한 요청시 안내 문구를 명시하라는 내용입니다. 위와 같이 사용됩니다.
 
 ```xml
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>카메라 롤에서 선택한 사진을 올려 공유할 수 있습니다.</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>카메라 롤에서 선택한 사진을 올려 공유할 수 있습니다.</string>
 ```
 
 Info.plist에 위 내용을 추가해서 해결할 수 있었습니다.

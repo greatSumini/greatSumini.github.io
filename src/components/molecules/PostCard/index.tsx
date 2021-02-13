@@ -20,6 +20,7 @@ export type PostCardProps = {
     tags: string[];
   };
   thumbnail: FluidObject;
+  style?: React.CSSProperties;
 };
 
 export default function PostCard({
@@ -27,6 +28,7 @@ export default function PostCard({
   fields,
   frontmatter,
   thumbnail,
+  style,
 }: PostCardProps) {
   if (!frontmatter) {
     return <Wrapper to={null} />;
@@ -36,7 +38,7 @@ export default function PostCard({
   const { title, date, tags } = frontmatter;
 
   return (
-    <Wrapper to={slug}>
+    <Wrapper to={slug} style={style}>
       <Img
         fluid={thumbnail}
         style={{

@@ -52,8 +52,14 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               date
               title
-              tags
               layout
+              thumbnail {
+                childImageSharp {
+                  fluid {
+                    originalImg
+                  }
+                }
+              }
             }
           }
         }
