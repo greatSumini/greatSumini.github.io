@@ -12,7 +12,7 @@ kakao developers 페이지에 들어가보면 각종 카카오 서비스 관련 
 
 이 SDK를 직접 활용해 프로젝트에 붙이는 방법도 있지만, 대부분 편의를 위해 라이브러리를 사용할 것이다.
 
-그렇다면 어떤 라이브러리를 사용해야할까? react native kakao login을 키워드로 검색해보면 다음 3가지 라이브러리가 나온다.
+그렇다면 어떤 라이브러리를 사용해야할까? react native kakao login을 키워드로 검색해보면 다음 3가지 라이브러리가 나온다. (2020-12-17 기준)
 
 1. [@react-native-seoul/kakao-login](https://www.npmjs.com/package/@react-native-seoul/kakao-login): Weekly Downloads 459
 2. [rn-kakao-login](https://www.npmjs.com/package/rn-kakao-login): Weekly Downloads 69
@@ -66,7 +66,8 @@ platform :ios, '11.0'
 
 3. [공식문서 - 앱생성](https://developers.kakao.com/docs/latest/ko/getting-started/app)을 참고해 앱을 생성합니다.
 4. Project => Targets 아래 앱 선택 => General 탭으로 이동해서 Bundle Identifier가 본인의 카카오 앱과 동일한지 확인해주세요.
-5. [공식문서 - 개발 프로젝트 설정](https://developers.kakao.com/docs/latest/ko/getting-started/sdk-ios)을 참고하여 Info.plist, URL Schemes 설정을 완료합니다.
+5. [공식문서 - 개발 프로젝트 설정](https://developers.kakao.com/docs/latest/ko/getting-started/sdk-ios)을 참고하여 Info.plist, URL Schemes 설정을 완료합니다.<br/>
+   ※ 설치하기, 초기화 단계는 라이브러리에서 내부적으로 지원하므로 추가로 작업하실 필요 없습니다~
 6. (2021/01/27 추가) iOS에서 기기에 미리 설치된 카카오톡을 이용해 로그인할 수 없는 버그가 있었는데요, 리서치 결과 공식 가이드에서 아래 내용을 찾을 수 있었습니다.
 
 ![kakao-url.png](kakao-url.png)
@@ -109,7 +110,7 @@ buildscript {
 
 ## 사용법
 
-예시 코드로 대체한다.
+예시 코드로 대체하겠습니다.
 
 ```tsx
 import KakaoLogin from '@actbase/react-native-kakao-login';
@@ -134,10 +135,8 @@ const login = () => {
 const getProfile = () => {
   KakaoLogin.getProfile()
     .then((result) => {
-      signIn(navigation, {
-        providerType: ProviderType.Kakao,
-        providerId: result.id.toString(),
-      });
+      console.log(`Login Finished:${JSON.stringify(result)}`);
+      // 이후 result.id를 활용해서 로그인 로직을 구현해주세용
     })
     .catch((err) => {
       console.log(`Get Profile Failed:${err.code} ${err.message}`);
@@ -167,7 +166,7 @@ const getProfile = () => {
 
 모듈의 타입 선언 파일(index.d.ts)에서 default export를 interface로 하고 있어 타입 에러가 발생한다.
 
-깃헙 레포지토리에 수정 PR을 날려볼 수도 있겠으나, 최근 업데이트가 21일 전이기 때문에 언제 반영될지 기약이 없다.
+깃헙 레포지토리에 수정 PR을 날려볼 수도 있겠으나, 최근 업데이트가 2020년 11월이기 때문에 언제 반영될지 기약이 없다.
 
 따라서 임시로 처리해줘야한다! 직접 타입 선언 파일을 작성해서 덮어 써주자.
 
@@ -226,4 +225,4 @@ const getProfile = () => {
 
 위와 같은 이유에서 빠르고 쉬운 1번 방법으로 이번 문제를 해결해봤습니다.
 
-물론 이번 문제는 타입 선언 파일에만 작은 문제가 있었어서 야매로 해결할 수 있었던 것이고, 코드 자체에 문제가 있는 경우 2번 또는 3번 방법을 사용해야 합니다!
+물론 이번 문제는 타입 선언 파일에만 작은 문제가 있었어서 야매로 해결할 수 있었던 것이고, 코드 자체에 문제가 있는 경우 2번(PR) 또는 3번(패치) 방법을 사용해야 합니다!
