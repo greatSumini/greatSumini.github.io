@@ -76,6 +76,7 @@ jobs:
         run: |
           cd public
           echo sumini.dev >> CNAME
+          echo ${{secrets.ENV_FILE}} >> env.txt
 
       - name: gh-page deploy
         if: matrix.node-version == '12.x'
