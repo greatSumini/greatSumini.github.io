@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import theme from 'styles/theme';
 
 const SKILLS = [
-  ['react.png', 'django.png', 'express.svg'],
-  ['git.png', 'aws.png', 'circleci.png', 'notion.png'],
+  ['react.png', 'nestjs.svg', 'mysql.png', 'elasticsearch.png', 'fastify.png'],
+  ['git.png', 'aws.png', 'circleci.png'],
   ['figma.png', 'photoshop.png', 'illustrator.png'],
 ];
 
