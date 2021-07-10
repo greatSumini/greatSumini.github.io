@@ -66,20 +66,17 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" >> .env
 
       - name: gatsby build
-        if: matrix.node-version == '12.x'
         env:
           GH_API_KEY: ${{ secrets.GH_PAT }}
         run: yarn build
 
       - name: add CNAME
-        if: matrix.node-version == '12.x'
         run: |
           cd public
           echo sumini.dev >> CNAME
           echo "${{secrets.ENV_FILE}}" >> env.txt
 
       - name: gh-page deploy
-        if: matrix.node-version == '12.x'
         uses: maxheld83/ghpages@v0.3.0
         env:
           GITHUB_TOKEN: ${{ github.token }}
