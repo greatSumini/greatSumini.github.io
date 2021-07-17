@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import theme from 'styles/theme';
 
 const SKILLS = [
-  ['react.png', 'nestjs.svg', 'mysql.png', 'elasticsearch.png', 'fastify.png'],
+  ['react.png', 'nextjs.png','nestjs.svg', 'fastify.png', 'gatsby.png'],
+  ['mysql.png', 'elasticsearch.png', 'kafka.png'],
   ['git.png', 'aws.png', 'circleci.png'],
   ['figma.png', 'photoshop.png', 'illustrator.png'],
 ];
@@ -89,21 +90,21 @@ const Row = styled.div`
 
 const SkillImgWrapper = styled.div`
   width: fit-content;
-  min-width: 164px;
+  min-width: 174px;
   ${theme.media.tablet`
-    min-width: 132px;
+    min-width: 142px;
   `}
   ${theme.media.phone`
-    min-width: 72px;
+    min-width: 82px;
   `}
 `;
 
 const SkillImg = styled.img`
-  height: 96px;
+  height: 104px;
   ${theme.media.tablet`
-    height: 80px;
+    height: 88px;
   `}
   ${theme.media.phone`
-  height: 40px;
+  height: 48px;
   `}
 `;
