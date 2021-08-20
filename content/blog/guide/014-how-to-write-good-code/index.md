@@ -2,7 +2,7 @@
 layout: post
 title: '좋은 코드 작성하기 (feat. 가독성, 생산성)'
 date: '2021-01-17T20:38:10.169Z'
-tags: ['tip']
+tags: ['refactoring', 'tip']
 thumbnail: clean-code.png
 ---
 
