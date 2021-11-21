@@ -53,11 +53,11 @@
     "react-adsense": "0.1.0",
     "react-dom": "16.13.1",
     "react-helmet": "5.2.1",
-    "react-typography": "0.16.19",
+    "react-typography": "0.16.20",
     "styled-components": "5.2.0",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
-    "typography": "0.16.19",
+    "typography": "0.16.21",
     "typography-theme-wordpress-2016": "0.16.19"
   },
   "devDependencies": {
