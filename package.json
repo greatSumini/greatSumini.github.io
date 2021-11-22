@@ -47,7 +47,7 @@
     "gatsby-source-filesystem": "2.3.25",
     "gatsby-transformer-remark": "2.8.29",
     "gatsby-transformer-sharp": "2.5.13",
-    "moment": "2.27.0",
+    "moment": "2.29.1",
     "prismjs": "1.21.0",
     "react": "16.13.1",
     "react-adsense": "0.1.0",
