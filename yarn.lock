@@ -5155,10 +5155,10 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-disqus-react@1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/disqus-react/-/disqus-react-1.0.10.tgz#75f1553856157d08fa76d8339d53d783ec1e4a62"
-  integrity sha512-TFd+pSl9m9QpqGcNAmewH/V795I9ObJMcEbLCIyPBy1VvUUl8DUoP+OiWhx24UjRygfV8y6saZVTBJRNYGJvkQ==
+disqus-react@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/disqus-react/-/disqus-react-1.1.2.tgz#97fd00630f9fe53db2673c0bd9155f52e1e0f97c"
+  integrity sha512-CrG7FUxI4MFfAQ5sNTOxpxAHMZmqzQEDgGvc7+DW7v8jfrt/RMLmwuhOSpAMTyVGQowCV6NxUQ5ShALEy2uJMg==
 
 dns-equal@^1.0.0:
   version "1.0.0"
