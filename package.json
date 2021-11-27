@@ -20,7 +20,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "1.11.1",
+    "babel-plugin-styled-components": "2.0.1",
     "disqus-react": "1.0.10",
     "dotenv": "10.0.0",
     "gatsby": "3.9.0",
