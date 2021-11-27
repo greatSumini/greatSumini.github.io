@@ -30,7 +30,7 @@ export default function ProfileSection() {
         <DescriptionWrapper>
           <Name>sumin choi,</Name>
           <Role>full stack developer</Role>
-          <Company>in thinking-muggles</Company>
+          <Company>in AWESOME.DEV</Company>
         </DescriptionWrapper>
         <ProfileImage src="/images/profile.png" />
       </Wrapper>
@@ -90,6 +90,14 @@ const Company = styled(StyledP)`
     font-size: 2rem;
   `}
 `;
+
+const Link = styled.a`
+  font-size: 3rem;
+  font-weight: 300;
+  ${theme.media.phone`
+    font-size: 2rem;
+  `}
+`
 
 const ProfileImage = styled.img`
   width: 320px;

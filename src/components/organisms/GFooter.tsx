@@ -39,7 +39,7 @@ export default function GFooter({ isBlog }) {
           <StyledP>Choi su min</StyledP>
         </Row>
         <Description>Sogang Univ.</Description>
-        <Description>CTO in thinking-muggles</Description>
+        <Description>AWESOME.DEV Lead</Description>
         <Description>Anyang, Gyeong-gi, Republic of Korea</Description>
         <Row>
           {ICONS.map(({ href, src, alt }) => (
