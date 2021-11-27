@@ -55,8 +55,8 @@
     "react-helmet": "5.2.1",
     "react-typography": "0.16.20",
     "styled-components": "5.2.0",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75",
+    "typeface-merriweather": "1.1.13",
+    "typeface-montserrat": "1.1.13",
     "typography": "0.16.21",
     "typography-theme-wordpress-2016": "0.16.19"
   },
