@@ -62,8 +62,8 @@
   },
   "devDependencies": {
     "@types/styled-components": "5.1.19",
-    "@typescript-eslint/eslint-plugin": "5.8.1",
-    "@typescript-eslint/parser": "5.8.1",
+    "@typescript-eslint/eslint-plugin": "5.9.0",
+    "@typescript-eslint/parser": "5.9.0",
     "eslint": "8.6.0",
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-prettier": "4.0.0",
