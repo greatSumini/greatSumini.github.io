@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
 
 import ChipLink, { ChipLinkProps } from 'components/molecules/ChipLink';
 import { TRUE_BLACK } from 'components/atoms/colors';
@@ -30,7 +28,7 @@ export default function ProfileSection() {
         <DescriptionWrapper>
           <Name>sumin choi,</Name>
           <Role>full stack developer</Role>
-          <Company>in AWESOME.DEV</Company>
+          <Company>in <a href="https://awesome.dev">AWESOME.DEV</a></Company>
         </DescriptionWrapper>
         <ProfileImage src="/images/profile.png" />
       </Wrapper>
@@ -89,15 +87,17 @@ const Company = styled(StyledP)`
   ${theme.media.phone`
     font-size: 2rem;
   `}
-`;
 
-const Link = styled.a`
-  font-size: 3rem;
-  font-weight: 300;
-  ${theme.media.phone`
-    font-size: 2rem;
-  `}
-`
+  a {
+    color: black;
+    font-weight: 600;
+    transition: all 0.5s;
+
+    &:hover {
+      color: skyblue;
+    }
+  }
+`;
 
 const ProfileImage = styled.img`
   width: 320px;
