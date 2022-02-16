@@ -3,8 +3,8 @@ body {
 }
 
 .postContents {
-  font-size: 1.1rem;
-  line-height: 1.8rem;
+  font-size: 1rem;
+  line-height: 180%;
   font-weight: 300;
 }
 
@@ -37,6 +37,11 @@ body {
 
 .postContents center {
   margin-bottom: 1rem;
+}
+
+.postContents li,
+oi {
+  margin-left: 1rem;
 }
 
 .postContents blockquote {
@@ -85,12 +90,12 @@ h5,
 h6 {
   margin-left: 0;
   margin-right: 0;
-  margin-top: 4rem;
+  margin-top: 2.4rem;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   color: inherit;
   font-weight: 900;
   text-rendering: optimizeLegibility;
@@ -98,15 +103,15 @@ h6 {
 }
 
 .postContents h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 
 .postContents h2 {
-  font-size: 1.65rem;
+  font-size: 1.4rem;
 }
 
 .postContents h3 {
-  font-size: 1.44rem;
+  font-size: 1.2rem;
 }
 
 .postContents h4 {
@@ -307,4 +312,8 @@ h6 {
   text-align: left;
   background-color: #373d37;
   color: white;
+}
+
+.postContents code.language-text {
+  white-space: pre-wrap;
 }
