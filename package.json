@@ -62,7 +62,7 @@
     "typography-theme-wordpress-2016": "0.16.19"
   },
   "devDependencies": {
-    "@types/styled-components": "5.1.23",
+    "@types/styled-components": "5.1.24",
     "@typescript-eslint/eslint-plugin": "5.13.0",
     "@typescript-eslint/parser": "5.13.0",
     "eslint": "8.10.0",
