@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="og:url" content="https://sumini.dev/guide/013-react-native-kakao-login/"/><meta data-react-helmet="true" name="og:type" content="article"/><meta data-react-helmet="true" name="og:image" content="/static/7878ad4dd63efbbcf8a414c03b568dc8/f3583/react-kakao.png"/><meta data-react-helmet="true" name="image" content="/static/7878ad4dd63efbbcf8a414c03b568dc8/f3583/react-kakao.png"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:description" content="카카오 로그인, 어떤 라이브러리를 사용해야할까? kakao developers 페이지에 들어가보면 각종 카카오 서비스 관련 기능을 붙이기 위한 SDK가 제공된다. 이 SDK…"/><meta data-react-helmet="true" property="og:title" content="React-Native Kakao Login 카카오 로그인v2 구현하기 (추가)"/><meta data-react-helmet="true" name="description" content="카카오 로그인, 어떤 라이브러리를 사용해야할까? kakao developers 페이지에 들어가보면 각종 카카오 서비스 관련 기능을 붙이기 위한 SDK가 제공된다. 이 SDK…"/><meta name="theme-color" content="#002000"/><meta name="generator" content="Gatsby 4.11.3"/><style data-href="/styles.be231eebb1feb896bc86.css" data-identity="gatsby-global-css">@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap);@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap);code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#073642}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:#fdf6e3}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}@font-face{font-family:Avant Garde;src:url(/static/AvantGardeRegular-31e197414143e3dcc17415607093d0c8.otf) format("truetype")}html{font-family:Roboto,Noto Sans KR,"sans-serif";overflow-x:hidden}body,html{width:100vw}body,p{margin:0}*,:after,:before{box-sizing:border-box}body{-webkit-font-feature-settings:"kern","liga","clig","calt";font-feature-settings:"kern","liga","clig","calt"}.postContents{font-size:1rem;font-weight:300;line-height:180%}@media only screen and (max-width:777px){.postContents{font-size:1rem}}.postContents p{margin:0 0 .75rem;padding:0}.postContents em{color:rgba(0,0,0,.69);font-style:normal;font-weight:600}.postContents i{color:rgba(0,0,0,.59)}.postContents center{margin-bottom:1rem}.postContents li,oi{margin-left:1rem}.postContents blockquote{background-color:#f5f5f5;border-left:.25rem solid rgba(0,0,0,.9);color:rgba(0,0,0,.69);font-style:italic;font-weight:500;line-height:1.75rem;margin:0 0 1.75rem;padding:.75rem}.postContents blockquote>p:last-child{margin:0}.postContents ul,ol{list-style-image:none;list-style-position:outside;margin:0 0 1rem 1rem;padding:0}.postContents ol li{padding-left:0}.postContents li{margin-bottom:.4rem}.postContents h1,h2,h3,h4,h5,h6{text-rendering:optimizeLegibility;color:inherit;font-weight:900;line-height:1.1;margin:2.4rem 0 1.2rem;padding:0}.postContents h1{font-size:2.2rem}.postContents h2{font-size:1.4rem}.postContents h3{font-size:1.2rem}.postContents h4{font-size:1rem;margin-bottom:1rem}.postContents del{background-color:hsla(0,4%,90%,.63);border-radius:2px;color:#e015ae;padding:2px 4px;text-decoration:none}.postContents .gatsby-highlight{background-color:#1a1a1a;border-radius:8px;box-shadow:0 0 20px -5px rgba(0,0,0,.55);margin:.5rem 0 .5rem -10px;padding:1.5rem 1rem .5rem;position:relative;width:calc(100% + 16px)}.postContents .gatsby-highlight:before{background-color:#eb6155;border-radius:50%;bottom:auto;content:"";height:.695rem;left:.5rem;position:absolute;top:.46rem;width:.7rem;z-index:999}@media only screen and (max-width:777px){.postContents .gatsby-highlight:before{height:.69rem;margin-top:.015rem;top:.479rem}}.postContents .gatsby-highlight:after{background-color:#f5c04f;border-radius:50%;content:"";height:.7rem;left:1.5rem;position:absolute;top:.44rem;width:.7rem;z-index:999}@media only screen and (max-width:777px){.postContents .gatsby-highlight:after{height:.695rem;margin-top:-.0117rem;top:.49rem}}.postContents .gatsby-highlight>pre>code:before{background-color:#63c655;border-radius:50%;content:"";height:.7rem;left:2.5rem;margin-top:-.01em;position:absolute;top:.44rem;width:.7rem;z-index:999}@media only screen and (max-width:777px){.postContents .gatsby-highlight>pre>code:before{height:.695rem;margin-top:-.0117rem;top:.49rem}}.postContents .gatsby-highlight>pre{background-color:#191919;padding:1em 0}.postContents .gatsby-highlight>pre:before{background-color:#333;border-radius:8px 8px 0 0;content:"";height:1.5rem;left:0;position:absolute;top:0;width:100%}.postContents a{color:#109b78}.postContents img{border:1px solid grey;display:block;margin:0 auto 1.5rem;width:80%}@media only screen and (max-width:777px){.postContents img{width:100%}}#disqus_thread{width:100%}.postContents ::-webkit-scrollbar{background:transparent;width:5px}.postContents ::-webkit-scrollbar-thumb{background:#555;border-radius:9999px}.postContents ::-webkit-scrollbar-thumb:hover{background:#888;border-radius:9999px}@media only screen and (min-width:1167px){.postContents p{margin:0 0 .5rem;padding:0}.postContents h1,h2,h3,h4,h5,h6{text-rendering:optimizeLegibility;color:inherit;font-weight:900;line-height:1.1;margin:3rem 0 1.25rem;padding:0}}.postContents{border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;width:100%}.postContents td,.postContents th{border:1px solid #ddd;padding:8px}.postContents tr:nth-child(2n){background-color:#f2f2f2}.postContents tr:hover{background-color:#ddd}.postContents th{background-color:#373d37;color:#fff;padding-bottom:12px;padding-top:12px;text-align:left}.postContents code.language-text{white-space:pre-wrap}code.language-tsx span.token.interpolation-punctuation.punctuation,code.language-tsx span.token.keyword{color:#60a6db}code.language-tsx span.token.class-name,code.language-tsx span.token.tag{color:#79cdb8}code.language-tsx,code.language-tsx span.token.attr-name,code.language-tsx span.token.builtin,code.language-tsx span.token.property{color:#97d9fe}code.language-tsx span.token.function{color:#d9daa4}code.language-tsx span.token.operator,code.language-tsx span.token.punctuation{color:#d9d9d9}code.language-tsx span.token.comment{color:#80a367}code.language-tsx span.token.attr-value,code.language-tsx span.token.string{color:#ca9d86}code.language-tsx span.token.number{color:#b4cea8}code.language-tsx span.token.constant{color:#53c0fa}code.language-tsx span.token.script.language-javascript{color:#97d9fe}code.language-tsx span.token.script.language-javascript span:last-child,code.language-tsx span.token.script.language-javascript span:nth-child(2):not(.script-punctuation){color:#579cd6}code.language-tsx span.token.tag>span.token.punctuation:first-child,code.language-tsx span.token.tag>span.token.punctuation:last-child{color:#7c7b7b}code.language-tsx span.token.spread span.token.attr-value,code.language-tsx span.token.spread span.token.punctuation{color:#97d9fe}code.language-tsx span.token.spread span.token.punctuation:first-child,code.language-tsx span.token.spread span.token.punctuation:last-child{color:#579cd6}code.language-typescript span.token.interpolation-punctuation.punctuation,code.language-typescript span.token.keyword{color:#60a6db}code.language-typescript span.token.class-name,code.language-typescript span.token.tag{color:#79cdb8}code.language-typescript,code.language-typescript span.token.attr-name,code.language-typescript span.token.builtin,code.language-typescript span.token.property{color:#97d9fe}code.language-typescript span.token.function{color:#d9daa4}code.language-typescript span.token.operator,code.language-typescript span.token.punctuation{color:#d9d9d9}code.language-typescript span.token.comment{color:#80a367}code.language-typescript span.token.string{color:#ca9d86}code.language-typescript span.token.number{color:#b4cea8}code.language-typescript span.token.constant{color:#53c0fa}code.language-typescript span.token.script.language-javascript{color:#97d9fe}code.language-typescript span.token.script.language-javascript span:last-child,code.language-typescript span.token.script.language-javascript span:nth-child(2):not(.script-punctuation){color:#579cd6}code.language-typescript span.token.tag>span.token.punctuation:first-child,code.language-typescript span.token.tag>span.token.punctuation:last-child{color:#7c7b7b}:not(pre)>code[class*=language-text]{background-color:hsla(0,4%,90%,.63);color:#e015ae;font-family:Roboto,Noto Sans KR,"sans-serif"}code.language-json span.token.interpolation-punctuation.punctuation,code.language-json span.token.keyword{color:#60a6db}code.language-json span.token.class-name,code.language-json span.token.tag{color:#79cdb8}code.language-json,code.language-json span.token.attr-name,code.language-json span.token.builtin,code.language-json span.token.property{color:#97d9fe}.postContents .gatsby-highlight>pre ::selection{background:#97d9fe}code.language-json span.token.function{color:#d9daa4}code.language-json span.token.operator,code.language-json span.token.punctuation{color:#d9d9d9}code.language-json span.token.comment{color:#80a367}code.language-json span.token.string{color:#ca9d86}code.language-json span.token.number{color:#b4cea8}code.language-json span.token.constant{color:#53c0fa}code.language-json span.token.script.language-javascript{color:#97d9fe}code.language-json span.token.script.language-javascript span:last-child,code.language-json span.token.script.language-javascript span:nth-child(2):not(.script-punctuation){color:#579cd6}code.language-json span.token.tag>span.token.punctuation:first-child,code.language-json span.token.tag>span.token.punctuation:last-child{color:#7c7b7b}code.language-shell,code.language-shell span.token.function,code.language-xml,code.language-xml span.token.punctuation.attr-equals{color:#ccc}code.language-xml span.token.tag{color:#579cd6}code.language-xml span.token.attr-name{color:#97d9fe}code.language-xml span.token.attr-value,code.language-xml span.token.attr-value span.token.punctuation:not(.attr-equals){color:#ca9d86}</style><style type="text/css">
+    .anchor-header.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor-header.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor-header svg,
+    h2 .anchor-header svg,
+    h3 .anchor-header svg,
+    h4 .anchor-header svg,
+    h5 .anchor-header svg,
+    h6 .anchor-header svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor-header svg,
+    h2:hover .anchor-header svg,
+    h3:hover .anchor-header svg,
+    h4:hover .anchor-header svg,
+    h5:hover .anchor-header svg,
+    h6:hover .anchor-header svg,
+    h1 .anchor-header:focus svg,
+    h2 .anchor-header:focus svg,
+    h3 .anchor-header:focus svg,
+    h4 .anchor-header:focus svg,
+    h5 .anchor-header:focus svg,
+    h6 .anchor-header:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="icon" href="/favicon-32x32.png?v=b00359cd3925939970a43cd1b4cec7a8" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=b00359cd3925939970a43cd1b4cec7a8"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=b00359cd3925939970a43cd1b4cec7a8"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=b00359cd3925939970a43cd1b4cec7a8"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=b00359cd3925939970a43cd1b4cec7a8"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=b00359cd3925939970a43cd1b4cec7a8"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=b00359cd3925939970a43cd1b4cec7a8"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=b00359cd3925939970a43cd1b4cec7a8"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=b00359cd3925939970a43cd1b4cec7a8"/><title data-react-helmet="true">React-Native Kakao Login 카카오 로그인v2 구현하기 (추가) | 최수민 개발 블로그</title><script data-react-helmet="true" type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","image":{"@type":"ImageObject","url":"/static/7878ad4dd63efbbcf8a414c03b568dc8/f3583/react-kakao.png"},"url":"https://sumini.dev/guide/013-react-native-kakao-login/","dateCreated":"2020-12-17T01:22:10.169Z","datePublished":"2020-12-17T01:22:10.169Z","dateModified":"2020-12-17T01:22:10.169Z","headline":"React-Native Kakao Login 카카오 로그인v2 구현하기 (추가) | 최수민 개발 블로그","name":"React-Native Kakao Login 카카오 로그인v2 구현하기 (추가) | 최수민 개발 블로그","description":"카카오 로그인, 어떤 라이브러리를 사용해야할까? kakao developers 페이지에 들어가보면 각종 카카오 서비스 관련 기능을 붙이기 위한 SDK가 제공된다. 이 SDK…","keywords":["Lite:true","Elevated:false","LockedPostSource:LOCKED_POST_SOURCE_NONE","LayerCake:0"],"author":{"@type":"Person","name":"Choi su min","url":"https://sumini.dev"},"creator":["Choi su min"],"publisher":{"@type":"Person","url":"https://sumini.dev","logo":"https://sumini.dev/images/profile.png","name":"Choi su min"},"mainEntityOfPage":"https://sumini.dev/guide/013-react-native-kakao-login/"}</script><style data-styled="" data-styled-version="5.3.5">.jkotJk{position:fixed;top:0;left:0;right:0;z-index:9999;height:74px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;padding:0 28px;background:transparent;-webkit-transition:background 0.3s;transition:background 0.3s;background:false;}/*!sc*/
+@media (max-width:778px){.jkotJk{height:55px;padding:0 16px;}}/*!sc*/
+data-styled.g1[id="GNB__StyledHeader-sc-5zh84b-0"]{content:"jkotJk,"}/*!sc*/
+.bCdaOQ.bCdaOQ{margin:0;font-size:1.4rem;font-family:Avant Garde;-webkit-transition:color 0.3s;transition:color 0.3s;}/*!sc*/
+data-styled.g2[id="GNB__StyledP-sc-5zh84b-1"]{content:"bCdaOQ,"}/*!sc*/
+.cqWrbM.cqWrbM{font-size:1.4rem;-webkit-transition:color 0.3s;transition:color 0.3s;}/*!sc*/
+data-styled.g3[id="GNB__StyledStrong-sc-5zh84b-2"]{content:"cqWrbM,"}/*!sc*/
+.llPKMc.llPKMc{margin-right:auto;}/*!sc*/
+data-styled.g4[id="GNB__Title-sc-5zh84b-3"]{content:"llPKMc,"}/*!sc*/
+.fuPFMG.fuPFMG{margin-left:34px;}/*!sc*/
+data-styled.g5[id="GNB__NavLinkText-sc-5zh84b-4"]{content:"fuPFMG,"}/*!sc*/
+.yxVVd{-webkit-text-decoration:none;text-decoration:none;box-shadow:none;color:#444;}/*!sc*/
+.yxVVd:hover{color:#222;}/*!sc*/
+.yxVVd.on{color:#000;}/*!sc*/
+data-styled.g6[id="GNB__NavLink-sc-5zh84b-5"]{content:"yxVVd,"}/*!sc*/
+.ipEKkn{width:100vw;background-color:#F2F2F2;padding:40px;}/*!sc*/
+@media only screen and (max-width:828px){.ipEKkn{padding:16px;}}/*!sc*/
+data-styled.g7[id="GFooter__StyledFooter-sc-ze3oj-0"]{content:"ipEKkn,"}/*!sc*/
+.bxVPRB{margin:0 auto;width:100%;max-width:1160px;max-width:900px;}/*!sc*/
+data-styled.g8[id="GFooter__MiddleWrapper-sc-ze3oj-1"]{content:"bxVPRB,"}/*!sc*/
+.icGrvh{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:20px;}/*!sc*/
+data-styled.g9[id="GFooter__Row-sc-ze3oj-2"]{content:"icGrvh,"}/*!sc*/
+.cXEecS{margin:0;font-size:1.4rem;}/*!sc*/
+data-styled.g10[id="GFooter__StyledP-sc-ze3oj-3"]{content:"cXEecS,"}/*!sc*/
+.dVNPHB.dVNPHB{font-size:0.8rem;margin-bottom:8px;}/*!sc*/
+data-styled.g11[id="GFooter__Description-sc-ze3oj-4"]{content:"dVNPHB,"}/*!sc*/
+.foObBQ{margin-top:8px;margin-right:20px;margin-bottom:-20px;}/*!sc*/
+data-styled.g12[id="GFooter__IconImg-sc-ze3oj-5"]{content:"foObBQ,"}/*!sc*/
+.bCHvjL{padding-top:76px;}/*!sc*/
+@media (max-width:778px){.bCHvjL{padding-top:55px;}}/*!sc*/
+data-styled.g13[id="layout__Wrapper-sc-1bje4v2-0"]{content:"bCHvjL,"}/*!sc*/
+.ijgKfR{width:100vw;max-width:900px;margin:0 auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}/*!sc*/
+data-styled.g14[id="layout__Main-sc-1bje4v2-1"]{content:"ijgKfR,"}/*!sc*/
+.cCRyGH{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g15[id="bio__Row-sc-lcmwqd-0"]{content:"cCRyGH,"}/*!sc*/
+.dKVMNt{margin:0;font-size:1.2rem;}/*!sc*/
+data-styled.g16[id="bio__StyledP-sc-lcmwqd-1"]{content:"dKVMNt,"}/*!sc*/
+.fvrwCK{background-color:#eff1ff;-webkit-text-decoration:none;text-decoration:none;margin:5px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;cursor:pointer;padding:8px;false;}/*!sc*/
+.fvrwCK:hover{background-color:#d5dcff;}/*!sc*/
+data-styled.g17[id="TagCard__Wrapper-sc-1e80ywn-0"]{content:"fvrwCK,"}/*!sc*/
+.jTanqC{color:#2d50ff;font-size:18px;font-weight:400;}/*!sc*/
+data-styled.g18[id="TagCard__Label-sc-1e80ywn-1"]{content:"jTanqC,"}/*!sc*/
+.hlCTKM{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;position:relative;width:336px;margin-bottom:12px;box-shadow:0px 8px 12px rgba(0,0,0,0.25);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g19[id="context__Wrapper-sc-19j0jip-0"]{content:"hlCTKM,"}/*!sc*/
+.imWYZm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:100%;padding:12px;border-top:0.5px solid #eee;}/*!sc*/
+data-styled.g20[id="context__TitleWrapper-sc-19j0jip-1"]{content:"imWYZm,"}/*!sc*/
+.hCNGVf{position:absolute;font-size:0.75rem;font-weight:700;color:white;background-color:black;padding:2px 4px;}/*!sc*/
+data-styled.g21[id="context__Type-sc-19j0jip-2"]{content:"hCNGVf,"}/*!sc*/
+.hfyiNI{width:312px;font-size:1rem;font-weight:700;color:rgb(73,80,87);white-space:nowrap;text-overflow:ellipsis;display:block;overflow:hidden;}/*!sc*/
+data-styled.g22[id="context__Title-sc-19j0jip-3"]{content:"hfyiNI,"}/*!sc*/
+.llzZwc{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding:12px;margin:0 12px 0 auto;color:#222;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g23[id="FurtherPostsSection__Wrapper-sc-1evav78-0"]{content:"llzZwc,"}/*!sc*/
+.dpiVHi{margin:0;font-size:1.4rem;}/*!sc*/
+data-styled.g24[id="FurtherPostsSection__Title-sc-1evav78-1"]{content:"dpiVHi,"}/*!sc*/
+.kTFwjb{padding:0 12px;width:100%;}/*!sc*/
+data-styled.g27[id="blog-post__Article-sc-a8k2ed-0"]{content:"kTFwjb,"}/*!sc*/
+.iesBYA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:0.8rem;}/*!sc*/
+data-styled.g28[id="blog-post__DateTagRow-sc-a8k2ed-1"]{content:"iesBYA,"}/*!sc*/
+.hyIrOF{font-size:2.2rem;margin-bottom:0.5rem;}/*!sc*/
+@media (max-width:576px){.hyIrOF{font-size:1.65rem;}}/*!sc*/
+data-styled.g29[id="blog-post__Title-sc-a8k2ed-2"]{content:"hyIrOF,"}/*!sc*/
+.KyvGt{font-size:24px;color:#AAA;margin-right:20px;}/*!sc*/
+@media (max-width:576px){.KyvGt{font-size:16px;}}/*!sc*/
+data-styled.g30[id="blog-post__Date-sc-a8k2ed-3"]{content:"KyvGt,"}/*!sc*/
+.kfDlOD{padding:6rem 0 4rem;}/*!sc*/
+data-styled.g31[id="blog-post__PostContents-sc-a8k2ed-4"]{content:"kfDlOD,"}/*!sc*/
+.hyepYz{font-size:1.4rem;color:rgb(73,80,87);-webkit-text-decoration:none;text-decoration:none;padding:12px;margin-left:auto;margin-right:12px;}/*!sc*/
+data-styled.g32[id="blog-post__ListLink-sc-a8k2ed-5"]{content:"hyepYz,"}/*!sc*/
+.hsoBAg{width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;border-bottom:1px solid grey;padding:12px;padding-bottom:20px;margin-bottom:20px;}/*!sc*/
+data-styled.g33[id="blog-post__ContextPostsWrapper-sc-a8k2ed-6"]{content:"hsoBAg,"}/*!sc*/
+.imQGSm{width:100%;}/*!sc*/
+@media (max-width:576px){.imQGSm{width:90%;margin:0 auto;}}/*!sc*/
+data-styled.g34[id="blog-post__DisqusWrapper-sc-a8k2ed-7"]{content:"imQGSm,"}/*!sc*/
+</style><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link rel="canonical" href="https://sumini.dev/guide/013-react-native-kakao-login/" data-baseprotocol="https:" data-basehost="sumini.dev"/><link as="script" rel="preload" href="/webpack-runtime-1678ed22e28018b2c351.js"/><link as="script" rel="preload" href="/framework-b9923b3cceb493977198.js"/><link as="script" rel="preload" href="/app-8fc8729a1721a9be6c21.js"/><link as="script" rel="preload" href="/commons-191af479aa496cf3716f.js"/><link as="script" rel="preload" href="/f916f3434184bed2ade114b93b1fa15eb506af15-28a458598fcda47f38ae.js"/><link as="script" rel="preload" href="/1b0ffd54fca0032bd0c8179d24b48c11d9984179-4ee1b5532a1c220f56fa.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-tsx-f8e03d04f38152bda786.js"/><link as="fetch" rel="preload" href="/page-data/guide/013-react-native-kakao-login/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1845200029.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3000541721.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout__Wrapper-sc-1bje4v2-0 bCHvjL"><header class="GNB__StyledHeader-sc-5zh84b-0 jkotJk"><p class="GNB__StyledP-sc-5zh84b-1 GNB__Title-sc-5zh84b-3 bCdaOQ llPKMc"><a class="GNB__NavLink-sc-5zh84b-5 yxVVd" href="/">sumini <strong class="GNB__StyledStrong-sc-5zh84b-2 cqWrbM">dev</strong></a></p><p class="GNB__StyledP-sc-5zh84b-1 GNB__NavLinkText-sc-5zh84b-4 bCdaOQ fuPFMG"><a class="GNB__NavLink-sc-5zh84b-5 yxVVd" href="/posts">posts</a></p><p class="GNB__StyledP-sc-5zh84b-1 GNB__NavLinkText-sc-5zh84b-4 bCdaOQ fuPFMG"><a class="GNB__NavLink-sc-5zh84b-5 yxVVd logo" href="/projects">projects</a></p></header><main class="layout__Main-sc-1bje4v2-1 ijgKfR"><article class="blog-post__Article-sc-a8k2ed-0 kTFwjb"><header><h1 class="blog-post__Title-sc-a8k2ed-2 hyIrOF">React-Native Kakao Login 카카오 로그인v2 구현하기 (추가)</h1><div class="bio__Row-sc-lcmwqd-0 cCRyGH"><img style="width:32px;border-radius:50%;box-sizing:border-box;height:32px;border:0.1rem solid #f0f0f0;margin-right:8px" src="/images/emoji.png" alt="profile-image"/><p class="bio__StyledP-sc-lcmwqd-1 dKVMNt">Choi su min</p></div><div class="blog-post__DateTagRow-sc-a8k2ed-1 iesBYA"><p style="display:block" class="blog-post__Date-sc-a8k2ed-3 KyvGt">2020.12.17</p><a href="/posts?tag=react-native" class="TagCard__Wrapper-sc-1e80ywn-0 fvrwCK"><p class="TagCard__Label-sc-1e80ywn-1 jTanqC">#<!-- -->react-native<!-- --> </p></a></div><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;width:70%;height:auto;object-fit:cover;margin:0 auto;box-shadow:0 4px 12px 4px rgba(0, 0, 0, 0.24);border-radius:8px"><div aria-hidden="true" style="width:100%;padding-bottom:56%"></div><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABHUlEQVQoz61STUuEUBT1t/sHxqW4U1xFHyqRpLTIpRASTovAHyDNyzHNFMf7Tmg8dSYNBjpwefddLufcL4lzjh79O7cxhvMg/UUGHIsJ/M5bJfwJ0lzgRJCIjnzx79+BUCiwluP5k/BUEl6/hDpWK1lCnzNW2JPdMMLFrsN9Rvg4cIiSy7JEGIaoqgpZliGOYyRJgqIowBhDnudI03Rq+a3leMwJV4xwzTrcZTQICMK6riHLMoIggGmaUFUVm80GURRBURToug7LsgaBseWXinD7TrjcdXjYE6puqrBpGriuO5imafB9f/Adx4FhGLBtG57noW3biXB/4NhWNBAnCzM8+2yWBozZQubbPN3u/AqktcOe4li9v6V8Cf+Mby1FUJn+LaGDAAAAAElFTkSuQmCC" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/7878ad4dd63efbbcf8a414c03b568dc8/630fb/react-kakao.png 300w,
+/static/7878ad4dd63efbbcf8a414c03b568dc8/2a4de/react-kakao.png 600w,
+/static/7878ad4dd63efbbcf8a414c03b568dc8/f3583/react-kakao.png 1200w,
+/static/7878ad4dd63efbbcf8a414c03b568dc8/bbee5/react-kakao.png 1800w,
+/static/7878ad4dd63efbbcf8a414c03b568dc8/d15b7/react-kakao.png 1944w" sizes="(max-width: 1200px) 100vw, 1200px" /><img loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" srcset="/static/7878ad4dd63efbbcf8a414c03b568dc8/630fb/react-kakao.png 300w,
+/static/7878ad4dd63efbbcf8a414c03b568dc8/2a4de/react-kakao.png 600w,
+/static/7878ad4dd63efbbcf8a414c03b568dc8/f3583/react-kakao.png 1200w,
+/static/7878ad4dd63efbbcf8a414c03b568dc8/bbee5/react-kakao.png 1800w,
+/static/7878ad4dd63efbbcf8a414c03b568dc8/d15b7/react-kakao.png 1944w" src="/static/7878ad4dd63efbbcf8a414c03b568dc8/f3583/react-kakao.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></header><section class="blog-post__PostContents-sc-a8k2ed-4 kfDlOD postContents"><h2 id="카카오-로그인-어떤-라이브러리를-사용해야할까" style="position:relative;"><a href="#%EC%B9%B4%EC%B9%B4%EC%98%A4-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%96%B4%EB%96%A4-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%ED%95%A0%EA%B9%8C" aria-label="카카오 로그인 어떤 라이브러리를 사용해야할까 permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>카카오 로그인, 어떤 라이브러리를 사용해야할까?</h2>
+<p>kakao developers 페이지에 들어가보면 각종 카카오 서비스 관련 기능을 붙이기 위한 SDK가 제공된다.</p>
+<p>이 SDK를 직접 활용해 프로젝트에 붙이는 방법도 있지만, 대부분 편의를 위해 라이브러리를 사용할 것이다.</p>
+<p>그렇다면 어떤 라이브러리를 사용해야할까? react native kakao login을 키워드로 검색해보면 다음 3가지 라이브러리가 나온다. (2020-12-17 기준)</p>
+<ol>
+<li><a href="https://www.npmjs.com/package/@react-native-seoul/kakao-login">@react-native-seoul/kakao-login</a>: Weekly Downloads 459</li>
+<li><a href="https://www.npmjs.com/package/rn-kakao-login">rn-kakao-login</a>: Weekly Downloads 69</li>
+<li><a href="https://www.npmjs.com/package/@actbase/react-native-kakao-login">@actbase/react-native-kakao-login</a>: Weekly Downloads 60</li>
+</ol>
+<br>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABxElEQVQoz5WP30tTcRjGzx8VQZfRTVAX0tpOY7iK0CuhZaFisZxrYlR3aco2R0utIF2b80cNMSykmj+6KM0lhLiL3GbnnO85x+1Mt0+0UVfF6oEPD7zwPjyPtJn5wrv3aVbXPvDx0zrp5RUMw+Cnqvy/JNPcRxMC3TAQQiB0HVVV0TQN89dNCDRNrbmiKKiaTkEvkxMH7Ol1CvoBevEQ6dt3k62sQiarsLlT943tPJmtr+wWFPZUnYIiahRLJSzLomRZ7FsVTKtS82K5TvmwijSztEHPyDzd4QXGZ95y/9kS7cFFOsKv6RxOcXUwxbXhebqCC+QUs/HkoalVbL0xOgbnePD0Fa6eMWzuNk6fa6Xde4/zt+M4A89x+GPs5LTaU6VSpVr9M1Jweo3m/gTeUIorAy+xdUexy834PK1cP9OE50aQJn8c2T9JNi9+B/614UB8BZtvEldfAqc/htw3zYWWTkKX3Fw+eoQTx45zqiuKHIiTzWuNAxeXP+MLzeEKxHH0xnD2J/F6bhJxu5DPOjhpv4jTP4H9VuLfGr5Jr3M3MkvLnQThR0lmJ5IkRx8zFR7hxcMo42NPGIqM0haIsL3buOEPfWhpkdaGSvIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="rn-kakao-login-gone.png"
+        title="rn-kakao-login-gone.png"
+        src="/static/a69c074978c16425f9e6dc6e688409cc/5a190/rn-kakao-login-gone.png"
+        srcset="/static/a69c074978c16425f9e6dc6e688409cc/772e8/rn-kakao-login-gone.png 200w,
+/static/a69c074978c16425f9e6dc6e688409cc/e17e5/rn-kakao-login-gone.png 400w,
+/static/a69c074978c16425f9e6dc6e688409cc/5a190/rn-kakao-login-gone.png 800w,
+/static/a69c074978c16425f9e6dc6e688409cc/8efc2/rn-kakao-login-gone.png 828w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<p>이 중 <strong>rn-kakao-login</strong>은 더 이상 유지되지 않기 때문에 제외한다.</p>
+<p><strong>@react-native-seoul/kakao-login</strong>이 더 많이 사용되지만, Legacy SDK 기반의 Object-C++ 코드기 때문에 <code class="language-text">웹과 스키마가 다르다.</code></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 32%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA80lEQVQY06WRzUrDUBCF84iCuKg0ooI/EXwgUWyKC13pizQ1bXWl1m7ExvuTm4Zb6SL5JLcxtSBuHDjMOTOHgZnx+BFlWf4bntaaKOojpaqHruB0jYaX/Bne59wixJTMaAdjFFmmyXNDmkpMqphlqdMVd55UoZRECEGSJCilMMZQFAXe+1TTHzwzGI2J4ifuhy+Ojx4nxMNlPa5qD6/LXPvGkzeMSd0wa+1q5Zu7Hhv+GTsnXfygS+vgkvZx6PTW/gWtww5+ELJ91KEdhOydXrG5e871ba850drKdr4gETOEzPmQeZMrSLWuv/uV39rFr4/8AoKfuDkcTFMMAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="danger-kakao.png"
+        title="danger-kakao.png"
+        src="/static/2d1a84fdd914aff8c5d861b8bf181c8c/5a190/danger-kakao.png"
+        srcset="/static/2d1a84fdd914aff8c5d861b8bf181c8c/772e8/danger-kakao.png 200w,
+/static/2d1a84fdd914aff8c5d861b8bf181c8c/e17e5/danger-kakao.png 400w,
+/static/2d1a84fdd914aff8c5d861b8bf181c8c/5a190/danger-kakao.png 800w,
+/static/2d1a84fdd914aff8c5d861b8bf181c8c/77800/danger-kakao.png 855w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<p>또 카카오에서도 조만간 중단되니 <code class="language-text">가급적 쓰지말라</code>고 한다.. 따라서 이를 선택하는 것은 너무 위험하다고 판단했다.</p>
+<p>KakaoSDK v2 기반의 Swift 코드인 <strong>@actbase/react-native-kakao-login</strong>가 매우 매력적이지만 문서화가 매우 빈약하고 버그가 존재해 사용하기 쉽지 않다.</p>
+<p>이번 포스트에선 <strong>@actbase/react-native-kakao-login</strong>를 도입하기 위해 필요한 과정과 해결해야할 버그에 대해서 설명해보겠다.</p>
+<h2 id="소개" style="position:relative;"><a href="#%EC%86%8C%EA%B0%9C" aria-label="소개 permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>소개</h2>
+<p>별도 라이브러리를 설치하지 않아도 된다.</p>
+<p>RN 0.60 이상 버전에서만 호환되며, Pod이 필수다.</p>
+<h2 id="getting-started" style="position:relative;"><a href="#getting-started" aria-label="getting started permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getting Started</h2>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ <span class="token function">yarn</span> <span class="token function">add</span> @actbase/react-native-kakao-login</code></pre></div>
+<br>
+<h2 id="post-installation" style="position:relative;"><a href="#post-installation" aria-label="post installation permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Post Installation</h2>
+<h3 id="ios" style="position:relative;"><a href="#ios" aria-label="ios permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iOS</h3>
+<ol>
+<li>프로젝트의 ios 폴더에서 Pod 설치 명령어를 실행합니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">$ npx pod <span class="token function">install</span></code></pre></div>
+<ol start="2">
+<li><code class="language-text">/ios/Podfile</code> 파일의 플랫폼 버전을 11.0 이상으로 설정해야합니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">platform :ios, <span class="token string">'11.0'</span></code></pre></div>
+<ol start="3">
+<li><a href="https://developers.kakao.com/docs/latest/ko/getting-started/app">공식문서 - 앱생성</a>을 참고해 앱을 생성합니다.</li>
+<li>Project => Targets 아래 앱 선택 => General 탭으로 이동해서 Bundle Identifier가 본인의 카카오 앱과 동일한지 확인해주세요.</li>
+<li><a href="https://developers.kakao.com/docs/latest/ko/getting-started/sdk-ios">공식문서 - 개발 프로젝트 설정</a>을 참고하여 Info.plist, URL Schemes 설정을 완료합니다.<br/>
+※ 설치하기, 초기화 단계는 라이브러리에서 내부적으로 지원하므로 추가로 작업하실 필요 없습니다~</li>
+<li>(2021/01/27 추가) iOS에서 기기에 미리 설치된 카카오톡을 이용해 로그인할 수 없는 버그가 있었는데요, 리서치 결과 공식 가이드에서 아래 내용을 찾을 수 있었습니다.</li>
+</ol>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 80%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAACz0lEQVQ4y4VS/U9SYRR+mSCIgIB8KIqa0RQ/Uz7UzHLlRyZFS63ZcpUrbZbV1ly/90t/Qn+Ys7WRAnKvCFw+N5sf4NPeAxmypXd7du773Oec85zzXhYIBLC1tYVgMIjt7V/Y3NwE505OTlAoFJDP53F6eorK538cy2azSGcyyGZzyGQySKfTFFOpFEGSJBweHpK4HH8LVHJMSuURk/IQo78RjycgSQkkEgkkk0lEo1HE43HkcjlqxIvzJvwbj5zj4HpughwmpBQSiRT292OUzJO4IBaLU8F0OkljHx8fE/gqjo7+vZd/4ytioiBAEASIoohIJEJREEVEo3uICCJ+/AxjJxgqnnd3EQ6HSR+JCLT3UChEOZznLllS4uMVXRWtpyEIEQSDO5QU2BYRi0vY2z9AcDcLYe8AUjKHVFJCLpdFoZAv7bNQ3OHC0gZm5z/g6dJnPHuxgbnFj5j0vcbE/WVMzC5jxr+CGf8qJn2rmJhdoTj9cJW4mUdv4Xu8hgfz7zA+/RJfv30HU+gHwZgDTN4BVt0JJnOAsRYw1lZCawktFXw5roIxI6Z8b8Dq7begNLhQ33QDOusQNGY3zPZRGBpHoDG5iTc0DlM0NY9CqR8Aq+mGTN1zBoW2n5r6n6yD6RpGUFU3AJ3VC63JjRrDAGoMgwSVYQC1JjdF3lRj8qC67jrk2r4z8LPKwKdsx9ziJzCt2QNW2w998xisnXdhdozDfu0O2pyTcPTcQ7tzCg1XbkNruwm10UWudRYveB4Hd260jZDr56++gGktXjBFBxFyowdy7sjmharRC6XFQ2NaW8dgtA1DXe8it3xM2rfSSVGm7gZjTfDNrZUKKp2Qa/shU/dCVtsLVtMFpuqiJpWg5AquStNHF+ZfWC8rqHdBbnBDYfQWhaqui/FXQwV7wZgd/oX3YDrLUOm2us+LL0OZ7lxB/nvQPi5IuAzlBf8Aa+TZVUC/a0UAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="kakao-url.png"
+        title="kakao-url.png"
+        src="/static/29db49e78994801c8ad4aedfa013af22/5a190/kakao-url.png"
+        srcset="/static/29db49e78994801c8ad4aedfa013af22/772e8/kakao-url.png 200w,
+/static/29db49e78994801c8ad4aedfa013af22/e17e5/kakao-url.png 400w,
+/static/29db49e78994801c8ad4aedfa013af22/5a190/kakao-url.png 800w,
+/static/29db49e78994801c8ad4aedfa013af22/c1b63/kakao-url.png 1200w,
+/static/29db49e78994801c8ad4aedfa013af22/29007/kakao-url.png 1600w,
+/static/29db49e78994801c8ad4aedfa013af22/eb1d2/kakao-url.png 1622w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+    </span></p>
+<p>찾아보니 다행히 이 라이브러리에도 위 상황을 대응하기 위한 모듈이 존재하네요. <code class="language-text">AppDelegate.m</code>에 아래 내용을 추가해 쉽게 해결할 수 있습니다.</p>
+<div class="gatsby-highlight" data-language="objectivec"><pre class="language-objectivec"><code class="language-objectivec"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">import</span> <span class="token expression"><span class="token operator">&lt;</span>ARNKakaoLogin<span class="token operator">/</span>ARNKakaoLoginConnector<span class="token punctuation">.</span>h<span class="token operator">></span></span></span>
+
+<span class="token operator">-</span> <span class="token punctuation">(</span>BOOL<span class="token punctuation">)</span>application<span class="token punctuation">:</span><span class="token punctuation">(</span>UIApplication <span class="token operator">*</span><span class="token punctuation">)</span>application openURL<span class="token punctuation">:</span><span class="token punctuation">(</span>NSURL <span class="token operator">*</span><span class="token punctuation">)</span>url
+                                       sourceApplication<span class="token punctuation">:</span><span class="token punctuation">(</span>NSString <span class="token operator">*</span><span class="token punctuation">)</span>sourceApplication
+                                              annotation<span class="token punctuation">:</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>annotation <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">[</span>ARNKakaoLoginConnector isKakaoTalkLoginUrl<span class="token punctuation">:</span>url<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span>ARNKakaoLoginConnector handleOpenUrl<span class="token punctuation">:</span> url<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> NO<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="android" style="position:relative;"><a href="#android" aria-label="android permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Android</h3>
+<ol>
+<li><a href="https://developers.kakao.com/docs/latest/ko/getting-started/sdk-android">공식문서 - 개발 프로젝트 설정</a>에서 초기화, v1->v2 마이그레이션을 제외한 모든 설정을 완료합니다. 꼭 릴리즈, 디버그 해시키를 모두 등록해주세요!</li>
+<li><code class="language-text">/android/app/src/main/AndroidManifest.xml</code> 파일내에 다음 내용을 추가합니다. (app_key가 123412341234라면 “123412341234”)</li>
+</ol>
+<div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta-data</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.kakao.sdk.AppKey<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">android:</span>value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{YOUR_APP_KEY}<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre></div>
+<ol start="3">
+<li><code class="language-text">/android/build.gradle</code> 파일에서 Android API 버전을 19 이상으로 설정합니다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell">buildscript <span class="token punctuation">{</span>
+    ext <span class="token punctuation">{</span>
+       minSdkVersion <span class="token operator">=</span> <span class="token number">19</span>
+    <span class="token punctuation">}</span></code></pre></div>
+<br>
+<h2 id="사용법" style="position:relative;"><a href="#%EC%82%AC%EC%9A%A9%EB%B2%95" aria-label="사용법 permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>사용법</h2>
+<p>예시 코드로 대체하겠습니다.</p>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx"><span class="token keyword">import</span> KakaoLogin <span class="token keyword">from</span> <span class="token string">'@actbase/react-native-kakao-login'</span><span class="token punctuation">;</span>
+
+<span class="token operator">...</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">login</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  KakaoLogin<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">getProfile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Login Finished:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token string">'E_CANCELLED_OPERATION'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Login Cancelled:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>err<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Login Failed:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>err<span class="token punctuation">.</span>code<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>err<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">getProfile</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  KakaoLogin<span class="token punctuation">.</span><span class="token function">getProfile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Login Finished:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// 이후 result.id를 활용해서 로그인 로직을 구현해주세용</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Get Profile Failed:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>err<span class="token punctuation">.</span>code<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>err<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<br>
+<h2 id="버그-수정-타입스크립트" style="position:relative;"><a href="#%EB%B2%84%EA%B7%B8-%EC%88%98%EC%A0%95-%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" aria-label="버그 수정 타입스크립트 permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>버그 수정 (타입스크립트)</h2>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx">  <span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ARNKakaoLogin</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">getAccessToken</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token keyword">null</span> <span class="token operator">|</span> AccessTokenType<span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">login</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token keyword">null</span> <span class="token operator">|</span> AccessTokenType<span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">loginWithNewScopes</span><span class="token operator">:</span> <span class="token punctuation">(</span>scopes<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token keyword">null</span> <span class="token operator">|</span> AccessTokenType<span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">getProfile</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>ProfileType<span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">logout</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token string">'SUCCESS'</span><span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">unlink</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token string">'SUCCESS'</span><span class="token operator">></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">export</span> <span class="token keyword">default</span> ARNKakaoLogin<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><strong>error TS2693: ‘KakaoLogin’ only refers to a type, but is being used as a value here.</strong></p>
+<p>모듈의 타입 선언 파일(index.d.ts)에서 default export를 interface로 하고 있어 타입 에러가 발생한다.</p>
+<p>깃헙 레포지토리에 수정 PR을 날려볼 수도 있겠으나, 최근 업데이트가 2020년 11월이기 때문에 언제 반영될지 기약이 없다.</p>
+<p>따라서 임시로 처리해줘야한다! 직접 타입 선언 파일을 작성해서 덮어 써주자.</p>
+<ol>
+<li><code class="language-text">/__types__/actbase__react-native-kakao-login/index.d.ts</code> 파일을 생성한 뒤, <code class="language-text">/node_modules/@actbase/react-native-kakao-login/index.d.ts</code> 파일의 내용을 복사해넣는다.</li>
+<li>생성한 파일의 마지막 부분을 다음과 같이 바꾼뒤 저장한다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="tsx"><pre class="language-tsx"><code class="language-tsx">  <span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">ARNKakaoLogin</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">getAccessToken</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token keyword">null</span> <span class="token operator">|</span> AccessTokenType<span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">login</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token keyword">null</span> <span class="token operator">|</span> AccessTokenType<span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">loginWithNewScopes</span><span class="token operator">:</span> <span class="token punctuation">(</span>scopes<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token keyword">null</span> <span class="token operator">|</span> AccessTokenType<span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">getProfile</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>ProfileType<span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">logout</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token string">'SUCCESS'</span><span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token function-variable function">unlink</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token string">'SUCCESS'</span><span class="token operator">></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> KakaoLogin<span class="token operator">:</span> ARNKakaoLogin<span class="token punctuation">;</span>
+
+  <span class="token keyword">export</span> <span class="token keyword">default</span> KakaoLogin<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ol start="3">
+<li><code class="language-text">/tsconfig.json</code>에 다음 내용을 추가한다.</li>
+</ol>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"paths"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"@actbase/react-native-kakao-login"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"__types__/actbase__react-native-kakao-login"</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"typeRoots"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./__types__"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">"exclude"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"__types__"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="q-왜-타입-선언을-덮어쓰는-방식으로-해결했나요" style="position:relative;"><a href="#q-%EC%99%9C-%ED%83%80%EC%9E%85-%EC%84%A0%EC%96%B8%EC%9D%84-%EB%8D%AE%EC%96%B4%EC%93%B0%EB%8A%94-%EB%B0%A9%EC%8B%9D%EC%9C%BC%EB%A1%9C-%ED%95%B4%EA%B2%B0%ED%96%88%EB%82%98%EC%9A%94" aria-label="q 왜 타입 선언을 덮어쓰는 방식으로 해결했나요 permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Q) 왜 타입 선언을 덮어쓰는 방식으로 해결했나요??</h3>
+<p>이 문제를 해결하는 방법은 내가 알기로 4가지가 있다.</p>
+<ol>
+<li>타입 선언을 덮어쓴다.</li>
+<li>해당 패키지 레포에 PR을 날리고, 반영되길 기다린다.</li>
+<li>패치를 추가한다.</li>
+<li>패키지 코드를 다운 받아 버그를 고치고 내 이름으로 배포해 사용한다.</li>
+</ol>
+<p>일단 2번은 즉시 적용할 수 없으므로 제외다.</p>
+<p>3번도 꽤나 괜찮은 방법이다. 실제로 많은 개발자들이 이 방식을 사용해 문제가 있는 라이브러리에 대해 능동적으로 대처하고 있다. <a href="https://medium.com/naver-place-dev/patch-package%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-npm-%ED%8C%A8%ED%82%A4%EC%A7%80-%ED%8C%A8%EC%B9%98-patch-%EC%82%AC%EB%A1%80-feat-react-native-ee1fc399b7c2">방법 링크</a> 하지만 내가 선택하지 않은 2가지 이유가 있다.</p>
+<p>1. 패키지 설치 과정에 patch-package를 끼워넣고 싶지 않다. 괜히 프로젝트가 무거워지는 느낌이다.<br>
+2. 귀찮다. 모듈내 코어 로직에 결함이 있는 것도 아니고, 타입 선언 한두줄 잘못된건데 배보다 배꼽이 큰 것 같다.<br></p>
+<p>4번은 위의 4가지 중 최악의 방법이다. 해당 패키지에 버그가 있어 업데이트해야할 경우 내 이름으로 배포된 패키지의 코드를 귀찮게 수정해야하기 때문이다. 버그 수정이 아닌 기능 보강 등 정말 필요할 때만 선택하도록 하자.</p>
+<br>
+<p>위와 같은 이유에서 빠르고 쉬운 1번 방법으로 이번 문제를 해결해봤습니다.</p>
+<p>물론 이번 문제는 타입 선언 파일에만 작은 문제가 있었어서 야매로 해결할 수 있었던 것이고, 코드 자체에 문제가 있는 경우 2번(PR) 또는 3번(패치) 방법을 사용해야 합니다!</p></section><hr/></article><a class="FurtherPostsSection__Wrapper-sc-1evav78-0 llzZwc" href="/posts/?tag=react-native"><p class="FurtherPostsSection__Title-sc-1evav78-1 dpiVHi"><strong class="FurtherPostsSection__Strong-sc-1evav78-2 jbaEVm">REACT-NATIVE</strong> 글 <!-- -->8<!-- -->개 더보기<svg style="width:20px;height:20px;margin-left:8px" fill="#5D5D5D" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="5.09 20.02 4.05 18.95 13.21 10.01 4.05 1.07 5.09 0 15.36 10.01 5.09 20.02"></polygon></svg></p></a><a class="blog-post__ListLink-sc-a8k2ed-5 hyepYz" href="/posts">모든 글 보기<svg style="width:20px;height:20px;margin-left:8px" fill="#5D5D5D" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="5.09 20.02 4.05 18.95 13.21 10.01 4.05 1.07 5.09 0 15.36 10.01 5.09 20.02"></polygon></svg></a><div class="blog-post__ContextPostsWrapper-sc-a8k2ed-6 hsoBAg"><a style="margin:0 auto 16px 0;align-items:flex-start" class="context__Wrapper-sc-19j0jip-0 hlCTKM" href="/guide/012-vscode-extensions/"><p class="context__Type-sc-19j0jip-2 hCNGVf">이전 글</p><img src="/static/beaba009c542a9f6fe1d2034a7ed568b/dd255/vscode.png" style="width:100%;height:180px;object-fit:cover;background-color:#fff"/><div style="align-items:flex-start" class="context__TitleWrapper-sc-19j0jip-1 imWYZm"><p style="text-align:left" class="context__Title-sc-19j0jip-3 hfyiNI">유용한 vscode extension 10가지</p></div></a><a style="margin:0 0 16px auto;align-items:flex-end" class="context__Wrapper-sc-19j0jip-0 hlCTKM" href="/guide/014-how-to-write-good-code/"><p class="context__Type-sc-19j0jip-2 hCNGVf">다음 글</p><img src="/static/54eca9fa5c46fba7e61d2cd42d3e72f6/a1ca2/clean-code.png" style="width:100%;height:180px;object-fit:cover;background-color:#fff"/><div style="align-items:flex-end" class="context__TitleWrapper-sc-19j0jip-1 imWYZm"><p style="text-align:right" class="context__Title-sc-19j0jip-3 hfyiNI">좋은 코드 작성하기 (feat. 가독성, 생산성)</p></div></a></div><div class="blog-post__DisqusWrapper-sc-a8k2ed-7 imQGSm"><div id="disqus_thread"></div></div></main><footer class="GFooter__StyledFooter-sc-ze3oj-0 ipEKkn"><div class="GFooter__MiddleWrapper-sc-ze3oj-1 bxVPRB"><div class="GFooter__Row-sc-ze3oj-2 icGrvh"><img style="width:32px;box-sizing:border-box;height:32px;margin-right:8px" src="/images/emoji.png" alt="profile-image"/><p class="GFooter__StyledP-sc-ze3oj-3 cXEecS">Choi su min</p></div><p class="GFooter__StyledP-sc-ze3oj-3 GFooter__Description-sc-ze3oj-4 cXEecS dVNPHB">Sogang Univ.</p><p class="GFooter__StyledP-sc-ze3oj-3 GFooter__Description-sc-ze3oj-4 cXEecS dVNPHB">AWESOME.DEV Lead</p><p class="GFooter__StyledP-sc-ze3oj-3 GFooter__Description-sc-ze3oj-4 cXEecS dVNPHB">Anyang, Gyeong-gi, Republic of Korea</p><div class="GFooter__Row-sc-ze3oj-2 icGrvh"><a href="https://github.com/greatSumini"><img style="width:20px;box-sizing:border-box;height:20px" class="GFooter__IconImg-sc-ze3oj-5 foObBQ" src="/images/icon/github-light.png" alt="github-icon"/></a><a href="mailto:greatSumini@gmail.com"><img style="width:20px;box-sizing:border-box;height:20px" class="GFooter__IconImg-sc-ze3oj-5 foObBQ" src="/images/icon/email.svg" alt="mail-icon"/></a><a href="https://sumini.dev/rss.xml"><img style="width:20px;box-sizing:border-box;height:20px" class="GFooter__IconImg-sc-ze3oj-5 foObBQ" src="/images/icon/rss.svg" alt="rss-icon"/></a></div></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-143566417-2', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/guide/013-react-native-kakao-login/";window.___webpackCompilationHash="19266975fadb2ad6df91";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-67664a8ccc6c9f02b880.js"],"app":["/app-8fc8729a1721a9be6c21.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-926ae54acfa284f73ff8.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-112c01aae9a3305f335b.js"],"component---src-pages-posts-tsx":["/component---src-pages-posts-tsx-74d5914fe37da26923a0.js"],"component---src-pages-projects-tsx":["/component---src-pages-projects-tsx-0f101a5bb34be70ea1c9.js"],"component---src-templates-blog-post-tsx":["/component---src-templates-blog-post-tsx-f8e03d04f38152bda786.js"],"component---src-templates-blog-project-tsx":["/component---src-templates-blog-project-tsx-278c8994980578217386.js"]};/*]]>*/</script><script src="/polyfill-67664a8ccc6c9f02b880.js" nomodule=""></script><script src="/component---src-templates-blog-post-tsx-f8e03d04f38152bda786.js" async=""></script><script src="/1b0ffd54fca0032bd0c8179d24b48c11d9984179-4ee1b5532a1c220f56fa.js" async=""></script><script src="/f916f3434184bed2ade114b93b1fa15eb506af15-28a458598fcda47f38ae.js" async=""></script><script src="/commons-191af479aa496cf3716f.js" async=""></script><script src="/app-8fc8729a1721a9be6c21.js" async=""></script><script src="/framework-b9923b3cceb493977198.js" async=""></script><script src="/webpack-runtime-1678ed22e28018b2c351.js" async=""></script></body></html>
