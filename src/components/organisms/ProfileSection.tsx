@@ -17,7 +17,7 @@ const CHIPS: ChipLinkProps[] = [
     label: 'maplestory',
     src: '/images/icon/maplestory.png',
     backgroundColor: '#7B5D0F',
-    href: 'https://maple.gg/u/%EC%9D%BC%EB%B0%98%EB%AC%BC%EB%A6%AC%ED%95%99ii',
+    href: 'https://maple.gg/u/%EB%82%B4%EC%9D%B4%EB%A6%84%EC%B5%9C%EC%88%98%EB%AF%BC',
   },
 ];
 
@@ -28,7 +28,9 @@ export default function ProfileSection() {
         <DescriptionWrapper>
           <Name>sumin choi,</Name>
           <Role>full stack developer</Role>
-          <Company>in <a href="https://awesome.dev">AWESOME.DEV</a></Company>
+          <Company>
+            in <a href="https://awesome.dev">AWESOME.DEV</a>
+          </Company>
         </DescriptionWrapper>
         <ProfileImage src="/images/profile.png" />
       </Wrapper>
