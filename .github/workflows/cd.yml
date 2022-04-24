@@ -60,9 +60,8 @@ jobs:
           echo sumini.dev >> CNAME
           echo "${{secrets.ENV_FILE}}" >> env.txt
 
-      - name: gh-page deploy
-        uses: maxheld83/ghpages@v0.3.0
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-          GH_PAT: ${{ secrets.GH_PAT }}
-          BUILD_DIR: 'public/'
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        with:
+          branch: master # The branch the action should deploy to.
+          folder: public # The folder the action should deploy.
