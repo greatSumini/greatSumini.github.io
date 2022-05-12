@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-pages-404-tsx",
-    "path": "/404/",
-    "result": {"data":{"site":{"siteMetadata":{"title":"최수민 개발 블로그"}}},"pageContext":{}},
-    "staticQueryHashes": ["3000541721"]}
+{"componentChunkName":"component---src-pages-404-tsx","path":"/404/","result":{"data":{"site":{"siteMetadata":{"title":"최수민 개발 블로그"}}},"pageContext":{}},"staticQueryHashes":["3000541721"]}
