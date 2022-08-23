@@ -49,7 +49,7 @@
     "gatsby-transformer-remark": "5.21.0",
     "gatsby-transformer-sharp": "4.21.0",
     "moment": "2.29.4",
-    "prismjs": "1.28.0",
+    "prismjs": "1.29.0",
     "react": "18.2.0",
     "react-adsense": "0.1.0",
     "react-dom": "18.2.0",
