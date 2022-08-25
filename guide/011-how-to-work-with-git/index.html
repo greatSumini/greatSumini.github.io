@@ -172,7 +172,7 @@ $ <span class="token function">git</span> clone <span class="token punctuation">
 $ <span class="token function">git</span> reset HEAD *
 
 <span class="token comment"># 커밋</span>
-<span class="token function">git</span> commit -m <span class="token string">"message"</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">"message"</span>
 
 <span class="token comment"># 원격 저장소로 커밋 업로드</span>
 <span class="token function">git</span> push origin <span class="token punctuation">(</span>branch-name<span class="token punctuation">)</span>
@@ -182,23 +182,23 @@ $ <span class="token function">git</span> reset HEAD *
 <h3 id="3-커밋-상세" style="position:relative;"><a href="#3-%EC%BB%A4%EB%B0%8B-%EC%83%81%EC%84%B8" aria-label="3 커밋 상세 permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. 커밋 (상세)</h3>
 <div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># 커밋 취소</span>
 $ <span class="token function">git</span> reset HEAD^ // 마지막 커밋 삭제
-$ <span class="token function">git</span> reset --soft HEAD^ // 마지막 커밋을 staged 상태로 변경
-$ <span class="token function">git</span> reset --hard HEAD // 마지막 커밋 상태로 되돌림
+$ <span class="token function">git</span> reset <span class="token parameter variable">--soft</span> HEAD^ // 마지막 커밋을 staged 상태로 변경
+$ <span class="token function">git</span> reset <span class="token parameter variable">--hard</span> HEAD // 마지막 커밋 상태로 되돌림
 
 <span class="token comment"># 마지막 커밋 내용 변경 + 메세지 수정</span>
-$ <span class="token function">git</span> commit --amend
+$ <span class="token function">git</span> commit <span class="token parameter variable">--amend</span>
 
 <span class="token comment"># 커밋 로그</span>
 $ <span class="token function">git</span> log // 모든 커밋로그 확인
-$ <span class="token function">git</span> log -3 // 최근 <span class="token number">3</span>개 커밋로그 확인
-$ <span class="token function">git</span> log --oneline // 각 커밋을 한 줄로 표시
+$ <span class="token function">git</span> log <span class="token parameter variable">-3</span> // 최근 <span class="token number">3</span>개 커밋로그 확인
+$ <span class="token function">git</span> log <span class="token parameter variable">--oneline</span> // 각 커밋을 한 줄로 표시
 $ <span class="token function">git</span> reflog // reset 혹은 rebase로 없어진 과거의 커밋 이력 확인
 
 <span class="token comment"># 커밋 로그 (상세한 변경점 포함)</span>
 $ <span class="token function">git</span> show
 
 <span class="token comment"># 커밋 합치기</span>
-$ <span class="token function">git</span> rebase -i HEAD~4 // 최신 <span class="token number">4</span>개의 커밋을 하나로 합치기</code></pre></div>
+$ <span class="token function">git</span> rebase <span class="token parameter variable">-i</span> HEAD~4 // 최신 <span class="token number">4</span>개의 커밋을 하나로 합치기</code></pre></div>
 <h3 id="4-stash" style="position:relative;"><a href="#4-stash" aria-label="4 stash permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. stash</h3>
 <div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># stage 상태인 파일들을 임시 저장</span>
 $ <span class="token function">git</span> stash
@@ -218,28 +218,28 @@ $ <span class="token function">git</span> checkout <span class="token punctuatio
 
 <span class="token comment"># 브랜치 목록</span>
 $ <span class="token function">git</span> branch // 로컬
-$ <span class="token function">git</span> branch -r // 리모트
-$ <span class="token function">git</span> branch -a // 로컬 + 리모트
+$ <span class="token function">git</span> branch <span class="token parameter variable">-r</span> // 리모트
+$ <span class="token function">git</span> branch <span class="token parameter variable">-a</span> // 로컬 + 리모트
 
 <span class="token comment"># 브랜치 생성</span>
-$ <span class="token function">git</span> checkout -b <span class="token punctuation">(</span>branch-name<span class="token punctuation">)</span>
+$ <span class="token function">git</span> checkout <span class="token parameter variable">-b</span> <span class="token punctuation">(</span>branch-name<span class="token punctuation">)</span>
 
 <span class="token comment"># 리모트 브랜치 가져오기</span>
 $ <span class="token function">git</span> remote update // remote branch ref를 업데이트한다. <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
-$ <span class="token function">git</span> checkout -t origin/<span class="token punctuation">(</span>branch-name<span class="token punctuation">)</span>
+$ <span class="token function">git</span> checkout <span class="token parameter variable">-t</span> origin/<span class="token punctuation">(</span>branch-name<span class="token punctuation">)</span>
 
 <span class="token comment"># 브랜치 삭제</span>
-$ <span class="token function">git</span> branch -D <span class="token punctuation">(</span>branch-name<span class="token punctuation">)</span>
+$ <span class="token function">git</span> branch <span class="token parameter variable">-D</span> <span class="token punctuation">(</span>branch-name<span class="token punctuation">)</span>
 
 <span class="token comment"># 브랜치 이름 변경</span>
-$ <span class="token function">git</span> branch -m <span class="token punctuation">(</span>branch-name<span class="token punctuation">)</span></code></pre></div>
+$ <span class="token function">git</span> branch <span class="token parameter variable">-m</span> <span class="token punctuation">(</span>branch-name<span class="token punctuation">)</span></code></pre></div>
 <h2 id="알아두면-유용한-꿀팁" style="position:relative;"><a href="#%EC%95%8C%EC%95%84%EB%91%90%EB%A9%B4-%EC%9C%A0%EC%9A%A9%ED%95%9C-%EA%BF%80%ED%8C%81" aria-label="알아두면 유용한 꿀팁 permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>알아두면 유용한 꿀팁</h2>
 <ol>
 <li><del>git commit —amend</del>를 사용해 커밋 메세지뿐만 아니라 내용을 수정, 추가할 수도 있습니다.</li>
 </ol>
 <div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token comment"># 마지막 커밋 내용에 a.txt를 추가하고 메세지는 변경하지 않음.</span>
 $ <span class="token function">git</span> <span class="token function">add</span> ./a.txt
-$ <span class="token function">git</span> commit --amend --no-edit // —-no-edit 를 적어주면 커밋 메세지 수정을 안하게 됩니다.</code></pre></div>
+$ <span class="token function">git</span> commit <span class="token parameter variable">--amend</span> --no-edit // —-no-edit 를 적어주면 커밋 메세지 수정을 안하게 됩니다.</code></pre></div>
 <br>
 <ol start="2">
 <li><strong>리모트에 반영된 커밋들의 히스토리를 변경하지 마세요.</strong><br>

@@ -195,8 +195,8 @@ $ psql
 <span class="token assign-left variable">postgres_test</span><span class="token operator">=</span><span class="token comment"># grant all privileges on database &lt;local_db_name> to &lt;local_user_name>;</span>
 
 <span class="token comment"># production db dump</span>
-$ pg_dump -U <span class="token operator">&lt;</span>user_name<span class="token operator">></span> -h <span class="token operator">&lt;</span>host<span class="token operator">></span> -p <span class="token operator">&lt;</span>port_number<span class="token operator">></span> -d <span class="token operator">&lt;</span>db_name<span class="token operator">></span> <span class="token operator">></span> production.sql
-$ psql <span class="token operator">&lt;</span>local_db_name<span class="token operator">></span> -U <span class="token operator">&lt;</span>local_user_name<span class="token operator">></span> <span class="token operator">&lt;</span> production.sql</code></pre></div>
+$ pg_dump <span class="token parameter variable">-U</span> <span class="token operator">&lt;</span>user_name<span class="token operator">></span> <span class="token parameter variable">-h</span> <span class="token operator">&lt;</span>host<span class="token operator">></span> <span class="token parameter variable">-p</span> <span class="token operator">&lt;</span>port_number<span class="token operator">></span> <span class="token parameter variable">-d</span> <span class="token operator">&lt;</span>db_name<span class="token operator">></span> <span class="token operator">></span> production.sql
+$ psql <span class="token operator">&lt;</span>local_db_name<span class="token operator">></span> <span class="token parameter variable">-U</span> <span class="token operator">&lt;</span>local_user_name<span class="token operator">></span> <span class="token operator">&lt;</span> production.sql</code></pre></div>
 <ol>
 <li>local db를 drop후 재생성한다.</li>
 <li>서비스중인 production db를 dump해서 가져온다.</li>
