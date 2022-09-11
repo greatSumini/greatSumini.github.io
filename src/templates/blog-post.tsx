@@ -41,6 +41,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <SEO
         title={title}
         description={post.frontmatter.description || post.excerpt}
+        keywords={tags}
         meta={[
           { name: 'image', content: image },
           { name: 'og:image', content: image },

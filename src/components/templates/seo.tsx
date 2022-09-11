@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { ReactNode, ReactNodeArray } from 'react';
+import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -15,7 +15,8 @@ export type SEOProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   meta?: any[];
   title: string;
-  children?: ReactNode | ReactNodeArray;
+  children?: ReactNode;
+  keywords?: string[];
 };
 
 const SEO = ({
@@ -24,6 +25,7 @@ const SEO = ({
   meta = [],
   title,
   children,
+  keywords,
 }: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
@@ -51,6 +53,10 @@ const SEO = ({
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: 'keyword',
+          content: keywords ? keywords?.join(', ') : '',
         },
         {
           property: `og:title`,
