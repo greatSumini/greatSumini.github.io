@@ -71,7 +71,7 @@ pod install
 
 - types.ts
 
-  ```ts
+  ```tsx
   type Primitive = string | number | bigint | boolean | undefined | symbol;
 
   // To infinity and beyond >:D
