@@ -61,6 +61,10 @@ keywords: ['넥스터즈']
 
 - 모토: 스마트폰의 스크린타임처럼, 사용자에게 웹사용에 대한 유용한 데이터들을 제공
 
+- [웹스토어 링크](https://chrome.google.com/webstore/detail/web-surfer/mkaefnhphgcdcfijioijiobgbadmabef?hl=ko)
+
+- [프론트엔드 GitHub 링크](https://github.com/Nexters/websurfer-extension)
+
 프론트엔드는 React + Redux를, 백엔드는 Nestjs + TypeORM을 사용해 만들었습니다.
 
 현재는 방문기록리스트/대시보드 기능만 있는데, 추후에 북마크 같은 기능도 추가할 생각이에요!
