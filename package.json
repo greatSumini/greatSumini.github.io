@@ -23,7 +23,7 @@
     "babel-plugin-styled-components": "2.0.7",
     "disqus-react": "1.1.5",
     "dotenv": "16.0.2",
-    "gatsby": "4.24.6",
+    "gatsby": "4.24.8",
     "gatsby-image": "3.11.0",
     "gatsby-plugin-canonical-urls": "4.24.0",
     "gatsby-plugin-feed": "4.24.0",
