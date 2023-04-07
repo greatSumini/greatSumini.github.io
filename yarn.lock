@@ -11413,10 +11413,10 @@ typeface-montserrat@1.1.13:
   resolved "https://registry.yarnpkg.com/typeface-montserrat/-/typeface-montserrat-1.1.13.tgz#2a16729c174dd1a8c3fec05a851b7725412606cc"
   integrity sha512-Pklkyj0e+K+6I/t0M6JBDBphpfJkF1k+3qd8qDnp9aVtCC7oGBQWTAcL6+5eArfGe7h73uPwyal73hEkf9YCUA==
 
-typescript@5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.3.tgz#fe976f0c826a88d0a382007681cbb2da44afdedf"
-  integrity sha512-xv8mOEDnigb/tN9PSMTwSEqAnUvkoXMQlicOb0IUVDBSQCgBSaAAROUZYy2IcUy5qU6XajK5jjjO7TMWqBTKZA==
+typescript@5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.0.4.tgz#b217fd20119bd61a94d4011274e0ab369058da3b"
+  integrity sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==
 
 typography-breakpoint-constants@^0.16.19:
   version "0.16.19"
