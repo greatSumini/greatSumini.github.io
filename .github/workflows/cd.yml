@@ -57,7 +57,7 @@ jobs:
       - name: add CNAME
         run: |
           cd public
-          echo sumini.dev >> CNAME
+          echo dev.choisumin.com >> CNAME
           echo "${{secrets.ENV_FILE}}" >> env.txt
 
       - name: Deploy 🚀
