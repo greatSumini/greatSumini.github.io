@@ -55,14 +55,14 @@
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",
     "react-typography": "0.16.20",
-    "styled-components": "5.3.10",
+    "styled-components": "5.3.11",
     "typeface-merriweather": "1.1.13",
     "typeface-montserrat": "1.1.13",
     "typography": "0.16.21",
     "typography-theme-wordpress-2016": "0.16.19"
   },
   "devDependencies": {
-    "@types/styled-components": "5.1.26",
+    "@types/styled-components": "5.1.36",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "eslint": "8.46.0",
