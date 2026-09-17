@@ -24,7 +24,6 @@
     "disqus-react": "1.1.5",
     "dotenv": "16.0.3",
     "gatsby": "4.25.7",
-    "gatsby-image": "3.11.0",
     "gatsby-plugin-canonical-urls": "4.25.0",
     "gatsby-plugin-feed": "4.25.0",
     "gatsby-plugin-google-analytics": "4.25.0",
